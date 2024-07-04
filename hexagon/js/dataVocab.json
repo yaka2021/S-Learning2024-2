@@ -1,0 +1,24 @@
+{
+"title":["start", "password","@2021 S-Learning Sano"],
+"menu":["password","reset"],
+"param":["lv.","hp","atk","def","spd"],
+"battle":["attack","guard","escape"],
+"item":["heal herb"],
+
+
+"message":[
+	"%1 emerged!",
+	"%1 took %2 damage!",
+	"%1 fainted!",
+	"%1 attacked!",
+	"%1 guards!",
+	"password to load:",
+	"please input the password",
+	"Will you really return\nto the title screen?",
+	"%1 tried to flee!",
+	"but it failed!",
+	"turn",
+	"game is over",
+	"$1 level up!"
+]
+}

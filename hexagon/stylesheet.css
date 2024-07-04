@@ -1,0 +1,82 @@
+body{
+    background-color: rgb(12, 39, 12);
+}
+
+main{
+    max-width:700px;
+    margin: 0 auto;
+    padding:20px 10px 20px;
+    background-color: rgb(52, 47, 53);
+}
+
+#screen{
+    background-color: black;
+    width:100%;
+    image-rendering: pixelated;
+    text-align: center;
+}
+
+.controller{
+    width:100%;
+}
+
+.controller td{
+    user-drag: none;
+	-webkit-user-drag: none;
+	-moz-user-select: none;
+}
+
+.comL, .comR{
+    background-color: gray;
+    border: 2px solid black;
+    color: white;
+    text-align:center;
+    font-size: 20px;
+    width: 64px;
+    height: 64px;
+    cursor: pointer;
+}
+
+.comL:active, .comR:active{
+    background-color: blue;
+}
+
+.comR{ border-radius: 48px; }
+
+.comUp{ border-radius: 0 0 32px 32px }
+.comDown{ border-radius: 32px 32px 0 0 }
+.comLeft{ border-radius: 0 32px 32px 0 }
+.comRight{ border-radius: 32px 0 0 32px }
+
+h1{
+    color: white;
+    margin: 4px 0;
+    border-bottom: white 2px solid;
+}
+h2{
+    margin: 4px 0 0;
+    color: white;
+    white-space: nowrap;
+}
+a{
+    color: red !important
+}
+
+.leftTable{
+    width: 70%;
+}
+.rightTable{
+    width: 100%;
+    vertical-align: baseline;
+}
+.rightTable table{
+    color: white;
+    width: 100%;
+}
+.rightTable th{
+    width: 100%;
+}
+.rightTable td{
+    width: 100%;
+    white-space: nowrap;
+}

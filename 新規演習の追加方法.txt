@@ -1,0 +1,83 @@
+制作者:	佐野 柊介(ISC 情報セキュリティ科 2023年卒)
+連絡先:	12500577s@gmail.com
+
+■データベース編
+1. lolipopのphpMyAdminにログインする（https://mysqladmin.lolipop.jp/pma/）
+ユーザー名:	LAA1175090
+サーバー名:	mysql203.phy.lolipop.lan
+
+2. 画面左のLAA1175090-learnリストを展開する
+
+3. STAGES_INFOテーブルにフィールドを追加する
+[ID]		:オートインクリメントされるため登録不要
+NAME		:新規演習のフォルダ名
+TITLE		:ページ表示用のタイトル（一行）
+DESCRIPT	:ページ表示用の説明文
+RATE		:難易度を表す0~5までの整数
+CLEAR_FLAG1	:プレイヤーがクリア済みか判定を行うFLAGその１
+CLEAR_FLAG2	:プレイヤーがクリア済みか判定を行うFLAGその２（不要なら０）
+
+4. STAGES＿SCOREテーブルに新規FLAGのフィールドを追加する
+[ID]		:オートインクリメントされるため登録不要
+SCORE		:FLAG獲得時に加算されるポイント
+NAME		:FLAG={○○}として表示される名前
+
+5. PLAYER_INFOテーブルに新規FLAGのカラムを追加する
+名前		:STAGE + 追加したFLAGのID
+データ型		:int(1)
+属性		:UNSIGNED
+NULL		:いいえ
+デフォルト値	:ユーザー定義 -> 0
+
+■HTML編
+新規演習のフォルダ内に下記のものを最低限用意する
+index.html	ページのHTMLファイル
+main.js		ページで処理を行うJS
+thumb.png	サムネイルとして使われる画像
+
+●index.htmlの注意点
+・<HEAD>内に下記のタグを必ず入れる必要がある
+　<script src="./../_src/practice.js" type="text/javascript"></script>
+　<link  href="./../_css/practiceIframe.css" rel="stylesheet">
+・main.jsは_src/practice.jsによって隠蔽されて実行されるため、index.html内から呼び出してはならない。
+それ以外のスタイルシートや見られてもいいJSファイルなどは設定しても問題はない。
+random(目押しで2バイト)やnewSlot(スロット問題)などのファイル構成を参考にすると分かりやすいかもしれない
+
+
+●thumb.pngの注意点
+・横幅は250px固定で縦はだいたい210px前後にする
+・拡張子などを変更したい場合は_background/stageManager.phpのStageManager::drawJsonDataを参照
+
+
+●main.jsの注意点
+・ページ読み込み時の処理にはwindow.onload = function(){}を使う必要がある。
+（DOMContentLoadedやwindow.addEventListener(“load”)、jqueryの$(document).ready(function() {});などはコード隠ぺいの都合などもあり二回実行されたりそもそも実行されないなどの懸念点がある）
+・変数のスコープを閉じるためコードは即時関数内に記述するのが望ましい。
+即時関数とは：https://qiita.com/katsukii/items/cfe9fd968ba0db603b1e
+・コード隠ぺいの都合上エラーやconsole.logなどは可能な限り消す必要がある
+・FLAG獲得の処理は【PointManager.requestClearFlag(フラッグID);】によって行われているが、このコードはできるだけプレイヤーに見えないようにしておく必要がある。
+
+PointManagerは_src/pre_pointManager.js, コード隠ぺいは_src/pre_practice.jsを参照
+なおこれらのファイルは呼び出されず、実際に使われるのは同じディレクトリのpre_のついてない難読化されたファイル群になる。
+変更時にはこれらのファイルをJS Obfuscator Toolにかけ、難読化してpre_のついてないほうのフォルダにコピペすることが望ましい。
+
+★ゲームっぽい演習の作り方
+(function(){
+  let timer;
+  window.onload = function(){
+    初期設定;
+    update();
+  }
+
+  function update(){
+    毎更新ごとに行う処理();
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(update.bind(this), 30);
+  }
+})();
+こんな感じにするとなんかそれっぽくなる。
+後は力量。
+
+
+MySQLの注意:
+lolipop側とxampp/myadmin側でMySQLのバージョンが異なると、ローカルで動いたSQLがlolipop側で動かない可能性がある。

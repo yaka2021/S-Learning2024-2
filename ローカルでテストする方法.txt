@@ -1,0 +1,52 @@
+制作者:	佐野 柊介(ISC 情報セキュリティ科 2023年卒)
+連絡先:	12500577s@gmail.com
+
+■インストール編
+1. xampp(https://www.apachefriends.org/index.html)をダウンロードする
+
+2. xamppインストーラにSelect Componentsと出たときに最低限下記を選択する
+Server
++Apache
++MySQL
+
+Program Languages
++PHP
+
+Program Languages
++phpMyAdmin
++Webalizer
+
+3. xampp Control Panelを起動しApacheとMySQLをstartする
+成功するとModuleが緑色になって接続できるようになるが、ポート番号がほかのアプリと被って失敗する場合は下記を参照しながらなんとかする
+https://qiita.com/neneta0921/items/3c2f9ac8ea9b5bcfc6e6
+
+4. それらが成功したらLolipopのFTPからファイルをダウンロードしxampp/htdocs内に適宜移動する
+LolipopのWebFTPを使うよりかは、FFFTPなどのアプリケーションを使って接続したほうが利便性が高い
+FFFTPを使う場合: https://okugoe.com/ffftp-lolipop/
+
+5. apacheを立ち上げ、ブラウザにlocalhost:ポート番号/htdocs内に入れたフォルダ/2022/のように入力し一応ページっぽいものが表示できていることを確認する
+
+
+
+■データベース編
+1. lolipopのphpMyAdminにログインする（https://mysqladmin.lolipop.jp/pma/）
+ユーザー名:	LAA1175090
+サーバー名:	mysql203.phy.lolipop.lan
+
+2. 画面左のLAA1175090-learnを選択し、画面右上のエクスポートタブをクリックしたら、簡易方法を選んでエクスポートを実行する(sqlファイルがダウンロードされる)
+
+3. xampp Control PanelからMySQLのAdminボタンを押す
+
+4. phpMyAdmin画面左上の新規作成を選びs_learningというデータベースを作る
+
+5. 画面左でs_learningを選択後画面上部のインポートタブをクリックし、さっきDLした.sqlファイルを選択しインポートする
+
+6. xamppのphpMyAdminにパスワードが設定されている場合は下記を参考にパスワードをなしにする
+https://www.javadrive.jp/xampp/mysql/index3.html
+
+
+ここまでうまくいけば、apacheとMySQLを立ち上げた状態でlocalhost:ポート番号/htdocs内に入れたフォルダ/2022/にアクセスすることで正常に動作確認を行えるようになっているはず……
+つまづいた点などなどあれば上記の連絡先に投げておいてください。
+
+デモ用スライド（コピーするなどでご活用ください）
+https://docs.google.com/presentation/d/1NQIqNzvQJQf8Vg9_znxaXFuSzBsMQMoMwGJ-qIA7JdI/edit?usp=sharing

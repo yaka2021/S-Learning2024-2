@@ -1,0 +1,22 @@
+Options -Indexes
+
+
+RewriteEngine On
+RewriteBase /2022/
+
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.+)$ $1\.php
+
+<Files ~ "main\.js$">
+  <Limit GET>
+    order deny,allow
+    deny from all
+  </Limit>
+</Files>
+
+<Files ~ "pointManager\.js$">
+  <Limit GET>
+    order deny,allow
+    deny from all
+  </Limit>
+</Files>

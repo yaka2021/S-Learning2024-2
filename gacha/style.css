@@ -1,0 +1,37 @@
+*{
+	margin:0;
+	padding:0;
+	color: white;
+}
+html{ height:100% }
+body{
+	height:100%;
+	background-color: black;
+}
+#headerStone{
+	background-color:#000216;
+	width: 100%;
+	font-size: xxx-large;
+	font-family: serif;
+	padding-left: 10px;
+}
+
+#headerStone img{
+	vertical-align: -8px;
+}
+table{
+	width:100%;
+}
+.whiteFrame{
+	border: 2px white solid;
+	border-radius: 4px;
+	padding:10px
+}
+#fuwaMessagePop{
+	padding:6px;
+	width:calc(100% - 122px);
+	min-height:100px;
+	display: inline-block;
+	vertical-align: bottom;
+	font-size: x-large
+}

@@ -1,0 +1,35 @@
+body{
+    background-color: #f2f3f7;
+    color: #333;
+    font-family: unset !important;
+}
+
+span{
+    color: green;
+    font-weight: bold;
+}
+
+#comments div{
+    background-color: #efefef;
+    border-width: 1px;
+    border-style: none solid solid none;
+    border-color: #ddd;
+    background-color: #efefef;
+    margin-bottom: 8px;
+    padding: 8px;
+}
+
+h1 {
+    color: red;
+    font-size: larger;
+    font-weight: normal;
+}
+
+#upload{
+    width:412px;
+    height:80px
+}
+
+#hints{
+
+}

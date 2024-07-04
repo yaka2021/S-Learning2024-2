@@ -1,0 +1,89 @@
+body{
+	background-image: url(img/5-4.jpg);
+	background-color: black;
+	background-position:center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+#popText{
+	background: #fff;
+	border: 4px solid green;
+	border-radius: 16px;
+	min-height: 48px;
+	padding:20px;
+	font-weight: bold;
+	color:green
+}
+
+.center{
+	text-align: center;
+}
+
+.slotTitle{
+	font-size: large;
+	font-weight: bold;
+	color: white;
+}
+
+#slotBG{
+	border-collapse: collapse;
+	margin:0 auto;
+}
+
+#slotBG td{
+	background-color: red;
+	border:1px solid white;
+}
+
+#slotImg td{
+	background-color: black !important;
+}
+
+#launchSlot{
+	width: 100%;
+	color:brown;
+	font-weight: bold;
+	background-color: yellow;
+	border-color: brown;
+	font-size: large;
+}
+
+#launchSlot:active, #launchSlot:disabled{
+	color:brown;
+	background-color: orange;
+}
+
+.HINT{
+	width: 8em;
+}
+
+.HINT button{
+	font-size: large;
+	width:100%;
+	margin: 2px 0;
+	background-color: white;
+	border: 3px solid green;
+	color: green;
+	border-radius: 4px;
+}
+
+.HINT button:active, .HINT button:disabled{
+	background-color: yellowgreen;
+}
+
+@keyframes popCharAnime{
+	0%{
+		opacity:0;
+		top:8px;
+	}
+	100%{
+		opacity:1;
+		top:0;
+	}
+}
+
+.popChar{
+	position:relative;
+	display: inline;
+	animation: 0.3s popCharAnime linear;
+}
