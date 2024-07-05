@@ -64,8 +64,8 @@ span {
 }
 
 .main-div-div_1-1 {
-  height: 65px;
-  width: 250px;
+  height: 70px;
+  width: 260px;
   margin-right: 200px;
   font-size: 25px;
   text-align: center;
@@ -86,7 +86,12 @@ span {
   text-align: center;
   color: #8bc34a;
   border: 2px solid #8bc34a;
+  text-decoration: none;
   background: #1b5e20;
+}
+
+.Btn_Atag {
+  text-decoration: none;
 }
 
 .main-div_1-4 {
