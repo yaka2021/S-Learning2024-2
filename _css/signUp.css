@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(145, 130, 130);
+  background-image: url(../cyberBack.png);
+  animation: popLoop 5s infinite linear;
+}
+
+@keyframes popLoop {
+  0% {
+    background-position-x: 96px
+  }
+
+  100% {
+    background-position-x: 0
+  }
+}
+
+
+
+.main-div_mainScreen {
+  width: 80%;
+  margin: 100px auto;
+  text-align: center;
+}
+
+.SingUp_main-div {
+  margin: 0 auto 80px auto;
+  height: 50px;
+  width: 300px;
+  font-size: 25px;
+  text-align: center;
+  color: #8bc34a;
+  border: 2px solid #8bc34a;
+  background: #1b5e20;
+  padding: 10px;
+
+}
+
+span {
+  line-height: 50px;
+}
+
+.SingUp_main-div_1-3 {
+  margin-top: 40px;
+}
+
+.SignUp-main-div-label {
+  margin-right: 60px;
+  height: 50px;
+  width: 300px;
+  padding: 10px 50px;
+  font-size: 25px;
+  text-align: center;
+  color: #8bc34a;
+  background: #1b5e20;
+}
+
+span {
+  line-height: 50px;
+}
+
+.main-div-input {
+  height: 50px;
+  width: 500px;
+  font-size: 100%;
+  color: rgb(145, 130, 130);
+  border: gray;
+}
+
+.main-div-div_1-1 {
+  height: 60px;
+  width: 250px;
+  margin-right: 200px;
+  font-size: 25px;
+  text-align: center;
+  color: white;
+  border: 2px solid #8bc34a;
+  border-radius: 10px;
+  background: rgb(133, 207, 253);
+  line-height: 60px;
+  font-weight: bold;
+  -webkit-text-stroke: 1px rgb(145, 130, 130);
+}
+
+.SigUp-main-div-div_Btn {
+  height: 60px;
+  width: 280px;
+  padding: 0 20px;
+  font-size: 25px;
+  text-align: center;
+  color: #8bc34a;
+  border-radius: 10px;
+  background: #1b5e20;
+
+
+  border-bottom: 4px solid #179e43;
+  transition: 0.3s;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.4);
+}
+
+.SigUp-main-div-div_Btn:hover {
+  box-shadow: 0 0 rgba(0, 0, 0, 0.4);
+  border-bottom-width: 2px;
+  transform: translateY(2px);
+}
+
+.main-div_SigUpBtn {
+  margin-top: 90px;
+}
