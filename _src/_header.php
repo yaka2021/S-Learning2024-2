@@ -8,8 +8,11 @@
 		<nav>
 			<ul>
 				<li class="cookie_warning">
-					<?php echo (string) $db->getPlayerName() . "さん"; ?>
-					<a href="./rename.php"><input type="button" value="名前変更"></a>
+					<?php 
+						session_start();
+						echo $_SESSION["username"] .
+					 "さん"; ?>
+					<a href="./f_user_name.php"><input type="button" value="名前変更"></a>
 				</li>
 				<li class="header_timestamp">
 					初めての訪問: <?php echo $db->firstVisitTime; ?>
