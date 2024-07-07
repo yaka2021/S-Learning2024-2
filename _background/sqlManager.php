@@ -91,57 +91,6 @@ class SqlManager{
         return $results;
     }
 
-    public function CreateUser($userName,$password){
-        
-        $dupNameCheck = $this->query("SELECT `NAME` FROM :PLT WHERE `NAME` = \":NAME\";",
-            array(":NAME" => $userName));
-
-        if(empty($dupNameCheck)){
-            $this->query("INSERT INTO :PLT(`NAME`,`PASSWORD`) VALUES(\":NAME\",\":PASSWORD\");",
-            array(":NAME" => $userName,":PASSWORD" => $password));
-
-            $results = $this->query("SELECT `NAME` FROM :PLT WHERE `NAME` = \":NAME\";",
-            array(":NAME" => $userName))[0];
-            return $results;
-        }
-        return false;
-    }
-
-    public function UserLogin($userName,$password){
-        
-        $results = $this->query("SELECT `NAME`,`PASSWORD` FROM :PLT WHERE 
-        `NAME` = \":NAME\" AND `PASSWORD` = \":PASSWORD\";",
-            array(":NAME" => $userName ,":PASSWORD" => $password))[0];
-            
-        if(isset($results["NAME"]) && isset($results["PASSWORD"])){
-            return $results;
-        }
-        return false;
-    }
-
-
-    public function UpdateName($newName){
-        session_start();
-
-        $nowName = $this->query("SELECT `ID` FROM :PLT WHERE `NAME` =  \":NAME\";",
-        array(":NAME" => $_SESSION["username"]))[0];
-
-        $dupNameCheck = $this->query("SELECT `ID` FROM :PLT WHERE `NAME` =  \":NAME\";",
-        array(":NAME" => $newName))[0];
-
-        if(isset($nowName["ID"]) && !isset($dupNameCheck)){
-            $this->query("UPDATE :PLT SET `NAME` = \":NEWNAME\" WHERE
-            `ID` = (SELECT `ID` FROM :PLT WHERE `NAME` =  \":NAME\");",
-                array(":NEWNAME" => $newName,":NAME" => $_SESSION["username"]));
-
-            $results = $this->query("SELECT `NAME` FROM :PLT WHERE `NAME` =  \":NEWNAME\";",
-                array(":NEWNAME" => $newName))[0];
-            
-           return $results;
-        }
-        return false;
-    }
-
     public function query($sql, $param = array(), $type = PDO::FETCH_ASSOC) : array{
         if (isset($this->pdo)){
             $param[':ID'] = $this->player_id;

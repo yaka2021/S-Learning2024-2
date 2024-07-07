@@ -1,14 +1,9 @@
 <?php
-
 $userName = trim($_POST["username"]);
-
-include("./sqlManager.php");
+include("userManager.php");
 
 if(strlen($userName) > 0){
-  $db = SqlManager::getManager();
-  $result = $db->UpdateName($userName); 
-
-  var_dump($result);
+  $result = UserManager::UpdateName($userName); 
 
   if($result != false){
     session_start();

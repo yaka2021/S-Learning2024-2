@@ -9,14 +9,17 @@
 			<ul>
 				<li class="cookie_warning">
 					<?php 
-						session_start();
-						echo $_SESSION["username"] .
+						include("_background/userManager.php");
+						echo UserManager::GetUserName();
 					 "さん"; ?>
 					<a href="./f_user_name.php"><input type="button" value="名前変更"></a>
 				</li>
 				<li class="header_timestamp">
-					初めての訪問: <?php echo $db->firstVisitTime; ?>
+					初めての訪問: <?php  
+					echo UserManager::GetTimestamp();
+					 ?>
 				</li>
+				<li><button><a href="_background/logout.php">ログアウト</a></button></li>
 			</ul>
 		</nav>
 		<div style="clear:left"></div>

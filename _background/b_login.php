@@ -1,17 +1,16 @@
 <?php 
-
 $userName = trim($_POST["username"]);
 $password = trim($_POST["password"]);
 
-include("./sqlManager.php");
+include("userManager.php");
 
 if(isset($userName) && isset($password)){
-  $db = SqlManager::getManager();
-  $result = $db->UserLogin($userName,$password);  
+  $result = UserManager::UserLogin($userName,$password);  
   
   if(isset($result["NAME"]) && isset($result["PASSWORD"])){
     session_start();
     $_SESSION["username"] = $result["NAME"];
+    
     header("Location: ../index.php");
     exit;
   }else{
