@@ -11,12 +11,14 @@
     exit;
   }
 
-  // if(!preg_match('/[a-zA-Z0-9]+/u', $password)){
-  //   header("Location: ../f_create_user.php");
-  //   exit;
-  // }
+  // || strlen($password) < 11
 
-  if(strlen($userName) > 0 && strlen($password) > 0 ){
+  if(!preg_match('/[a-zA-Z0-9]+/u', $password)){
+    header("Location: ../f_create_user.php");
+    exit;
+  }
+
+  if(strlen($userName) > 0 && strlen($password) > 0){
     $result = UserManager::CreateUser($userName,$password);  
     if(isset($result["NAME"])){
       session_start();
