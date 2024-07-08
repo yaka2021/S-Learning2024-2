@@ -9,16 +9,16 @@
 			<ul>
 				<li class="cookie_warning">
 					ユーザー名：
-					<?php include("../_background/userManager.php");
+					<?php include("_background/userManager.php");
 						echo UserManager::GetUserName(); ?>
-					<a href="../_background/b_user_name.php"><input type="button" value="ユーザー名変更"></a>
+					<a href="_background/b_user_name.php"><input type="button" value="ユーザー名変更"></a>
 				</li>
 				<li class="header_timestamp">
 					初回ログイン: <?php echo UserManager::GetTimestamp(); ?>
 				</li>
 			</ul>
-			<a href="../_background/logout.php"><button>ログアウト</button></a>
-			<a href="../obtained_flags.php"><button>手に入れたFLAG</button></a>
+			<a href="_background/logout.php"><button>ログアウト</button></a>
+			<a href="obtained_flags.php"><button>手に入れたFLAG</button></a>
 		</nav>
 	</div>
 </header>
