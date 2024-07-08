@@ -13,7 +13,7 @@
                 <form action="_background/b_user_name.php" method="post">
                   <div class="SingUp_main-div_1-3">
                       <label class="SignUp-main-div-label">　ユーザー名　</label>
-                      <input class="main-div-input" type="text" name="username" />
+                      <input class="main-div-input" type="text" name="username" required/>
                   </div>
                   <div class="BtnArea">
                       <input type="submit" class="SigUp-main-div-div_Btn" value="確認" />
