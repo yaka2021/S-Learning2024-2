@@ -9,14 +9,15 @@
 			<ul>
 				<li class="cookie_warning">
 					ユーザー名：
-					<?php echo (string) $db->getPlayerName(); ?>
+					<?php include("_background/userManager.php");
+						echo UserManager::GetUserName(); ?>
 					<a href="#"><input type="button" value="ユーザー名変更"></a>
 				</li>
 				<li class="header_timestamp">
-					初回ログイン: <?php echo $db->firstVisitTime; ?>
+					初回ログイン: <?php echo UserManager::GetTimestamp(); ?>
 				</li>
 			</ul>
-			<button>ログアウト</button>
+			<a href="_background/logout.php"><button>ログアウト</button></a>
 			<a href="#"><button>手に入れたFLAG</button></a>
 		</nav>
 	</div>

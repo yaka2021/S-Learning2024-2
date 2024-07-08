@@ -90,6 +90,7 @@ class SqlManager{
         );
         return $results;
     }
+
     public function query($sql, $param = array(), $type = PDO::FETCH_ASSOC) : array{
         if (isset($this->pdo)){
             $param[':ID'] = $this->player_id;
@@ -109,11 +110,13 @@ class SqlManager{
         }
         return array();
     }
+
+    
     public function getPlayerScores() : int{
         return $this->query("SELECT `SCORES` FROM :PLT WHERE `ID` = :ID;")[0]["SCORES"];
     }
     public function getPlayerName() : string{
-        return $this->query("SELECT `NAME` FROM :PLT WHERE `ID` = :ID;")[0]["NAME"];
+        return $this->query("SELECT `NAME` FROM :PLT WHERE `NAME` = :ID;")[0]["NAME"];
     }
     public function getRanking() : string{
         $this->query("SET @r = 0");
@@ -124,6 +127,8 @@ class SqlManager{
             ) AS RANKLIST WHERE `RANKS` < 6 OR `ID` = :ID;"
         ));
     }
+
+    
 }
 
 
