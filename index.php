@@ -2,6 +2,13 @@
 <title>トップページ | S-Learning 2022</title>
 <script>
 <?php
+//未ログインであればindex.phpに遷移する
+session_start();
+if(empty($_SESSION['username'])){
+	header("Location: f_login.php");
+	exit;
+}
+
 $flags = $db->query("SELECT `ID`, `NAME`, `SCORE` FROM :STS;");
 $stages = array();
 $length = count($flags);
