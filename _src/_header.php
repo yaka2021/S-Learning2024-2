@@ -17,8 +17,21 @@
 					初回ログイン: <?php echo UserManager::GetTimestamp(); ?>
 				</li>
 			</ul>
-			<a href="_background/b_logout.php"><button>ログアウト</button></a>
+			<a><button id="logout">ログアウト</button></a>
 			<a href="#"><button>手に入れたFLAG</button></a>
 		</nav>
 	</div>
 </header>
+<script>
+			var btn = document.getElementById('logout');
+			
+			btn.addEventListener('click', (event) => {
+					let result = window.confirm('本当にログアウトしますか？');
+					if(result){
+						alert("ログアウトしました。");
+						location.href = "_background/b_logout.php";
+					}else{	
+						event.preventDefault();
+					}
+			})
+	</script>

@@ -11,11 +11,8 @@ class UserManager{
         array(":NAME" => $userName));
 
     if(empty($dupNameCheck)){
-        $db->query("INSERT INTO :PLT(`NAME`,`PASSWORD`) VALUES(\":NAME\",\":PASSWORD\");",
+        $db->query("INSERT INTO :PLT(`NAME`,`PASSWORD`,`TIMESTAMP`) VALUES(\":NAME\",\":PASSWORD\",NOW());",
         array(":NAME" => $userName,":PASSWORD" => $password));
-
-        $db->query("UPDATE :PLT SET `TIMESTAMP` = NOW() WHERE `NAME` = \":NAME\" AND `PASSWORD` = \":PASSWORD\";",
-        array(":NAME" => $userName,":PASSWORD" => $userName));
 
         $results = $db->query("SELECT `NAME` FROM :PLT WHERE `NAME` = \":NAME\";",
         array(":NAME" => $userName))[0];

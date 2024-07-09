@@ -30,6 +30,7 @@
 
     if(isset($result["NAME"])){
       $_SESSION["username"] = $result["NAME"];
+      $_SESSION['userRegist'] = 'success';
       header("Location: ../index.php");
       exit;
     }else{

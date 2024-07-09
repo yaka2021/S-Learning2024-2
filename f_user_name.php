@@ -37,23 +37,23 @@
     exit;
   }
   if(isset($_SESSION['error_meg'])){
-    if($_SESSION['error_meg'] == 'dupUserName'){
-      echo "<script>window.addEventListener('load', function() {
+      if($_SESSION['error_meg'] == 'dupUserName'){
+        echo "<script>window.addEventListener('load', function() {
           alert('そのユーザー名は既に使用されています');});</script>";
-      $_SESSION['error_meg'] = '';
-    }
+        $_SESSION['error_meg'] = '';
+      }
 
-    if($_SESSION['error_meg'] == 'charLengthOver'){
-      echo "<script>window.addEventListener('load', function() {
+      if($_SESSION['error_meg'] == 'charLengthOver'){
+        echo "<script>window.addEventListener('load', function() {
           alert('ユーザ名は1文字以上10文字以下で設定してください');});</script>";
           $_SESSION['error_meg'] = '';
-    }
+      }
 
-  if($_SESSION['error_meg'] == 'illegalChar'){
-      echo "<script>window.addEventListener('load', function() {
-      alert('不正な文字列が含まれています');});</script>";
-      $_SESSION['error_meg'] = '';
-  }
+      if($_SESSION['error_meg'] == 'illegalChar'){
+        echo "<script>window.addEventListener('load', function() {
+        alert('不正な文字列が含まれています');});</script>";
+        $_SESSION['error_meg'] = '';
+      }
 }
 ?>
 </html>

@@ -20,6 +20,7 @@
 
   if($result != false){
     $_SESSION["username"] = $result["NAME"];
+    $_SESSION['nameUpdate'] = 'success';
     header("Location: ../index.php");
     exit;
   }else{

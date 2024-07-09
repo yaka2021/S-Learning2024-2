@@ -115,3 +115,16 @@ const $popQue = [
 		<?php include("./_src/_footer.php") ?>
 	</body>
 </html>
+<?php
+	if(isset($_SESSION['userRegist'])){
+		echo "<script>window.addEventListener('load', function() {
+			alert('ユーザー登録が完了しました');});</script>";
+		$_SESSION['userRegist'] = '';
+	}
+
+	if(isset($_SESSION['nameUpdate'])){
+		echo "<script>window.addEventListener('load', function() {
+			alert('ユーザー名の変更が完了しました');});</script>";
+		$_SESSION['nameUpdate'] = '';
+	}
+	
