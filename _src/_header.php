@@ -17,7 +17,7 @@
 					初回ログイン: <?php echo UserManager::GetTimestamp(); ?>
 				</li>
 			</ul>
-			<a href="_background/logout.php"><button>ログアウト</button></a>
+			<a href="_background/b_logout.php"><button>ログアウト</button></a>
 			<a href="#"><button>手に入れたFLAG</button></a>
 		</nav>
 	</div>
