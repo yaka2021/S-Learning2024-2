@@ -25,6 +25,9 @@
 			waitCnt--;
 		}
 		else{
+			if (popLineId >= $popQue.length){
+				return;
+			}
 			const line = $popQue[popLineId];
 			if(popCnt > line.length+10){ // セリフキューを次に送る
 				if (++popLineId != $popQue.length){
