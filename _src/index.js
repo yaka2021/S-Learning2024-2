@@ -3,7 +3,6 @@
 	let popCnt = 0;
 	let waitCnt = 0;
 	let timer;
-	const speak   = new SpeechSynthesisUtterance();
 	const __onload = window.onload;
 
 	window.onload = function(){
