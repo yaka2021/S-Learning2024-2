@@ -116,11 +116,6 @@ const $popQue = [
 	</body>
 </html>
 <?php
-	if(isset($_SESSION['userRegist'])){
-		echo "<script>window.addEventListener('load', function() {
-			alert('ユーザー登録が完了しました');});</script>";
-		$_SESSION['userRegist'] = '';
-	}
 
 	if(isset($_SESSION['nameUpdate'])){
 		echo "<script>window.addEventListener('load', function() {

@@ -26,36 +26,15 @@
 </body>
 </html>
 <?php
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    include("validation_msg.php");
 
     //ログイン済みであればindex.phpに遷移する
     if(isset($_SESSION['username'])){
         header("Location: index.php");
         exit;
     }
-    if(isset($_SESSION['error_meg'])){
-        if($_SESSION['error_meg'] == 'shortageInfo'){
-            echo "<script>window.addEventListener('load', function() {
-                alert('ログイン情報が不足しています');});</script>";
-                $_SESSION['error_meg'] = '';
-        } 
-
-        if($_SESSION['error_meg'] == 'charLengthOver'){
-            echo "<script>window.addEventListener('load', function() {
-                alert('ユーザ名は1文字以上10文字以下で設定してください');});</script>";
-                $_SESSION['error_meg'] = '';
-        }
-        
-        if($_SESSION['error_meg'] == 'illegalChar'){
-            echo "<script>window.addEventListener('load', function() {
-            alert('不正な文字列が含まれています');});</script>";
-            $_SESSION['error_meg'] = '';
-        }
-
-        if($_SESSION['error_meg'] == 'diffLoginInfo'){
-            echo "<script>window.addEventListener('load', function() {
-            alert('ユーザー名かパスワードが間違っています');});</script>";
-            $_SESSION['error_meg'] = '';
-        }
-    }  
+    
 ?>

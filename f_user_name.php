@@ -31,29 +31,13 @@
   include("./_src/_footer.php");
   //session_start()は_footer.phpで実行済み
 
+  include("validation_msg.php");
+
   //未ログインであればf_login.phpに遷移する
   if(!isset($_SESSION['username'])){
     header("Location: f_login.php");
     exit;
   }
-  if(isset($_SESSION['error_meg'])){
-      if($_SESSION['error_meg'] == 'dupUserName'){
-        echo "<script>window.addEventListener('load', function() {
-          alert('そのユーザー名は既に使用されています');});</script>";
-        $_SESSION['error_meg'] = '';
-      }
 
-      if($_SESSION['error_meg'] == 'charLengthOver'){
-        echo "<script>window.addEventListener('load', function() {
-          alert('ユーザ名は1文字以上10文字以下で設定してください');});</script>";
-          $_SESSION['error_meg'] = '';
-      }
-
-      if($_SESSION['error_meg'] == 'illegalChar'){
-        echo "<script>window.addEventListener('load', function() {
-        alert('不正な文字列が含まれています');});</script>";
-        $_SESSION['error_meg'] = '';
-      }
-}
 ?>
 </html>

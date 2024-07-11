@@ -29,9 +29,8 @@
   
 
     if(isset($result["NAME"])){
-      $_SESSION["username"] = $result["NAME"];
       $_SESSION['userRegist'] = 'success';
-      header("Location: ../index.php");
+      header("Location: ../f_login.php");
       exit;
     }else{
       $_SESSION['error_meg'] = 'dupUserName';
