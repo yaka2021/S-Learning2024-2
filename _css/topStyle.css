@@ -188,29 +188,16 @@ footer p{
 /*_footer.php　ここまで*/
 
 
-#fuwaPop, .barCvs_wrapper{
-	text-align: center;
-	min-height: 6em;
-	font-size: 14pt;
-	background-color: black;
-	background-image: url(../_topImg/cyberBack.png);
-	background-position-y: -10px;
-	color:var(--cyber-green);
-	border: var(--cyber-green) 3px solid;
-	border-left: none;
-	border-right: none;
-	padding: 20px 0 10px;
-	margin: 0;
-	animation: popLoop 5s infinite linear;
-	text-shadow:
-	1px 1px black, -1px -1px black,
-	-1px 1px black, 1px -1px black;
-}
+/*index.php　ここから*/
 
-#fuwaPopSpeech{
-	max-width: 1300px;
-    margin: -1.7rem auto 0;
-	text-align: right;
+#topImage{
+	width:100%;
+	height: 50vh;
+	object-fit: cover;
+	object-position: top;
+	margin-top: 0;
+	display: block;
+	background-color: black;
 }
 
 div.fuwaNamePop{
@@ -236,18 +223,71 @@ div.fuwaNamePop p{
 	animation: namePop 2s ease-in;
 }
 
+div.fuwaNamePop span{
+	font-size: xx-large;
+}
+
 @keyframes namePop{
 	0%   { opacity: 0; }
 	100% { opacity: 1; }
 }
 
-div.fuwaNamePop span{
-	font-size: xx-large;
+#fuwaPop{
+	text-align: center;
+	min-height: 6em;
+	font-size: 14pt;
+	background-color: black;
+	background-image: url(../_topImg/cyberBack.png);
+	background-position-y: -10px;
+	color:var(--cyber-green);
+	border: var(--cyber-green) 3px solid;
+	border-left: none;
+	border-right: none;
+	padding: 20px 0 10px;
+	margin: 0;
+	animation: popLoop 5s infinite linear;
+	text-shadow:
+	1px 1px black, -1px -1px black,
+	-1px 1px black, 1px -1px black;
+}
+
+#fuwaPopSpeech{
+	max-width: 1300px;
+    margin: -1.7rem auto 0;
+	text-align: right;
 }
 
 #fuwaPopSpeech input{
     display: inline-block;
     margin: 0 10px 0 0
+}
+
+.practiceWorks{
+	max-width: 1300px;
+    margin: 0 auto;
+	padding:0;
+}
+
+/*index.php　ここまで*/
+
+
+.barCvs_wrapper{
+	text-align: center;
+	min-height: 6em;
+	font-size: 14pt;
+	background-color: black;
+	background-image: url(../_topImg/cyberBack.png);
+	background-position-y: -10px;
+	color:var(--cyber-green);
+	border: var(--cyber-green) 3px solid;
+	border-left: none;
+	border-right: none;
+	padding: 20px 0 10px;
+	margin: 0;
+	animation: popLoop 5s infinite linear;
+	text-shadow:
+	1px 1px black, -1px -1px black,
+	-1px 1px black, 1px -1px black;
 }
 
 @keyframes popLoop{
@@ -260,22 +300,6 @@ main{
 	padding: 0;
 	margin-top: 90px;
 }
-
-#topImage{
-	width:100%;
-	height: 50vh;
-	object-fit: cover;
-	object-position: top;
-	margin-top: 0;
-	display: block;
-	background-color: black;
-}
-.practiceWorks{
-	max-width: 1300px;
-    margin: 0 auto;
-	padding:0;
-}
-
 
 #barCvs{
 	max-width: 100%;
