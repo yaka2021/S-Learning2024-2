@@ -13,7 +13,11 @@
                 <form action="_background/b_user_name.php" method="post">
                   <div class="SingUp_main-div_1-3">
                       <label class="SignUp-main-div-label">　ユーザー名　</label>
-                      <input class="main-div-input" type="text" name="username" required/>
+                      <input class="main-div-input" type="text" name="username" required 
+                      value=<?php 
+                      //userManagerクラス宣言済み
+                      echo userManager::GetUserName();
+                       ?> />
                   </div>
                   <div class="BtnArea">
                       <input type="submit" class="SigUp-main-div-div_Btn" value="確認" />
@@ -25,5 +29,15 @@
 
 <?php
   include("./_src/_footer.php");
+  //session_start()は_footer.phpで実行済み
+
+  include("validation_msg.php");
+
+  //未ログインであればf_login.phpに遷移する
+  if(!isset($_SESSION['username'])){
+    header("Location: f_login.php");
+    exit;
+  }
+
 ?>
 </html>

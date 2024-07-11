@@ -22,3 +22,16 @@
 		</nav>
 	</div>
 </header>
+<script>
+			var btn = document.getElementById('logout');
+			
+			btn.addEventListener('click', (event) => {
+					let result = window.confirm('本当にログアウトしますか？');
+					if(result){
+						alert("ログアウトしました。");
+						location.href = "_background/b_logout.php";
+					}else{	
+						event.preventDefault();
+					}
+			})
+	</script>

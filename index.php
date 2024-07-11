@@ -2,6 +2,13 @@
 <title>トップページ | S-Learning 2022</title>
 <script>
 <?php
+//未ログインであればindex.phpに遷移する
+session_start();
+if(empty($_SESSION['username'])){
+	header("Location: f_login.php");
+	exit;
+}
+
 $flags = $db->query("SELECT `ID`, `NAME`, `SCORE` FROM :STS;");
 $stages = array();
 $length = count($flags);
@@ -108,3 +115,11 @@ const $popQue = [
 		<?php include("./_src/_footer.php") ?>
 	</body>
 </html>
+<?php
+
+	if(isset($_SESSION['nameUpdate'])){
+		echo "<script>window.addEventListener('load', function() {
+			alert('ユーザー名の変更が完了しました');});</script>";
+		$_SESSION['nameUpdate'] = '';
+	}
+	
