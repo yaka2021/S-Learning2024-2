@@ -11,14 +11,14 @@
 					ユーザー名：
 					<?php include("_background/userManager.php");
 						echo UserManager::GetUserName(); ?>
-					<a href="#"><input type="button" value="ユーザー名変更"></a>
+					<a href="_background/b_user_name.php"><input type="button" value="ユーザー名変更"></a>
 				</li>
 				<li class="header_timestamp">
-					初回ログイン: <?php echo UserManager::GetTimestamp(); ?>
+					初回ログイン：<?php echo UserManager::GetTimestamp(); ?>
 				</li>
 			</ul>
-			<a><button id="logout">ログアウト</button></a>
-			<a href="#"><button>手に入れたFLAG</button></a>
+			<button><a href="_background/logout.php">ログアウト</a></button>
+			<button><a href="obtained_flags.php">手に入れたFLAG</a></button>
 		</nav>
 	</div>
 </header>

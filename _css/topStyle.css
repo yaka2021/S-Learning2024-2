@@ -89,6 +89,7 @@ header ul li {
 					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
 }
 header ul li:last-child {
+	margin-right: 0;
 	position: relative;
 	top: 1px;
 }
@@ -107,17 +108,22 @@ header input[type="button"]{
 
 header nav button{
 	float: right;
-	margin: 10px 20px 0 0;
+	margin: 10px 60px 0 0;
 	font-weight: bold;
     cursor: pointer;
 	position: relative;
-	top: 1px;
+	top:1px;
 	background-color: var(--text-color1);
     color: var(--clear-color);
     border: 1px solid var(--cyber-green);
 	border-bottom: 1px solid #0c9e04;
 	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
 					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+}
+
+header nav a{
+	color: var(--clear-color);	
+	text-decoration: none;
 }
 
 header input[type="button"]:active,header nav button:active{
@@ -136,6 +142,7 @@ header input[type="button"]:hover,header nav button:hover{
 footer{
 	text-align: center;
 	padding: 10px 0 10px 0;
+	border-top: 2px solid var(--cyber-green);
 }
 
 .wrapper{
@@ -145,12 +152,8 @@ footer{
     margin: 0 auto;
 }
 
-footer a{
-	color: var(--clear-color);	
-	text-decoration: none;
-}
-
 footer button{
+	margin: 0 auto;
 	font-weight: bold;
     cursor: pointer;
 	color: var(--clear-color);
@@ -159,6 +162,11 @@ footer button{
 	background-color: var(--text-color1);
 	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
 					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+}
+
+footer a{
+	color: var(--clear-color);	
+	text-decoration: none;
 }
 
 footer button:active{
