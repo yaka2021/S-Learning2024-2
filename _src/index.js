@@ -1,3 +1,4 @@
+(function(){	
 	const reWaitChar = /\@/g;
 	let popLineId = 0;
 	let popCnt = 0;
@@ -47,4 +48,4 @@
 			}
 		}
 	}
-
+})();
