@@ -1,5 +1,14 @@
 <?php include("./_src/_head.php"); ?>
 <title>トップページ | S-Learning 2022</title>
+<style>
+	footer button:nth-child(1){
+		display: block !important;
+	}
+
+	footer button:nth-child(2){
+		display: none;
+	}
+</style>
 <script>
 <?php
 //未ログインであればindex.phpに遷移する
@@ -8,7 +17,6 @@ if(empty($_SESSION['username'])){
 	header("Location: f_login.php");
 	exit;
 }
-
 $flags = $db->query("SELECT `ID`, `NAME`, `SCORE` FROM :STS;");
 $stages = array();
 $length = count($flags);
@@ -60,61 +68,26 @@ const $popQue = [
 	<body>
 		<?php include("./_src/_header.php") ?>
 		<main>
-			<img src="./_topImg/topPop<?php
-			if ($db->isFirstVisit == true){ echo 2; }else
-			if($allClear){ echo 3; }else{ echo 1; }
-			?>.jpg" alt="top" id="topImage">
+			<img src="./_topImg/topPop2.jpg" alt="top" id="topImage">
 			<div class="fuwaNamePop">
 				<p>サイバーセキュリティマイスター<br><span>ふわりん</span></p>
 			</div>
 			<p id="fuwaPop" style="border-bottom: none"></p>
-			<div id="fuwaPopSpeech">
-				<input type="button" value="喋ってもらう">
+			<h2>難易度選択</h2>
+			<div class="works">
+				<button type="button" class="tutorial"><a>チュートリアル</a></button>
+
+				<div class="practiceWorks">
+					<button type="button" class="level1"><a href="#">L E V E L 1</a></button>
+					<button type="button" class="level2"><a href="#">L E V E L 2</a></button>
+					<button type="button" class="level3"><a href="#">L E V E L 3</a></button>
+				</div>
 			</div>
-			<h2>CTF演習</h2>
-			<div class="practiceWorks">
-			<?php
-				foreach (StageManager::formatJsonIntoHash() as $key => $data) {
-					StageManager::drawJsonData($key, $data);
-				};
-			?>
-			</div>
-			<h2>手に入れたFLAG</h2>
-			<div class="practiceWorks">
-				<table class="obtainedFlags">
-				<?php
-				$i = 0;
-				foreach ($flags as $flag){
-					if ((int) $player_got[$stages[$i++]] == 1){
-						$name = (string) $flag["NAME"];
-						$price = (string) $flag["SCORE"];
-					}else{
-						$name = str_repeat("?", strlen($flag["NAME"]));
-						$price = "?";
-					}
-					echo ($i % 2 === 0 ? "<tr class='oddTR'>" : "<tr class='evenTR'>");
-					echo "<td class='spaceTD'></td><th>No. " . $flag["ID"] .
-					"</th><td>FLAG={</td><td style='width: 100%;text-align: center;'>{$name}</td><td>}</td>
-					<td style='text-align: right'>{$price}</td>
-					<td>pts</td><td class='spaceTD'></td></tr>";
-				}
-				?>
-				</table>
-			</div>
-			<h2>プレゼン資料</h2>
-			<div class="practiceWorks">
-				<iframe class="demoSlides" src="./demo.pdf" width="640" height="480">
-				</iframe>
-				<p style="width: 100%; text-align: center; font-size: larger;">
-					<a href="./demo.pdf" target="_blank">別タブで見る</a>
-					<br>
-				</p>
-			</div>
-			<?php include("./_src/_ranking.php") ?>
 		</main>
 		<?php include("./_src/_footer.php") ?>
 	</body>
 </html>
+
 <?php
 
 	if(isset($_SESSION['nameUpdate'])){
@@ -122,4 +95,3 @@ const $popQue = [
 			alert('ユーザー名の変更が完了しました');});</script>";
 		$_SESSION['nameUpdate'] = '';
 	}
-	
