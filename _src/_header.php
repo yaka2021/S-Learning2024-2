@@ -11,7 +11,7 @@
 					ユーザー名：
 					<?php include("_background/userManager.php");
 						echo UserManager::GetUserName(); ?>
-					<a href="_background/b_user_name.php"><input type="button" value="ユーザー名変更"></a>
+					<a href="f_user_name.php"><input type="button" value="ユーザー名変更"></a>
 				</li>
 				<li class="header_timestamp">
 					初回ログイン：<?php echo UserManager::GetTimestamp(); ?>
