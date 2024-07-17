@@ -112,7 +112,10 @@ const $popQue = [
 			</div>
 			<?php include("./_src/_ranking.php") ?>
 		</main>
-		<?php include("./_src/_footer.php") ?>
+		<?php include("./_src/_footer.php") ;
+		$path = pathinfo($_SERVER['REQUEST_URI']);
+		footerArea($path["filename"]);
+		?>
 	</body>
 </html>
 <?php
