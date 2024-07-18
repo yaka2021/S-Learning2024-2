@@ -6,13 +6,12 @@
     <body>
         <main>            
             <div class="SignIn_main-div">
-            <img src="_topImg/favicon.ico" alt="icon" width="50" height="50">
-                <span>S-Learning 2024</span>
+                <img src="_topImg/favicon.ico" alt="icon" width="50" height="50"><span>S-Learning 2024</span>
             </div>
             <form action="_background/b_login.php" method="post">
                 <div class="SignIn_main-div_1-3">
                     <label class="SignIn-main-div-label">ユーザー名</label>
-                    <input class="main-div-input" type="text"  name="username" minlength="1" maxlength="10" required/>
+                    <input class="main-div-input" type="text"  name="username" maxlength="10" required/>
                 </div>
                 <div class="SignIn_main-div_1-3">
                     <label class="SignIn-main-div-label">パスワード</label>
@@ -40,5 +39,4 @@
         header("Location: index.php");
         exit;
     }
-    
 ?>
