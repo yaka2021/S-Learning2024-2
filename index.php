@@ -84,7 +84,10 @@ const $popQue = [
 				</div>
 			</div>
 		</main>
-		<?php include("./_src/_footer.php") ?>
+		<?php include("./_src/_footer.php") ;
+		$path = pathinfo($_SERVER['REQUEST_URI']);
+		footerArea($path["filename"]);
+		?>
 	</body>
 </html>
 

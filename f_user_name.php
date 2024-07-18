@@ -20,7 +20,7 @@
                        ?> />
                   </div>
                   <div class="BtnArea">
-                      <input type="submit" class="SigUp-main-div-div_Btn" value="確認" />
+                      <input type="submit" class="SigUp-main-div-div_Btn" name="submit" value="確認" />
                       <a href="index.php" class="SigUp-main-div-div_Atag"><span>戻る</span></a>
                   </div> 
                 </form>
@@ -29,6 +29,8 @@
 
 <?php
   include("./_src/_footer.php");
+  $path = pathinfo($_SERVER['REQUEST_URI']);
+	footerArea($path["filename"]);
   //session_start()は_footer.phpで実行済み
 
   include("validation_msg.php");

@@ -11,7 +11,7 @@ class UserManager{
         array(":NAME" => $userName));
 
     if(empty($dupNameCheck)){
-        $db->query("INSERT INTO :PLT(`NAME`,`PASSWORD`,`TIMESTAMP`) VALUES(\":NAME\",\":PASSWORD\",NOW());",
+        $db->query("INSERT INTO :PLT(`NAME`,`PASSWORD`) VALUES(\":NAME\",\":PASSWORD\");",
         array(":NAME" => $userName,":PASSWORD" => $password));
 
         $results = $db->query("SELECT `NAME` FROM :PLT WHERE `NAME` = \":NAME\";",
@@ -28,7 +28,7 @@ public static function UserLogin($userName,$password){
         array(":NAME" => $userName ,":PASSWORD" => $password))[0];
         
     if(isset($results["NAME"]) && isset($results["PASSWORD"])){
-        $db->query("UPDATE :PLT SET `TIMESTAMP` = NOW() WHERE `NAME` = \":NAME\" AND `PASSWORD` = \":PASSWORD\";",
+        $db->query("UPDATE :PLT SET `TIMESTAMP` = NOW() WHERE `NAME` = \":NAME\" AND `PASSWORD` = \":PASSWORD\" AND TIMESTAMP IS NULL;",
         array(":NAME" => $results["NAME"],":PASSWORD" => $results["PASSWORD"]));
         return $results;
     }
