@@ -12,7 +12,7 @@ function footerArea($path){
 			</p>
 		</div>
 		</footer>';
- }else if($path == "index"){
+ }else if($path == ("index" || "")){
 		echo '
 		<footer>
 		<div class="wrapper">
