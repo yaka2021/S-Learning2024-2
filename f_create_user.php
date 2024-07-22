@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="ja">
     <head>
+        <title>アカウント作成ページ | S-Learning 2024</title>
         <link  rel="stylesheet" type="text/css" href="_css/create_user.css">
     </head>
     <body>
@@ -8,17 +9,18 @@
             <div class="SingUp_main-div"><span>アカウント作成</span></div>
                 <form action="_background/b_create_user.php" method="post">
                     <div class="SingUp_main-div_1-3">
-                        <label class="SignUp-main-div-label">　ユーザー名　</label>
-                        <input class="main-div-input" type="text" name="username" 
-                        placeholder="1～10文字で設定してください" maxlength="10" required/>
+                        <label for="user_name" class="SignUp-main-div-label">　ユーザー名　</label>
+                        <input type="text" id="user_name" name="user_name"   
+                        placeholder="1～10文字で設定してください" maxlength="10" class="main-div-input" required/>
                     </div>
                     <div class="SingUp_main-div_1-3">
-                        <label class="SignUp-main-div-label">新規パスワード</label>
-                        <input class="main-div-input" type="password" name="password" placeholder="パスワードは後から変更することができません！ご注意ください" required/>
+                        <label for="password" class="SignUp-main-div-label">新規パスワード</label>
+                        <input type="password" id="password" name="password"
+                        placeholder="パスワードは後から変更することができません！ご注意ください" class="main-div-input" required/>
                     </div>
                     <div class="SingUp_main-div_1-3">
-                        <label class="SignUp-main-div-label">パスワード確認</label>
-                        <input class="main-div-input" type="password" name="PassConf" required/>
+                        <label for="pass_conf" class="SignUp-main-div-label">パスワード確認</label>
+                        <input type="password" id="pass_conf" name="pass_conf" class="main-div-input" required/>
                     </div>
                     <div class="main-div_SigUpBtn">
                         <input type="submit" class="SigUp-main-div-div-Btn_1-1" value="確認" />

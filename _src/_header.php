@@ -7,26 +7,26 @@
 		</h1>
 		<nav>
 			<ul>
-				<li class="cookie_warning">
+				<li>
 					ユーザー名：
 					<?php include("_background/userManager.php");
 						echo UserManager::GetUserName(); ?>
-					<a href="f_user_name.php"><input type="button" value="ユーザー名変更"></a>
+					<a href="f_user_name.php" class="user_name">ユーザー名変更</a>
 				</li>
 				<li class="header_timestamp">
 					初回ログイン：<?php echo UserManager::GetTimestamp(); ?>
 				</li>
 			</ul>
-			<button id="logout">ログアウト</button>
-			<button><a href="obtained_flags.php">手に入れたFLAG</a></button>
+			<a id="logout" class="header_button">ログアウト</a>
+			<a href="obtained_flags.php" class="header_button">手に入れたFLAG</a>
 		</nav>
 	</div>
 </header>
 
 <script>
-	var btn = document.getElementById('logout');
+	var a = document.getElementById('logout');
 			
-	btn.addEventListener('click', (event) => {
+	a.addEventListener('click', (event) => {
 		let result = window.confirm('本当にログアウトしますか？');
 		if(result){
 			alert("ログアウトしました。");

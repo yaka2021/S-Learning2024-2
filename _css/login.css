@@ -9,7 +9,7 @@
 }
 
 body {
-  margin: 0;
+  margin: 90px 0 0 0;
   padding: 0;
 	background-image: url(../_topImg/cyberBack.png);
   animation: popLoop 5s infinite linear;
@@ -19,17 +19,13 @@ body {
 					      1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
 }
 
-main{
-  margin-top: 90px;
-}
-
 .SignIn_main-div {
   margin: 0 auto;
   width: 300px;
   height: 50px;
-  font-size: 25px;
+  font-size: 1.5rem;
   text-align: center;
-  border: 2px solid var(--cyber-green);
+  border: 3px solid var(--cyber-green);
   background: #1b5e20;
   padding: 10px;
 }
@@ -47,14 +43,14 @@ span {
 
 .SignIn-main-div-label {
   position: relative;
-  top:5px;
+  top:3px;
   margin-right: 50px;
   padding: 10px 20px;
-  font-size: 25px;
+  font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
   background: #1b5e20;
-  border: 2px solid var(--cyber-green);
+  border: 3px solid var(--cyber-green);
 }
 
 .main-div-input {
@@ -73,11 +69,11 @@ span {
 .main-div-div_1-1 {
   width:250px;
   padding: 10px 20px;
-  font-size: 25px;
+  font-size: 1.5rem;
   text-align: center;
   color: var(--clear-color);
   background: #1b5e20;
-  border: 2px solid var(--cyber-green);
+  border: 3px solid var(--cyber-green);
   text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
 					      1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
   transition: 0.3s;
@@ -90,11 +86,11 @@ span {
 
 .main-div-div_1-2 {
   padding: 10px 20px;
-  font-size: 25px;
+  font-size: 1.5rem;
   text-align: center;
   color: var(--clear-color);
   background: #1b5e20;
-  border: 2px solid var(--cyber-green);
+  border: 3px solid var(--cyber-green);
   transition: 0.3s;
 }
 

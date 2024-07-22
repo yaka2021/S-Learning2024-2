@@ -35,7 +35,7 @@ main{
 header{
 	width: 100%;
 	padding: 10px 0 10px 0;
-	border-bottom: var(--cyber-green) 2px solid;
+	border-bottom: var(--cyber-green) 3px solid;
 	position: fixed;
 	z-index: 5000;
 	top: 0;
@@ -80,53 +80,52 @@ header ul {
 header ul li {
 	float: left;
 	margin: 10px 20px 0 0;
+
 	color: var(--clear-color);	
 	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
 					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
 }
-header ul li:last-child {
-	margin-right: 0;
+
+header ul li:last-child{
 	position: relative;
-	top: 1px;
+	top: 3px;
 }
 
-header input[type="button"]{
-	margin-left: 2px;
-	font-weight: bold;
+header .user_name{
+	display: inline-block;
+	margin-left: 10px;
+	padding: 0 10px 0 10px;
+	font-weight: bold;	
     cursor: pointer;
 	color: var(--clear-color);
-	border: 1px solid var(--cyber-green);
-	border-bottom: 1px solid #0c9e04;
+	border: 3px solid var(--cyber-green);
 	background-color: var(--text-color1);
 	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
 					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	text-decoration: none;
+	transition: 0.3s;
 }
 
-header nav button{
+.header_button{
 	float: right;
 	margin: 10px 60px 0 0;
+	padding: 0 10px 0 10px;
 	font-weight: bold;
     cursor: pointer;
-	position: relative;
-	top:1px;
 	background-color: var(--text-color1);
     color: var(--clear-color);
-    border: 1px solid var(--cyber-green);
-	border-bottom: 1px solid #0c9e04;
+    border: 3px solid var(--cyber-green);
 	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
 					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
-}
-
-header nav a{
-	color: var(--clear-color);	
 	text-decoration: none;
+	transition: 0.3s;
 }
 
-header input[type="button"]:active,header nav button:active{
+header .user_name:active,.header_button:active{
 	background-color: var(--cyber-green);
 }
 
-header input[type="button"]:hover,header nav button:hover{
+header .user_name:hover,.header_button:hover{
 	opacity: 0.7;
 }
 
@@ -138,7 +137,7 @@ header input[type="button"]:hover,header nav button:hover{
 footer{
 	text-align: center;
 	padding: 10px 0 10px 0;
-	border-top: 2px solid var(--cyber-green);
+	border-top: 3px solid var(--cyber-green);
 }
 
 .wrapper{
@@ -148,34 +147,35 @@ footer{
     margin: 0 auto;
 }
 
-footer button{
+footer a{
+	display: inline-block;
 	margin: 0 auto;
+	padding: 0 10px 0 10px;
 	font-weight: bold;
+	position: relative;
+	top: 3px;
     cursor: pointer;
 	color: var(--clear-color);
-	border: 1px solid var(--cyber-green);
-	border-bottom: 1px solid #0c9e04;
+	border: 3px solid var(--cyber-green);
 	background-color: var(--text-color1);
 	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
 					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
-}
-
-footer a{
-	color: var(--clear-color);	
 	text-decoration: none;
+	transition: 0.3s;
 }
 
-footer button:active{
+footer a:active{
 	background-color: var(--cyber-green);
 }
 
-footer button:hover{
+footer a:hover{
 	opacity: 0.7;
 }
 
 footer p{
 	margin: 10px 0 0 0;
 	color: var(--clear-color);
+	font-size: 1.2rem;
 	font-weight: unset;
 	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
 					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
@@ -236,10 +236,10 @@ div.fuwaNamePop span{
 	background-image: url(../_topImg/cyberBack.png);
 	background-position-y: -10px;
 	color:var(--cyber-green);
-	border: var(--cyber-green) 2px solid;
+	border: var(--cyber-green) 3px solid;
 	border-left: none;
 	border-right: none;
-	padding: 10px 0 10px;
+	padding: 20px 0 20px;
 	margin: 0;
 	animation: popLoop 5s infinite linear;
 	text-shadow:
@@ -248,10 +248,11 @@ div.fuwaNamePop span{
 }
 
 main h2{
-	border: var(--cyber-green) 2px solid;
+	border: var(--cyber-green) 3px solid;
 	border-left: none;
 	border-right: none;
 	color: var(--clear-color);
+	font-size: 1.5rem;
 	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
 					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
     background-color: var(--text-color1);
@@ -262,7 +263,7 @@ main h2{
 .works{
 	max-width: 1300px;
     margin: 0 auto;
-	padding: 10px 0 10px 0;
+	padding: 20px 0 20px 0;
 }
 
 div .practiceWorks{
@@ -271,55 +272,69 @@ div .practiceWorks{
 }
 
 .tutorial{
-	margin: 0 auto 10px auto;
+	width: 250px;
+	margin: 0 auto 20px auto;
+	padding: 20px 20px;
 	display: block;
+	text-align: center;
+	font-size: 1.5rem;
 	font-weight: bold;
     cursor: pointer;
 	background-color: var(--text-color1);
     color: var(--clear-color);
-    border: 1px solid var(--cyber-green);
-	border-bottom: 1px solid #0c9e04;
+    border: 5px solid var(--cyber-green);
 	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
 					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	text-decoration: none;
+	transition: 0.3s;
 }
 
 .level1{
+	width: 250px;
+	padding: 20px 20px;
 	text-align: center;
+	font-size: 1.5rem;
 	font-weight: bold;
     cursor: pointer;
 	background-color: var(--text-color1);
     color: var(--clear-color);
-    border: 1px solid #ffcc80;
-	border-bottom: 1px solid #af7c30;
+    border: 5px solid #ffcc80;
 	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
 					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	text-decoration: none;
+	transition: 0.3s;
 }
 
 .level2{
+	width: 250px;
+	padding: 20px 20px;
+	text-align: center;
+	font-size: 1.5rem;
 	font-weight: bold;
     cursor: pointer;
 	background-color: var(--text-color1);
     color: var(--clear-color);
-    border: 1px solid #ef5330;
-	border-bottom: 1px solid #9f0300;
+    border: 5px solid #ef5330;
 	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
 					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	text-decoration: none;
+	transition: 0.3s;
 }
 
 .level3{
+	width: 250px;
+	padding: 20px 20px;
+	text-align: center;
+	font-size: 1.5rem;
 	font-weight: bold;
     cursor: pointer;
 	background-color: var(--text-color1);
     color: var(--clear-color);
-    border: 1px solid #0d47a1;
-	border-bottom: 1px solid #0d0751;
+    border: 5px solid #0d47a1;
 	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
 					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
-}
-
-div .practiceWorks a{
-	color: var(--clear-color);	
 	text-decoration: none;
+	transition: 0.3s;
 }
 
 .tutorial:active{

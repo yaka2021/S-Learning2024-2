@@ -9,7 +9,7 @@
 }
 
 body {
-  margin: 0;
+  margin: 90px 0 0 0;
   padding: 0;
 	background-image: url(../_topImg/cyberBack.png);
   animation: popLoop 5s infinite linear;
@@ -19,17 +19,13 @@ body {
 					      1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
 }
 
-main{
-  margin-top: 90px;
-}
-
 .SingUp_main-div {
   margin: 0 auto;
   width: 300px;
   height: 50px;
   font-size: 25px;
   text-align: center;
-  border: 2px solid var(--cyber-green);
+  border: 3px solid var(--cyber-green);
   background: #1b5e20;
   padding: 10px;
 }
@@ -45,14 +41,14 @@ span {
 
 .SignUp-main-div-label {
   position: relative;
-  top:7px;
+  top:3px;
   margin-right: 50px;
   padding: 10px 20px;
   font-size: 25px;
   font-weight: bold;
   text-align: center;
   background: #1b5e20;
-  border: 2px solid var(--cyber-green);
+  border: 3px solid var(--cyber-green);
 }
 
 .main-div-input {
@@ -75,7 +71,7 @@ span {
   text-align: center;
   color: var(--clear-color);
   background: #1b5e20;
-  border: 2px solid var(--cyber-green);
+  border: 3px solid var(--cyber-green);
   text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
 					      1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
   transition: 0.3s;
@@ -92,7 +88,7 @@ span {
   text-align: center;
   color: var(--clear-color);
   background: #1b5e20;
-  border: 2px solid var(--cyber-green);
+  border: 3px solid var(--cyber-green);
   text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
 					      1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
   transition: 0.3s;
@@ -106,21 +102,6 @@ span {
 .SigUp-main-div-div-Btn_1-1:hover,
 .SigUp-main-div-div-Btn_1-2:hover{
   opacity: 0.7;
-}
-
-.main-div-div_1-1 {
-  height: 60px;
-  width: 250px;
-  margin-right: 200px;
-  font-size: 25px;
-  text-align: center;
-  color: white;
-  border: 2px solid #8bc34a;
-  border-radius: 10px;
-  background: rgb(133, 207, 253);
-  line-height: 60px;
-  font-weight: bold;
-  -webkit-text-stroke: 1px rgb(145, 130, 130);
 }
 
 @keyframes popLoop {

@@ -1,7 +1,7 @@
 <?php include("./_src/_head.php"); ?>
 <title>トップページ | S-Learning 2022</title>
 <style>
-	header nav button:nth-child(3){
+	.header_button:last-child{
 		display: none;
 	}
 </style>

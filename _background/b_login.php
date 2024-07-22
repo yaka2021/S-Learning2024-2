@@ -1,5 +1,5 @@
 <?php 
-$userName = trim($_POST["username"]);
+$userName = trim($_POST["user_name"]);
 $password = trim($_POST["password"]);
 
 include("userManager.php");
