@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="ja">
     <head>
+        <title>ログインページ | S-Learning 2024</title>
         <link  rel="stylesheet" type="text/css" href="_css/login.css">
     </head>
     <body>
@@ -10,12 +11,12 @@
             </div>
             <form action="_background/b_login.php" method="post">
                 <div class="SignIn_main-div_1-3">
-                    <label class="SignIn-main-div-label">ユーザー名</label>
-                    <input class="main-div-input" type="text"  name="username" maxlength="10" required/>
+                    <label for="user_name" class="SignIn-main-div-label">ユーザー名</label>
+                    <input type="text" id="user_name" name="user_name" maxlength="10" class="main-div-input" required/>
                 </div>
                 <div class="SignIn_main-div_1-3">
-                    <label class="SignIn-main-div-label">パスワード</label>
-                    <input class="main-div-input" type="password" name="password" required/>
+                    <label for="password" class="SignIn-main-div-label">パスワード</label>
+                    <input type="password" id="password" name="password" class="main-div-input" required/>
                 </div>
                 <div class="main-div_1-4">
                     <input type="submit" class="main-div-div_1-1" value="ログイン" />

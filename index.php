@@ -1,5 +1,5 @@
 <?php include("./_src/_head.php"); ?>
-<title>トップページ | S-Learning 2022</title>
+<title>トップページ | S-Learning 2024</title>
 <style>
 	footer button:nth-child(1){
 		display: block !important;
@@ -75,12 +75,12 @@ const $popQue = [
 			<p id="fuwaPop" style="border-bottom: none"></p>
 			<h2>難易度選択</h2>
 			<div class="works">
-				<button type="button" class="tutorial"><a>チュートリアル</a></button>
+				<a href="#" class="tutorial">チュートリアル</a>
 
 				<div class="practiceWorks">
-					<button type="button" class="level1"><a href="#">L E V E L 1</a></button>
-					<button type="button" class="level2"><a href="#">L E V E L 2</a></button>
-					<button type="button" class="level3"><a href="#">L E V E L 3</a></button>
+					<a href="#" class="level1">L E V E L 1</a>
+					<a href="#" class="level2">L E V E L 2</a>
+					<a href="#" class="level3">L E V E L 3</a>
 				</div>
 			</div>
 		</main>

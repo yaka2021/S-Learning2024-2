@@ -2,9 +2,9 @@
 
   include("userManager.php");
 
-  $userName = trim($_POST["username"]);
+  $userName = trim($_POST["user_name"]);
   $password = trim($_POST["password"]);
-  $passConf = trim($_POST["PassConf"]);
+  $passConf = trim($_POST["pass_conf"]);
 
   session_start();
 
