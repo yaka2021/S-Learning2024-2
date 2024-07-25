@@ -16,6 +16,12 @@
     exit;
   }
 
+  if($userName == $_SESSION["username"]){
+    $_SESSION['error_meg'] = 'unChangeName';
+    header("Location: ../f_user_name.php");
+    exit;
+  }
+
   $result = UserManager::UpdateName($userName); 
 
   if($result != false){
