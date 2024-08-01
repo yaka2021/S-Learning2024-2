@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.layer {
+.confirm_layer {
   background: rgba(0, 0, 0, .2);
   width: 100%;
   height: 100%;
@@ -10,44 +10,45 @@
   z-index: -1;
   opacity: 0;
   visibility: hidden;
+
 }
 
-
-
-.layer.is-open {
+.confirm_layer.confirm_is-open {
   z-index: 999;
   opacity: 1;
   visibility: visible;
 }
 
-.layer.is-open .modal {
+.confirm_layer.confirm_is-open .confirm_modal {
   opacity: 1;
   visibility: visible;
 }
 
-.close-button {
-  width: 150px;
+
+.confirm_modal-button {
+  width: 100px;
   height: 50px;
   padding: 5px;
-  color: black;
+  margin: 5px 10px;
+  color: white;
   background: orange;
   border-radius: 5px;
   border: transparent;
   cursor: pointer;
 }
 
-.modal {
+.confirm_modal {
   position: relative;
   margin-right: auto;
   margin-left: auto;
-  width: 40%;
-  min-width: 440px;
+  width: 15%;
+  min-width: 340px;
   opacity: 0;
   visibility: hidden;
 }
 
 
-.modal__inner {
+.confirm_modal__inner {
   margin-top: 250px;
   margin-bottom: 125px;
   position: relative;
@@ -59,12 +60,12 @@
   display: block;
   padding: 21px 8px 21px;
   height: auto;
-  text-align: center;
 }
 
-.modal__content {
+.confirm_modal__content {
   color: black;
   text-shadow: none;
-  padding-top: 15px;
-  padding-bottom: 23px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
 }

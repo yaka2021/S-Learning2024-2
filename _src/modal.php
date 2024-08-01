@@ -5,15 +5,10 @@ echo '
 <div class="layer js-modal">
     <div class="modal">
       <div class="modal__inner">
-        <div class="modal__button-wrap">
-          <button class="close-button js-close-button">
-            <span></span>
-            <span></span>
-          </button>
-        </div>
         <div class="modal__contents">
           <div class="modal__content">
-            '.$message.'
+            <p>'.$message.'</p>
+            <button class="close-button js-close-button">OK</button>
           </div>
         </div>
       </div>
@@ -24,7 +19,6 @@ echo '
   const modalButton = document.querySelector(".js-modal-button");
   const modalClose = document.querySelector(".js-close-button");
     modal.classList.add("is-open");
-
   modalClose.addEventListener("click", () => {
     modal.classList.remove("is-open");
   });
