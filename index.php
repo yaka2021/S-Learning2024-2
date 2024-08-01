@@ -1,6 +1,6 @@
 <?php include("./_src/_head.php"); ?>
 <title>トップページ | S-Learning 2024</title>
-<style>
+ <style>
 	footer button:nth-child(1){
 		display: block !important;
 	}
@@ -90,7 +90,6 @@ const $popQue = [
 		?>
 	</body>
 </html>
-
 <?php
 	if(isset($_SESSION['nameUpdate'])){
 		include("./_src/modal.php");
