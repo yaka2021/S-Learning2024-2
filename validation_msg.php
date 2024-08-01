@@ -15,30 +15,34 @@ if(isset($_SESSION['nameUpdate'])){
   unset($_SESSION['nameUpdate']);
 }
 
-if(isset($_SESSION['error_meg'])){
-    switch($_SESSION['error_meg']){
+if(!empty($_SESSION['error_meg'])){
+  $TotalErrorMsg = "";
+  foreach($_SESSION['error_meg'] as $error_msg){
+    switch($error_msg){
       case "illegalChar":
-        DisplayModal("不正な文字列が含まれています");
+          $TotalErrorMsg .= "<br>不正な文字列が含まれています";
         break;
       case 'dupUserName':
-        DisplayModal("そのユーザー名は既に使用されています");
+        $TotalErrorMsg .= "<br>そのユーザー名は既に使用されています";
         break;
       case 'notMatchPass':
-        DisplayModal("パスワードとパスワード確認欄の入力内容が一致していません");
+        $TotalErrorMsg .= "<br>パスワードとパスワード確認欄の入力内容が一致していません";
         break;
       case "charLengthOver":
-        DisplayModal("ユーザ名は1文字以上10文字以下で設定してください");
+        $TotalErrorMsg .= "<br>ユーザ名は1文字以上10文字以下で設定してください";
         break;
       case "shortageInfo":
-        DisplayModal("ログイン情報が不足しています");
+        $TotalErrorMsg .= "<br>ログイン情報が不足しています";
         break;
       case "diffLoginInfo":
-        DisplayModal("ユーザー名かパスワードが間違っています");
+        $TotalErrorMsg .= "<br>ユーザー名かパスワードが間違っています";
         break;
       case "unChangeName":
-        DisplayModal("ユーザー名が変更されていません");
+        $TotalErrorMsg .= "<br>ユーザー名が変更されていません";
         break;
     }
-
-    $_SESSION['error_meg'] = '';
+  }
+  
+  DisplayModal($TotalErrorMsg);
+  $_SESSION['error_meg'] = '';
 }
