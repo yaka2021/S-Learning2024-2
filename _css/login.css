@@ -9,7 +9,7 @@
 }
 
 body {
-  margin: 90px 0 0 0;
+  margin: 90px 0 140px 0;
   padding: 0;
 	background-image: url(../_topImg/cyberBack.png);
   animation: popLoop 5s infinite linear;
@@ -57,7 +57,7 @@ span {
   height: 50px;
   width: 500px;
   font-size: 100%;
-  border: gray 2px solid;
+  border: gray 3px solid;
 }
 
 .main-div_1-4 {
@@ -78,6 +78,7 @@ span {
 					      1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
   transition: 0.3s;
   margin-right: 100px;
+  cursor: pointer;
 }
 
 .Btn_Atag {

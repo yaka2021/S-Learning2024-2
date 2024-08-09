@@ -1,26 +1,23 @@
+:root{
+	--text-color1: #0a380a;
+	--text-shadow: #1e9b00;
+	--cyber-green: #0cee04;
+	--clear-color: white;
+	--clear-shadow: #00008888;
+	--back-color: #071b15;
+	--pop-back: black
+}
+
 body {
   margin: 0;
   padding: 0;
-  background-color: rgb(145, 130, 130);
   background-image: url(../cyberBack.png);
   animation: popLoop 5s infinite linear;
 }
 
-@keyframes popLoop {
-  0% {
-    background-position-x: 96px
-  }
-
-  100% {
-    background-position-x: 0
-  }
-}
-
-
-
 .userName_mainScreen {
   width: 80%;
-  margin: 100px auto;
+  margin: 100px auto 150px auto;
   text-align: center;
 }
 
@@ -136,4 +133,14 @@ body {
 
 span {
   line-height: 55px;
+}
+
+@keyframes popLoop {
+  0% {
+    background-position-x: 96px
+  }
+
+  100% {
+    background-position-x: 0
+  }
 }
