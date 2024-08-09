@@ -64,6 +64,7 @@
 
 .OKBtn {
   text-align: center;
+  color: black;
 }
 
 .TextCenter {
@@ -71,8 +72,8 @@
 }
 
 .modal__content {
-  color: black;
   text-shadow: none;
   padding-top: 15px;
   padding-bottom: 23px;
+  color: red;
 }
