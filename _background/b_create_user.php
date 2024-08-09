@@ -7,33 +7,36 @@
   $passConf = trim($_POST["pass_conf"]);
 
   session_start();
+  $ErrorMsgArr = array();
 
   if($password != $passConf){
-    $_SESSION['error_meg'] = 'notMatchPass';
-    header("Location: ../f_create_user.php");
-    exit;
+    array_push($ErrorMsgArr,'notMatchPass');
   }
 
   if(preg_match('/[^a-zA-Z0-9]+/u', $userName) || preg_match('/[^a-zA-Z0-9]+/u', $password)){
-    $_SESSION['error_meg'] = 'illegalChar';
-    header("Location: ../f_create_user.php");
-    exit;
+    array_push($ErrorMsgArr,'illegalChar');
   }
 
   if(strlen($userName) < 1 || strlen($userName) > 10){
-    $_SESSION['error_meg'] = 'charLengthOver';
+    array_push($ErrorMsgArr,'charLengthOver');
+  }
+
+  $_SESSION['error_meg'] = $ErrorMsgArr;
+
+  if(count($ErrorMsgArr) > 0){
     header("Location: ../f_create_user.php");
     exit;
   }
+
     $result = UserManager::CreateUser($userName,$password);  
   
-
     if(isset($result["NAME"])){
       $_SESSION['userRegist'] = 'success';
       header("Location: ../f_login.php");
       exit;
     }else{
-      $_SESSION['error_meg'] = 'dupUserName';
+      array_push($ErrorMsgArr,'dupUserName');
+      $_SESSION['error_meg'] = $ErrorMsgArr;
       header("Location: ../f_create_user.php");
       exit;
     }

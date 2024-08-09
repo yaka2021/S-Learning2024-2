@@ -7,8 +7,10 @@ echo '
       <div class="modal__inner">
         <div class="modal__contents">
           <div class="modal__content">
-            <p>'.$message.'</p>
-            <button class="close-button js-close-button">OK</button>
+            '.$message.'
+            <div class="OKBtn">
+              <button class="close-button js-close-button">OK</button>
+            <div>
           </div>
         </div>
       </div>

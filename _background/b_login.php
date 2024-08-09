@@ -4,21 +4,22 @@ $password = trim($_POST["password"]);
 
 include("userManager.php");
 session_start();
-
+$ErrorMsgArr = array();
   if(!isset($userName) || !isset($password)){
-    $_SESSION['error_meg'] = 'shortageInfo';
-    header("Location: ../f_login.php");
-    exit;
+    array_push($ErrorMsgArr,'shortageInfo');
   }
     
   if(strlen($userName) < 1 || strlen($userName) > 10){
-    $_SESSION['error_meg'] = 'charLengthOver';
-    header("Location: ../f_login.php");
-    exit;
+    array_push($ErrorMsgArr,'charLengthOver');
   }
 
   if(preg_match('/[^a-zA-Z0-9]+/u', $password) ||preg_match('/[^a-zA-Z0-9]+/u', $userName)){
-    $_SESSION['error_meg'] = 'illegalChar';
+    array_push($ErrorMsgArr,'illegalChar');
+  }
+
+  $_SESSION['error_meg'] = $ErrorMsgArr;
+
+  if(count($ErrorMsgArr) > 0){
     header("Location: ../f_login.php");
     exit;
   }
@@ -30,7 +31,8 @@ session_start();
     header("Location: ../index.php");
     exit;
   }else{
-    $_SESSION['error_meg'] = 'diffLoginInfo';
+    array_push($ErrorMsgArr,'diffLoginInfo');
+    $_SESSION['error_meg'] = $ErrorMsgArr;
     header("Location: ../f_login.php");
     exit;
   }

@@ -34,6 +34,7 @@
   border-radius: 5px;
   border: transparent;
   cursor: pointer;
+  margin: 0 auto;
 }
 
 .modal {
@@ -59,12 +60,20 @@
   display: block;
   padding: 21px 8px 21px;
   height: auto;
+}
+
+.OKBtn {
+  text-align: center;
+  color: black;
+}
+
+.TextCenter {
   text-align: center;
 }
 
 .modal__content {
-  color: black;
   text-shadow: none;
   padding-top: 15px;
   padding-bottom: 23px;
+  color: red;
 }
