@@ -1,14 +1,5 @@
 <?php include("./_src/_head.php"); ?>
 <title>トップページ | S-Learning 2024</title>
-<style>
-	footer button:nth-child(1){
-		display: block !important;
-	}
-
-	footer button:nth-child(2){
-		display: none;
-	}
-</style>
 <script>
 <?php
 //未ログインであればindex.phpに遷移する
@@ -63,8 +54,8 @@ const $popQue = [
 <?php } ?>
 ];
 </script>
-		<script src="./_src/index.js" type="text/javascript"></script>
-	</head>
+<script src="./_src/index.js" type="text/javascript"></script>
+</head>
 	<body>
 		<?php include("./_src/_header.php") ?>
 		<main>

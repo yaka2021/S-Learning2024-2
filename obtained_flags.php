@@ -1,9 +1,16 @@
 <?php include("./_src/_head.php"); ?>
-<title>トップページ | S-Learning 2022</title>
+<title>手に入れたFLAGの確認ページ | S-Learning 2024</title>
 <style>
+
 	.header_button:last-child{
 		display: none;
 	}
+
+	.practiceWorks{
+		height: 460px;
+		overflow: auto;
+	}
+
 </style>
 <script>
 	<?php

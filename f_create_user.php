@@ -23,7 +23,7 @@
                         <input type="password" id="pass_conf" name="pass_conf" class="main-div-input" required/>
                     </div>
                     <div class="main-div_SigUpBtn">
-                        <input type="submit" class="SigUp-main-div-div-Btn_1-1" value="確認" />
+                        <input type="submit" class="SigUp-main-div-div-Btn_1-1" value="作成" />
                         <a class="Btn_Atag" href="f_login.php">  
                             <div class="SigUp-main-div-div-Btn_1-2">ログイン画面に戻る</div>
                         </a>
