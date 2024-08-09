@@ -1,44 +1,64 @@
 <?php
-function AlertMessage($message){
-  echo "<script>window.addEventListener('load', function() {
-    alert('$message');});</script>";
-}
+include("_src/modal.php");
 
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
 
 if(isset($_SESSION['userRegist'])){
-    AlertMessage("ユーザー登録が完了しました");
+    DisplayModal("ユーザー登録が完了しました");
     unset($_SESSION['userRegist']);
 }
 
 if(isset($_SESSION['nameUpdate'])){
-  AlertMessage("ユーザー名の更新が完了しました");
+  DisplayModal("ユーザー名の更新が完了しました");
   unset($_SESSION['nameUpdate']);
 }
 
-if(isset($_SESSION['error_meg'])){
-    switch($_SESSION['error_meg']){
+if(!empty($_SESSION['error_meg'])){
+  $TotalErrorMsg = "";
+
+  $StartTag = "<br>";
+  $EndTag = "";
+  if(count($_SESSION['error_meg']) > 1){
+    $TotalErrorMsg = "<ul>";
+    $StartTag = "<li>";
+    $EndTag = "</li>";
+  }else{
+    $StartTag = "<p class='TextCenter'>";
+    $EndTag = "</p>";
+  }
+
+  foreach($_SESSION['error_meg'] as $error_msg){
+    switch($error_msg){
       case "illegalChar":
-        AlertMessage("不正な文字列が含まれています");
+          $TotalErrorMsg .= $StartTag."不正な文字列が含まれています".$EndTag;
         break;
       case 'dupUserName':
-        AlertMessage("そのユーザー名は既に使用されています");
+        $TotalErrorMsg .= $StartTag."そのユーザー名は既に使用されています".$EndTag;
         break;
       case 'notMatchPass':
-        AlertMessage("パスワードとパスワード確認欄の入力内容が一致していません");
+        $TotalErrorMsg .= $StartTag."パスワードとパスワード確認欄の入力内容が一致していません".$EndTag;
         break;
       case "charLengthOver":
-        AlertMessage("ユーザ名は1文字以上10文字以下で設定してください");
+        $TotalErrorMsg .= $StartTag."ユーザ名は1文字以上10文字以下で設定してください".$EndTag;
         break;
       case "shortageInfo":
-        AlertMessage("ログイン情報が不足しています");
+        $TotalErrorMsg .= $StartTag."ログイン情報が不足しています".$EndTag;
         break;
       case "diffLoginInfo":
-        AlertMessage("ユーザー名かパスワードが間違っています");
+        $TotalErrorMsg .= $StartTag."ユーザー名かパスワードが間違っています".$EndTag;
+        break;
+      case "unChangeName":
+        $TotalErrorMsg .= $StartTag."ユーザー名が変更されていません".$EndTag;
         break;
     }
+  }
 
-    $_SESSION['error_meg'] = '';
+  if(count($_SESSION['error_meg']) > 1){
+    $TotalErrorMsg .= "</ul>";
+  }
+  
+  DisplayModal($TotalErrorMsg);
+  $_SESSION['error_meg'] = '';
 }

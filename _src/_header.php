@@ -22,18 +22,16 @@
 		</nav>
 	</div>
 </header>
-
+<div id="ComfirmModal" style="display: none;">
+	<?php 
+		include("_src/confirm_modal.php"); 
+		DisplayLogoutCofirmModal(); 
+	?>
+</div>
 <script>
-	var a = document.getElementById('logout');
-			
-	a.addEventListener('click', (event) => {
-		let result = window.confirm('本当にログアウトしますか？');
-		if(result){
-			alert("ログアウトしました。");
-			location.href = "_background/b_logout.php";
-		}
-		else{	
-			event.preventDefault();
-		}
+	let logoutBtn = document.getElementById('logout');	
+	logoutBtn.addEventListener('click', (event) => {
+		let ComfirmModal = document.getElementById('ComfirmModal');	
+		ComfirmModal.style.display = "block";
 	})
 </script>
