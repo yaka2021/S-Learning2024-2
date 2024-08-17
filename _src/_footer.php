@@ -4,8 +4,8 @@ function footerArea($path){
 		echo '
 		<footer>
 			<div class="wrapper">
-				<a href="index.php">トップページに戻る</a>
-				<p>
+				<a href="index.php" class="footer_btn">トップページに戻る</a>
+				<p class="footer_copyright">
 					情報科学専門学校<br>
 					S-Learningプロジェクトチーム
 				</p>
@@ -15,10 +15,10 @@ function footerArea($path){
 		echo '
 		<footer>
 			<div class="wrapper">
-				<a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeqeAsNCx2iETBFRKZXJlDKD33Oo-ba7LkZxpHiQzO8TC6hPA/viewform?usp=sf_link">
+				<a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeqeAsNCx2iETBFRKZXJlDKD33Oo-ba7LkZxpHiQzO8TC6hPA/viewform?usp=sf_link" class="footer_btn">
 					アンケートはこちら
 				</a>
-				<p>
+				<p class="footer_copyright">
 					情報科学専門学校<br>
 					S-Learningプロジェクトチーム
 				</p>

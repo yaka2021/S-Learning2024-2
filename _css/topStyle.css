@@ -33,99 +33,99 @@ main{
 /*_header.php　ここから*/
 
 header{
-	width: 100%;
-	padding: 10px 0 10px 0;
-	border-bottom: var(--cyber-green) 3px solid;
+	background-color: var(--back-color);
+	border-bottom: 3px solid var(--cyber-green);
+	padding: 10px 0;
 	position: fixed;
-	z-index: 5000;
 	top: 0;
-    background-color: var(--back-color);
+	width: 100%;
+	z-index: 5000;
 }
 
 .wrapper{
+	margin: 0 auto;
+	max-width: 1300px;
 	overflow: hidden;
 	width: 100%;
-	max-width: 1300px;
-    margin: 0 auto;
 }
 
-header h1{
-	float: left;
+.header_title_top-left{
 	color: var(--clear-color);
+	float: left;
 	font-size: 30px;
 	font-weight: unset;
-	width: 100%;
 	margin: 0 0 0 20px;
-	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
-					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	text-shadow: 1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+				 1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	width: 100%;
 }
 
-header h1 a{
+.header_link_top-left{
 	color: var(--clear-color);	
 	text-decoration: none;
 }
 
-header h1 img{
+.header_img_top-left{
 	position: relative;
-	top: 20px;
 	right: 10px;
+	top: 20px;
 }
 
-header ul {
-	list-style: none;
-	margin: 0 0 0 30px;
+.header_ul{
 	font-size: 1rem;
 	font-weight: 500;
+	list-style: none;
+	margin: 0 0 0 30px;
 }
-header ul li {
+
+.header_user-info_bottom{
+	color: var(--clear-color);	
 	float: left;
 	margin: 10px 20px 0 0;
-
-	color: var(--clear-color);	
-	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
-					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	text-shadow: 1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+				 1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
 }
 
-header ul li:last-child{
+.header_user-info_bottom:last-child{
 	position: relative;
 	top: 3px;
 }
 
-header .user_name{
-	display: inline-block;
-	margin-left: 10px;
-	padding: 0 10px 0 10px;
-	font-weight: bold;	
-    cursor: pointer;
-	color: var(--clear-color);
+.header_btn_bottom-left{
+	background-color: var(--text-color1);
 	border: 3px solid var(--cyber-green);
-	background-color: var(--text-color1);
-	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
-					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
-	text-decoration: none;
-	transition: 0.3s;
-}
-
-.header_button{
-	float: right;
-	margin: 10px 60px 0 0;
-	padding: 0 10px 0 10px;
+	color: var(--clear-color);
+	cursor: pointer;
+	display: inline-block;
 	font-weight: bold;
-    cursor: pointer;
-	background-color: var(--text-color1);
-    color: var(--clear-color);
-    border: 3px solid var(--cyber-green);
-	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
-					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	margin-left: 10px;
+	padding: 0 10px;
 	text-decoration: none;
+	text-shadow: 1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+				 1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
 	transition: 0.3s;
 }
 
-header .user_name:active,.header_button:active{
+.header_btn_bottom-right{
+	background-color: var(--text-color1);
+	border: 3px solid var(--cyber-green);
+	color: var(--clear-color);
+	cursor: pointer;
+	float: right;
+	font-weight: bold;
+	margin: 10px 60px 0 0;
+	padding: 0 10px;
+	text-decoration: none;
+	text-shadow: 1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+				 1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	transition: 0.3s;
+}
+
+.header_btn_bottom-left:active,.header_btn_bottom-right:active{
 	background-color: var(--cyber-green);
 }
 
-header .user_name:hover,.header_button:hover{
+.header_btn_bottom-left:hover,.header_btn_bottom-right:hover{
 	opacity: 0.7;
 }
 
@@ -135,51 +135,51 @@ header .user_name:hover,.header_button:hover{
 /*_footer.php　ここから*/
 
 footer{
-	text-align: center;
-	padding: 10px 0 10px 0;
-	border-top: 3px solid var(--cyber-green);
 	background-color: var(--back-color);
+	border-top: 3px solid var(--cyber-green);
+	padding: 10px 0;
+	text-align: center;
 }
 
 .wrapper{
+	margin: 0 auto;
+	max-width: 1300px;
 	overflow: hidden;
 	width: 100%;
-	max-width: 1300px;
-    margin: 0 auto;
 }
 
-footer a{
-	display: inline-block;
-	margin: 0 auto;
-	padding: 0 10px 0 10px;
-	font-weight: bold;
-	position: relative;
-	top: 3px;
-    cursor: pointer;
-	color: var(--clear-color);
-	border: 3px solid var(--cyber-green);
+.footer_btn{
 	background-color: var(--text-color1);
-	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
-					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	border: 3px solid var(--cyber-green);
+	color: var(--clear-color);
+	cursor: pointer;
+	display: inline-block;
+	font-weight: bold;
+	margin: 0 auto;
+	padding: 0 10px;
+	position: relative;
 	text-decoration: none;
+	text-shadow: 1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+				 1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	top: 3px;
 	transition: 0.3s;
 }
 
-footer a:active{
+.footer_btn:active{
 	background-color: var(--cyber-green);
 }
 
-footer a:hover{
+.footer_btn:hover{
 	opacity: 0.7;
 }
 
-footer p{
-	margin: 10px 0 0 0;
+.footer_copyright{
 	color: var(--clear-color);
 	font-size: 1.2rem;
 	font-weight: unset;
-	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
-					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	margin: 10px 0 0 0;
+	text-shadow: 1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+				1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
 }
 
 /*_footer.php　ここまで*/
