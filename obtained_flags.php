@@ -2,7 +2,7 @@
 <title>手に入れたFLAGの確認ページ | S-Learning 2024</title>
 <style>
 
-	.header_button:last-child{
+	.header_btn_bottom-right:last-child{
 		display: none;
 	}
 

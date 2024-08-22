@@ -4,19 +4,19 @@
 <title>ユーザー名変更ページ | S-Learning 2024</title>
 <style>
   body {
-    background-image: url(./_topImg/cyberBack.png);
     animation: popLoop 5s infinite linear;
+    background-image: url(./_topImg/cyberBack.png);
   }
 
   main{
     background: none;
   }
 
-	header .user_name{
+  .header_btn_bottom-left{
 		display: none;
 	}
 
-  header ul li:first-child{
+  .header_user-info_bottom:first-child{
 		position: relative;
 		top:3px;
 	}
@@ -35,24 +35,22 @@
 
 <body>
   <?php include("./_src/_header.php"); ?>
-  <main>
-  <div class="userName_mainScreen">                
-    <div class="SingUp_main-div"><span>ユーザー名変更</span></div>
-      <form class="a1" action="_background/b_user_name.php" method="post">
-        <div class="SingUp_main-div_1-3">
-          <label class="SignUp-main-div-label">　現在のユーザー名　</label>
-          <input class="main-div-input" type="text" name="username" required 
+  <main class="user-name_main">                
+    <div class="user-name_page-title"><span class="user-name_span">ユーザー名変更</span></div>
+      <form action="_background/b_user_name.php" method="post">
+        <div>
+          <label class="user-name_labels">　現在のユーザー名　</label>
+          <input class="user-name_inputs" type="text" name="username" required 
           value=<?php 
           //userManagerクラス宣言済み
           echo userManager::GetUserName();
           ?> />
         </div>
-        <div class="BtnArea">
-          <input type="submit" class="SigUp-main-div-div_Btn" name="submit" value="変更" />
+        <div class="login_button">
+          <input type="submit" class="login_submit" name="submit" value="変更" />
         </div> 
       </form>
-      <?php include("./_src/_footer.php"); ?>
-    </div>
+    <?php include("./_src/_footer.php"); ?>
   </main>
 </body>
 </html>

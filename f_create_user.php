@@ -6,26 +6,26 @@
     </head>
     <body>
         <main>              
-            <div class="SingUp_main-div"><span>アカウント作成</span></div>
+            <div class="create-user_page-title"><span class="create-user_span">アカウント作成</span></div>
                 <form action="_background/b_create_user.php" method="post">
-                    <div class="SingUp_main-div_1-3">
-                        <label for="user_name" class="SignUp-main-div-label">　ユーザー名　</label>
+                    <div class="create-user_form-items">
+                        <label for="user_name" class="create-user_labels">　ユーザー名　</label>
                         <input type="text" id="user_name" name="user_name"   
-                        placeholder="1～10文字で設定してください" maxlength="10" class="main-div-input" required/>
+                        placeholder="1～10文字で設定してください" maxlength="10" class="create-user_inputs" required/>
                     </div>
-                    <div class="SingUp_main-div_1-3">
-                        <label for="password" class="SignUp-main-div-label">新規パスワード</label>
+                    <div class="create-user_form-items">
+                        <label for="password" class="create-user_labels">新規パスワード</label>
                         <input type="password" id="password" name="password"
-                        placeholder="パスワードは後から変更することができません！ご注意ください" class="main-div-input" required/>
+                        placeholder="パスワードは後から変更することができません！ご注意ください" class="create-user_inputs" required/>
                     </div>
-                    <div class="SingUp_main-div_1-3">
-                        <label for="pass_conf" class="SignUp-main-div-label">パスワード確認</label>
-                        <input type="password" id="pass_conf" name="pass_conf" class="main-div-input" required/>
+                    <div class="create-user_form-items">
+                        <label for="pass_conf" class="create-user_labels">パスワード確認</label>
+                        <input type="password" id="pass_conf" name="pass_conf" class="create-user_inputs" required/>
                     </div>
-                    <div class="main-div_SigUpBtn">
-                        <input type="submit" class="SigUp-main-div-div-Btn_1-1" value="作成" />
-                        <a class="Btn_Atag" href="f_login.php">  
-                            <div class="SigUp-main-div-div-Btn_1-2">ログイン画面に戻る</div>
+                    <div class="create-user_button-group">
+                        <input type="submit" class="create-user_submit" value="作成" />
+                        <a class="create-user_return" href="f_login.php">  
+                            <div class="create-user_link_bottom">ログイン画面に戻る</div>
                         </a>
                     </div> 
                 </form>
