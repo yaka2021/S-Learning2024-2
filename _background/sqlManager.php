@@ -8,8 +8,8 @@ class SqlManager{
             return new SqlManager();
         }
     }
-    protected function getHostName() : string { return "mysql203.phy.lolipop.lan"; }
-    protected function getDBName() : string { return "LAA1175090-learn"; }
+    protected function getHostName() : string { return "mysql308.phy.lolipop.lan"; }
+    protected function getDBName() : string { return "LAA1175090-learn2024"; }
     protected function getConnectOptions() : string { return ""; }
     protected function getHostInfo() : string {
         $str = "mysql:host=";
