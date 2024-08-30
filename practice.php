@@ -13,17 +13,10 @@ $item = $json[$current_key];
 				<iframe id="practiceIframe" title="「<?php echo $item['TITLE']; ?>」のCTF演習フレームです。"
 				width="1060" height="750" src='<?php echo $current_key; ?>'></iframe>
 			</div>
-			<h2>他の演習問題</h2>
-			<div class="practiceWorks">
-			<?php
-				foreach ($json as $key => $data) {
-					if ($key == $current_key) { continue; }
-					StageManager::drawJsonData($key, $data);
-				};
-			?>
-			</div>
-			<?php include("./_src/_ranking.php") ?>
 		</main>
-		<?php include("./_src/_footer.php") ?>
+		<?php include("./_src/_footer.php") ;
+		$path = pathinfo($_SERVER['REQUEST_URI']);
+		footerArea($path["filename"]);
+		?>
 	</body>
 </html>
