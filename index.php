@@ -3,11 +3,13 @@
 <script>
 <?php
 //未ログインであればindex.phpに遷移する
+/*
 session_start();
 if(empty($_SESSION['username'])){
 	header("Location: f_login.php");
 	exit;
 }
+*/
 $flags = $db->query("SELECT `ID`, `NAME`, `SCORE` FROM :STS;");
 $stages = array();
 $length = count($flags);
@@ -66,12 +68,12 @@ const $popQue = [
 			<p id="fuwaPop" style="border-bottom: none"></p>
 			<h2>難易度選択</h2>
 			<div class="works">
-				<a href="#" class="tutorial">チュートリアル</a>
+				<a href="practice?app=tutorial" class="tutorial">チュートリアル</a>
 
 				<div class="practiceWorks">
-					<a href="#" class="level1">L E V E L 1</a>
-					<a href="#" class="level2">L E V E L 2</a>
-					<a href="#" class="level3">L E V E L 3</a>
+					<a href="./level1.php" class="level1">L E V E L 1</a>
+					<a href="./level2.php" class="level2">L E V E L 2</a>
+					<a href="./level3.php" class="level3">L E V E L 3</a>
 				</div>
 			</div>
 		</main>

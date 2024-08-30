@@ -12,11 +12,11 @@
     background: none;
   }
 
-	header .user_name{
+  .header_btn_bottom-left{
 		display: none;
 	}
 
-  header ul li:first-child{
+  .header_user-info_bottom:first-child{
 		position: relative;
 		top:3px;
 	}
