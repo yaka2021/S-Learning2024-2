@@ -2,7 +2,7 @@
 <title>CTF演習一覧ページ（LEVEL1） | S-Learning 2022</title>
 <script>
 <?php
-$flags = $db->query("SELECT `ID`, `NAME`, `SCORE` FROM :STS;");
+$flags = $db->query("SELECT `ID`, `NAME` FROM :STS;");
 $stages = array();
 $length = count($flags);
 for ($i = 1; $i <= $length; $i++){
