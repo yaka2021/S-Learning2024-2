@@ -67,24 +67,9 @@ class SqlManager{
         return array();
     }
 
-    
-    public function getPlayerScores() : int{
-        return $this->query("SELECT `SCORES` FROM :PLT WHERE `ID` = :ID;")[0]["SCORES"];
-    }
     public function getPlayerName() : string{
         return $this->query("SELECT `NAME` FROM :PLT WHERE `NAME` = :ID;")[0]["NAME"];
-    }
-    public function getRanking() : string{
-        $this->query("SET @r = 0");
-        return json_encode($this->query(
-            "SELECT * FROM (
-                SELECT `ID`, `SCORES`, `NAME`, @r := @r + 1 AS RANKS
-                FROM :PLT ORDER BY `SCORES` DESC
-            ) AS RANKLIST WHERE `RANKS` < 6 OR `ID` = :ID;"
-        ));
-    }
-
-    
+    }    
 }
 
 
