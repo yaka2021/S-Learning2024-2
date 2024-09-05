@@ -3,14 +3,14 @@
 <script>
 <?php
 //未ログインであればindex.phpに遷移する
-/*
+
 session_start();
 if(empty($_SESSION['username'])){
 	header("Location: f_login.php");
 	exit;
 }
-*/
-$flags = $db->query("SELECT `ID`, `NAME`, `SCORE` FROM :STS;");
+
+$flags = $db->query("SELECT `ID`, `NAME` FROM :STS;");
 $stages = array();
 $length = count($flags);
 for ($i = 1; $i <= $length; $i++){
