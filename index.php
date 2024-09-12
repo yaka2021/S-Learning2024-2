@@ -3,13 +3,14 @@
 <script>
 <?php
 //未ログインであればindex.phpに遷移する
-/*
+
 session_start();
+
 if(empty($_SESSION['username'])){
 	header("Location: f_login.php");
 	exit;
 }
-*/
+
 $flags = $db->query("SELECT `ID`, `NAME`, `SCORE` FROM :STS;");
 $stages = array();
 $length = count($flags);
@@ -87,6 +88,6 @@ const $popQue = [
 	if(isset($_SESSION['nameUpdate'])){
 		include("./_src/modal.php");
 		$_SESSION['nameUpdate'] = null;
-		DisplayModal("ユーザー名の変更が完了しました");
+		DisplayModal("<p class='TextCenter'>ユーザー名の変更が完了しました</p>");
 	}
 ?>

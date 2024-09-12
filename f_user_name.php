@@ -41,7 +41,7 @@
       <form class="a1" action="_background/b_user_name.php" method="post">
         <div class="SingUp_main-div_1-3">
           <label class="SignUp-main-div-label">　現在のユーザー名　</label>
-          <input class="main-div-input" type="text" name="username" required 
+          <input class="main-div-input" type="text" name="username" maxlength="10"  required 
           value=<?php 
           //userManagerクラス宣言済み
           echo userManager::GetUserName();

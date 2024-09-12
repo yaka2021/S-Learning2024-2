@@ -1,6 +1,6 @@
 <?php
 function footerArea($path){
- if($path == "f_user_name" || $path == "obtained_flags"){
+ if($path == "f_user_name" || $path == "obtained_flags" || $path == "practice?app=tutorial" || $path == "level1" || $path == "level2" || $path == "level3"){
 		echo '
 		<footer>
 			<div class="wrapper">
@@ -11,7 +11,7 @@ function footerArea($path){
 				</p>
 			</div>
 		</footer>';
- }else if($path == ("index" || "")){
+ }else{
 		echo '
 		<footer>
 			<div class="wrapper">
@@ -24,5 +24,5 @@ function footerArea($path){
 				</p>
 			</div>
 		</footer>';
- }
+	}
 }

@@ -6,12 +6,12 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 if(isset($_SESSION['userRegist'])){
-    DisplayModal("ユーザー登録が完了しました");
+    DisplayModal("<p class='TextCenter'>ユーザー登録が完了しました</p>");
     unset($_SESSION['userRegist']);
 }
 
 if(isset($_SESSION['nameUpdate'])){
-  DisplayModal("ユーザー名の更新が完了しました");
+  DisplayModal("<p class='TextCenter'>ユーザー名の更新が完了しました</p>");
   unset($_SESSION['nameUpdate']);
 }
 
@@ -32,7 +32,7 @@ if(!empty($_SESSION['error_meg'])){
   foreach($_SESSION['error_meg'] as $error_msg){
     switch($error_msg){
       case "illegalChar":
-          $TotalErrorMsg .= $StartTag."不正な文字列が含まれています".$EndTag;
+          $TotalErrorMsg .= $StartTag."使用できない文字が含まれています".$EndTag;
         break;
       case 'dupUserName':
         $TotalErrorMsg .= $StartTag."そのユーザー名は既に使用されています".$EndTag;
@@ -61,4 +61,5 @@ if(!empty($_SESSION['error_meg'])){
   
   DisplayModal($TotalErrorMsg);
   $_SESSION['error_meg'] = '';
+
 }
