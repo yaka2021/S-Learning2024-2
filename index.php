@@ -11,7 +11,7 @@ if(empty($_SESSION['username'])){
 	exit;
 }
 
-$flags = $db->query("SELECT `ID`, `NAME`, `SCORE` FROM :STS;");
+$flags = $db->query("SELECT `ID`, `NAME` FROM :STS;");
 $stages = array();
 $length = count($flags);
 for ($i = 1; $i <= $length; $i++){

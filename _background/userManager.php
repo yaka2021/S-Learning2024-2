@@ -45,13 +45,15 @@ public static function UpdateName($newName){
     array(":NAME" => $newName))[0];
 
     if(isset($nowName["ID"]) && !isset($dupNameCheck)){
-        $db->query("UPDATE :PLT SET `NAME` = \":NEWNAME\" WHERE
-        `ID` = (SELECT `ID` FROM :PLT WHERE `NAME` =  \":NAME\");",
-            array(":NEWNAME" => $newName,":NAME" => $_SESSION["username"]));
+        $nowNameID = $db->query("SELECT `ID` FROM :PLT WHERE `NAME` =  \":NAME\";",
+	    array(":NAME" => $_SESSION["username"]))[0];
+
+	    $db->query("UPDATE :PLT SET `NAME` = \":NEWNAME\" WHERE `ID` = \":NowNameID\";",
+            array(":NEWNAME" => $newName,":NowNameID" => $nowNameID["ID"]));
 
         $results = $db->query("SELECT `NAME` FROM :PLT WHERE `NAME` =  \":NEWNAME\";",
             array(":NEWNAME" => $newName))[0];
-        
+            
        return $results;
     }
     return false;
