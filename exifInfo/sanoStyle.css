@@ -90,12 +90,17 @@ table.inputForm{
 	background-color: green;
 }
 
-.inputForm input[type="button"]:active{
+.inputForm input[type="button"]:active,.HINT button:active,.inputForm input[type="button"]:disabled,.HINT button:disabled{
 	color: green;
 	border-color: green;
 	background-color: white;
 }
 
-.inputForm input[type="button"]:disabled{
-	background-color: black;
+.HINT button{
+	font-size:large;
+	width:100%;
+	margin: 5px 0;
+	background-color: green;
+	border: 1px solid white;
+	color: white;
 }

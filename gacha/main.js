@@ -1,69 +1,25 @@
 ﻿(function(){
 let $app, $fuwaText = "", $fuwaCnt = 0;
-let $voiceActive = false;
-let $clearFlag = false;
+let $clearFlag1 = false;
+let $clearFlag2 = false;
 
 window.onload = function(){
 	createPixiRenderer();
-	toModeSelect();
+	toTitle();
+	
+	const hints = document.querySelectorAll(".HINT button");
+	for (let i = 0; i < hints.length -1 ; i++){
+		hints[i].onclick = showHint.bind(this, i);
+	}
+
+	setFuwaPop($fuwaLines[0]);
 	setInterval(update, 60);
 }
 
-const toModeSelect = function(){
-	const button1 = createSprite("voice1.png");
-	const button2 = createSprite("voice2.png");
-	const updateButton = sp =>{
-		if (sp.__sanoCnt == 1){
-			sp.scale.x = sp.scale.y = Math.min(sp.scale.y + 0.04, 1.1);
-			sp.alpha = Math.min(sp.alpha + 0.05, 1);
-		}else{
-			sp.scale.x = sp.scale.y = Math.max(sp.scale.y - 0.07, 1);
-			sp.alpha = Math.max(sp.alpha - 0.05, sp.__sanoMax);
-		}
-	}
-	const mouseover = sp => {
-		if (sp.__sanoCnt != 1){
-			sp.__sanoCnt = 1;
-			setFuwaPop(sp == button1 ? "ふわりんのセリフを読み上げます" : "ふわりんのセリフを読み上げません");
-		}
-	}
-	const mouseout  = sp => sp.__sanoCnt = 0;
-	const onclick = sp =>{
-		$voiceActive = sp == button1;
-		const restButton = sp == button1 ? button2 : button1;
-		sp.interactive = false;
-		restButton.interactive = false;
-
-		sp.__sanoUpdate = ()=>{
-			sp.scale.x = sp.scale.y += 0.23;
-			sp.alpha -= 0.05;
-			if (sp.alpha < -1){
-				toTitle();
-				setFuwaPop($fuwaLines[0]);
-			}
-		}
-		restButton.__sanoUpdate = ()=>{
-			restButton.alpha -= 0.2;
-		}
-	}
-	const setCommonAsButton = function(sp){
-		sp.interactive = true;
-		sp.anchor.x = sp.anchor.y = 0.5;
-		sp.alpha = sp.__sanoMax = 0.8;
-		sp.__sanoCnt = 0;
-		sp.on('mouseover',	mouseover.bind(this, sp));
-		sp.on('mouseout',	mouseout.bind(this,  sp));
-		sp.on('click',		onclick.bind(this, sp));
-		sp.__sanoUpdate = updateButton.bind(this,  sp)
-	}
-
-	button1.x = $app.view.width >> 2;
-	button1.y = $app.view.height >> 1;
-	button2.x = button1.x * 3;
-	button2.y = button1.y;
-	setCommonAsButton(button1);
-	setCommonAsButton(button2);
-}
+window.onbeforeunload = function(e) {
+e.preventDefault();
+return '';
+};
 
 const createPixiRenderer = ()=>{
 	$app = new PIXI.Application({
@@ -87,23 +43,18 @@ const setInit = ()=>{
 	}
 }
 
-function setFuwaPop(text){
-	if ($voiceActive) readText(text);
-	$fuwaText = text;
-	$fuwaCnt = 0;
+function showHint(i){
+	if($clearFlag1 == false){
+		setFuwaPop(strFuwaHint[i]);
+	}
+	else{
+		setFuwaPop(strFuwaHint[i + 3]);
+	}
 }
 
-function readText(text){
-	const speak   = new SpeechSynthesisUtterance();
-	speak.text  = text;
-	speak.rate  = 2;
-	speak.pitch = 2;
-	speak.lang  = 'ja-JP';
-	speak.onend = function(){
-		speak.text = "";
-	}
-	speechSynthesis.cancel();
-	speechSynthesis.speak(speak);
+function setFuwaPop(text){
+	$fuwaText = text;
+	$fuwaCnt = 0;
 }
 
 const update = ()=>{
@@ -204,7 +155,7 @@ const setExplainDatum = datum =>{
 const createResult = ()=>{
 	const result = [];
 	let ele = document.getElementById('explainImg');
-	if ($clearFlag = /\/99\.jpg$/.test(ele.src)){
+	if ($clearFlag2 = /\/99\.jpg$/.test(ele.src)){
 		ele = data.filter(datum => datum.rate == 9);
 		for (let i = 0; i < 10; i++){
 			result[i] = ele[Math.floor(Math.random() * ele.length)];
@@ -323,14 +274,20 @@ const toLoadingScene = ()=>{
 		}
 		if (doneCnt == -result.length){
 			if (++zoomF.strength == 30){
-				if ($clearFlag){
+				if ($clearFlag2){
+					const hints = document.querySelectorAll(".HINT button");
+					for (let i = 0; i < hints.length - 1; i++){
+						hints[i].disabled = true;
+					}
 					toClear();
-					PointManager.requestClearFlag(3);
+					PointManager.requestClearFlag(4);
 					setFuwaPop($fuwaLines[5]);
+					window.onbeforeunload = null;
 				}else{
 					toTitle();
-					PointManager.requestClearFlag(2);
+					PointManager.requestClearFlag(3);
 					setFuwaPop($fuwaLines[3]);
+					$clearFlag1 = true;
 					setTimeout(setFuwaPop.bind(this, $fuwaLines[4]), 3500);
 				}
 			}else{
@@ -381,7 +338,6 @@ const toClear = ()=>{
 	}
 }
 
-
 const $fuwaLines = [
 	"こんにちは、ふわりんです！\n今日は１０連ガチャを回していきたいと思います！",
 	"ガチャをまわそうにも石がありませんね……\nお金をかけずに増やせればいいんですが……",
@@ -391,6 +347,15 @@ const $fuwaLines = [
 	"幻のナンバー99がでました！\nFLAG3 クリアです！",
 	"完走した感想ですが、こんなの絶対わかるわけないと思いました。",
 	"ということで本日のガチャは以上となります。\n最後までご視聴、ありがとうございました。",
+];
+
+const strFuwaHint = [
+	"ガチャを回そうとしても石が0個で回せません。石を増やすには？",
+	"石の部分で右クリック。その後「検証(chrome)」をクリックしてみよう。あとは...",
+	"選択された[label id=\"stone\"]の横の数字を変えると...",
+	"ガチャを回した後、ページ右にはガチャの結果の画像が表示されています。\nそこで一つ目のFlagを入手した時のようにしてみると...",
+	"ガチャの結果の画像を右クリック。その後「検証(chrome)」をクリックしてみよう。",
+	"選択された中の[src=\"img/cards/○○.jpg\"]の部分の○○を99に変えると...",
 ];
 
 // 候補

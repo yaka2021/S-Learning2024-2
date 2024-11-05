@@ -3,6 +3,7 @@
 	let popCnt = 0;
 	let roboCnt = 0;
 	let roboFlag = 0;
+	let hintTime = 0; // ヒント表示回数
 	const roboLine = [
 		"みんなでピザをわけるロボ！",
 		"おいしいピザロボ！　みんなよろこぶロボよ！",
@@ -23,16 +24,31 @@
 		setInterval(update,60);
 		const showHint = document.getElementById("showHint");
 		if (showHint){
-			showHint.onclick = onShowHint.bind(this);
+			showHint.onclick = onShowHint.bind(this,showHint);
 		}
 	}
 
-	function onShowHint(){
-		const hints = document.getElementsByClassName("hint");
-		for (let i = 0; i < hints.length; i++){
-			hints[i].style.display = "block";
-		}
+	window.onbeforeunload = function(e) {
+  	e.preventDefault();
+  	return '';
+	};
+
+	function onShowHint(showHint){
+		const newTag = document.createElement("p");
+		newTag.style.textAlign = "left";
+		newTag.innerHTML = "<span>ヒント"+(hintTime+1)+":</span> "+hintText[hintTime++];
+		document.getElementById("hintBox").appendChild(newTag);
+		if (hintTime >= hintText.length){
+			showHint.disabled = true;
+		};
 	}
+
+	const hintText = [
+	`円の面積の公式＝半径×半径×円周率この解を人数でわったものが答え。この式でやってはいけないことは？`,
+	`やってはいけないことすなわち0を掛けてみよう。画面のウィンドウからでは0は入力ができないよ。なら...`,
+	`人数を入力する欄にカーソルを合わせて、右クリック。その後[検証(chrome)]をクリック。そうするとそこに対応した内容が選択されるため、<br>その中の数字に対応している[value]の値を0に変更すると...
+	※もしできないようなら一回リロード(Webサイトの更新)をしてもらえるとできると思います。`
+	];
 
 	function adjustNum(ipt, cm){
 		ipt.value = Math.max(Math.min(parseInt(ipt.value), 127), 1);
@@ -70,9 +86,10 @@
 				cm.value+"cmのピザを"+ipt.value+"人でわけると"+"約".repeat(72)
 			);
 			setTimeout(function(){
-				PointManager.requestClearFlag(4);
+				PointManager.requestClearFlag(6);
 				roboCnt = 0;
 				roboFlag = 2;
+				window.onbeforeunload = null;
 			}, 5000);
 		}
 	}

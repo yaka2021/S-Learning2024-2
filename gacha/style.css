@@ -35,3 +35,21 @@ table{
 	vertical-align: bottom;
 	font-size: x-large
 }
+
+.HINT{
+	width: 8em;
+}
+
+.HINT button{
+	font-size: large;
+	width:100%;
+	margin: 2px 0;
+	background-color: black;
+	border: 2px solid white;
+	color: white;
+	border-radius: 4px;
+}
+
+.HINT button:active, .HINT button:disabled{
+	background-color: green;
+}

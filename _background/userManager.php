@@ -6,13 +6,13 @@ if (!class_exists('SqlManager')) {
 
 class UserManager{
   public static function CreateUser($userName,$password){
-    global $db;
+        global $db;
     $dupNameCheck = $db->query("SELECT `NAME` FROM :PLT WHERE `NAME` = \":NAME\";",
         array(":NAME" => $userName));
 
-    if(empty($dupNameCheck)){
+    if(empty($dupNameCheck)){//ハッシュ化するだけでは甘いので暗号化とキーを生成したい　不十分
         $db->query("INSERT INTO :PLT(`NAME`,`PASSWORD`) VALUES(\":NAME\",\":PASSWORD\");",
-        array(":NAME" => $userName,":PASSWORD" => $password));
+        array(":NAME" => $userName,":PASSWORD" => password_hash($password, PASSWORD_DEFAULT)));
 
         $results = $db->query("SELECT `NAME` FROM :PLT WHERE `NAME` = \":NAME\";",
         array(":NAME" => $userName))[0];
@@ -22,21 +22,28 @@ class UserManager{
 }
 
 public static function UserLogin($userName,$password){
-    global $db;
-    $results = $db->query("SELECT `NAME`,`PASSWORD` FROM :PLT WHERE 
-    `NAME` = \":NAME\" AND `PASSWORD` = \":PASSWORD\";",
-        array(":NAME" => $userName ,":PASSWORD" => $password))[0];
+
+        session_start();
+        $_SESSION["NotOpenLevelMsg"] = "";
+
+        global $db;
+    $results = $db->query("SELECT `NAME`,`PASSWORD` FROM :PLT WHERE `NAME` = \":NAME\";", 
+    array(":NAME" => $userName ))[0];
         
-    if(isset($results["NAME"]) && isset($results["PASSWORD"])){
-        $db->query("UPDATE :PLT SET `TIMESTAMP` = NOW() WHERE `NAME` = \":NAME\" AND `PASSWORD` = \":PASSWORD\" AND TIMESTAMP IS NULL;",
-        array(":NAME" => $results["NAME"],":PASSWORD" => $results["PASSWORD"]));
-        return $results;
+    if(isset($results["NAME"])){
+        //パスワードの復号化　不十分
+        if(password_verify($password,$results['PASSWORD'])){
+            $db->query("UPDATE :PLT SET `TIMESTAMP` = NOW() WHERE `NAME` = \":NAME\" AND 
+            `PASSWORD` = \":PASSWORD\" AND TIMESTAMP IS NULL;",
+            array(":NAME" => $results["NAME"],":PASSWORD" => $results["PASSWORD"]));
+            return $results;
+        }
     }
-    return false;
-}
+    return false;}
 
 public static function UpdateName($newName){
     global $db;
+
     session_start();
     $nowName = $db->query("SELECT `ID` FROM :PLT WHERE `NAME` =  \":NAME\";",
     array(":NAME" => $_SESSION["username"]))[0];
@@ -45,15 +52,14 @@ public static function UpdateName($newName){
     array(":NAME" => $newName))[0];
 
     if(isset($nowName["ID"]) && !isset($dupNameCheck)){
-        $nowNameID = $db->query("SELECT `ID` FROM :PLT WHERE `NAME` =  \":NAME\";",
+ 	$nowNameID = $db->query("SELECT `ID` FROM :PLT WHERE `NAME` =  \":NAME\";",
 	    array(":NAME" => $_SESSION["username"]))[0];
 
 	    $db->query("UPDATE :PLT SET `NAME` = \":NEWNAME\" WHERE `ID` = \":NowNameID\";",
             array(":NEWNAME" => $newName,":NowNameID" => $nowNameID["ID"]));
-
         $results = $db->query("SELECT `NAME` FROM :PLT WHERE `NAME` =  \":NEWNAME\";",
             array(":NEWNAME" => $newName))[0];
-            
+        
        return $results;
     }
     return false;
@@ -61,6 +67,7 @@ public static function UpdateName($newName){
 
 public static function GetUserName(){
     if (session_status() == PHP_SESSION_NONE) {
+
         session_start();
     }
 	return $_SESSION["username"];
@@ -69,6 +76,7 @@ public static function GetUserName(){
 public static function GetTimestamp(){
   global $db;
   if (session_status() == PHP_SESSION_NONE) {
+
     session_start();
   }
   $timeStamp = $db->query("SELECT `TIMESTAMP` FROM :PLT WHERE `NAME` =  \":NAME\";",

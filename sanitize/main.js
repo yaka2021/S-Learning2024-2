@@ -42,6 +42,11 @@
 		}
 	}
 
+	window.onbeforeunload = function(e) {
+  		e.preventDefault();
+  		return '';
+	}
+
 	// ページ描画処理
 	window.onload = function(){
 		setButtons();
@@ -160,13 +165,16 @@ const hintList = [
 	"HTML使えんじゃんｗ<br>scriptタグは使えないみたいだけど",
 	"onclick onhoverじゃ表示されたときっていうのはダメか…<br>となるとあとはonerrorぐらいか？",
 	"onerrorってimgタグで画像読み込み失敗したときに出てくるやつか",
-];
+        "onerrorはHTMLで記述するなら「&lt;img src=\"表示させたい画像のパス\" onerror=\"エラー発生時に行う処理;\"&gt」となるよな",
+	"「&lt;img src=\"\" onerror=\"FLAG();\"&gt;」を投稿すればいいってことか"
+	];
 function addHint(){
 	addComment(hintList[hintCnt], "ヒント"+(++hintCnt));
 	if (hintCnt == hintList.length) hintCnt = 0;
 }
 
 function FLAG(){
-	PointManager.requestClearFlag(7);
+	PointManager.requestClearFlag(10);
+	window.onbeforeunload = null;
 }
 })();

@@ -14,6 +14,13 @@
 </style>
 <script>
 	<?php
+
+	//未ログインであればf_login.phpに遷移する
+        if(!isset($_SESSION['username'])){
+        header("Location: f_login.php");
+        exit;
+        }
+
 	$flags = $db->query("SELECT `ID`, `NAME` FROM :STS;");
 	$stages = array();
 	$length = count($flags);
@@ -39,11 +46,11 @@
 				if ((int) $player_got[$stages[$i++]] == 1){
 					$name = (string) $flag["NAME"];
 				}else{
-					$name = str_repeat("?", strlen($flag["NAME"]));
+					$name = str_repeat("?", 10);
 				}
 				echo ($i % 2 === 0 ? "<tr class='oddTR'>" : "<tr class='evenTR'>");
-				echo "<td class='spaceTD'></td><th>No. " . $flag["ID"] .
-				"</th><td>FLAG={</td><td style='width: 100%;text-align: center;'>{$name}</td><td>}</td>
+				echo "<td class='spaceTD'></td><th>　No." . $flag["ID"] .
+				"　</th><td>FLAG={</td><td style='width: 100%;text-align: center;'>{$name}</td><td>}　</td>
 				<td style='text-align: right'></td>
 				<td class='spaceTD'></td></tr>";
 			}

@@ -3,13 +3,10 @@
 ?>
 <title>ユーザー名変更ページ | S-Learning 2024</title>
 <style>
-  body {
+    main{
+    background: none;
     background-image: url(./_topImg/cyberBack.png);
     animation: popLoop 5s infinite linear;
-  }
-
-  main{
-    background: none;
   }
 
   .header_btn_bottom-left{
@@ -21,6 +18,9 @@
 		top:3px;
 	}
 
+  .b{
+                height:50px;
+   }
   @keyframes popLoop {
   0% {
     background-position-x: 96px
@@ -46,14 +46,15 @@
           //userManagerクラス宣言済み
           echo userManager::GetUserName();
           ?> />
-        </div>
-        <div class="BtnArea">
+	  <div class="BtnArea">
           <input type="submit" class="SigUp-main-div-div_Btn" name="submit" value="変更" />
         </div> 
+	<div class="b"></div>
+        </div>
       </form>
-      <?php include("./_src/_footer.php"); ?>
     </div>
   </main>
+  <?php include("./_src/_footer.php"); ?>
 </body>
 </html>
 

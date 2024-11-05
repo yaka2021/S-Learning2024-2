@@ -3,8 +3,13 @@
     window.onload = function () {
       // ポップの設定
       setPop(strFuwaPop[0]);
-      setInterval(updatePop, 60);
+      setInterval(updatePop, 40);
     };
+
+    window.onbeforeunload = function(e) {
+  e.preventDefault();
+  return '';
+};
   
     let fuwaPopCnt = 0;
     let fuwaPopText = "";
@@ -37,7 +42,8 @@
     document.getElementById("gameClear").onclick = function gameClear() {
       button.disabled = true;
       setPop(strFuwaPop[1]);
-      PointManager.requestClearFlag(11);
+      PointManager.requestClearFlag(1);
+      window.onbeforeunload = null;
     };
   
     const strFuwaPop = [

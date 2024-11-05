@@ -7,12 +7,12 @@
         <div class="confirm_modal__inner">
           <div class="confirm_modal__contents">
             <div class="confirm_modal__content">
-              <p>ログアウトしますか？</p>
-              <button class="confirm_modal-button confirm_js-close-button">
-                キャンセル
+              <p>本当にログアウトしますか？</p>
+	        <button id="ModalLogoutBtn" class="confirm_modal-button">
+                はい
               </button>
-              <button id="ModalLogoutBtn" class="confirm_modal-button">
-                ログアウト
+              <button class="confirm_modal-button confirm_js-close-button">
+                いいえ
               </button>
             </div>
           </div>
