@@ -1,0 +1,4 @@
+3rd HINT
+
+
+選択された[label id="stone"]の横の数字を変えると...

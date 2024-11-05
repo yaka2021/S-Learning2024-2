@@ -1,7 +1,7 @@
 <?php
   $userName = trim($_POST["username"]);
   include("userManager.php");
-  
+
   session_start();
   $ErrorMsgArr = array();
 

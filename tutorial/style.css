@@ -87,13 +87,9 @@ body{
 	background-color: var(--cyber-green);
 }
 
-.link-btn_1-1:hover,
-.main-btn_2-1:hover{
-	opacity: 0.7;
-}
-
 #gameClear:disabled{
-	display:none;
+	background-color: var(--cyber-green) !important;
+	cursor: default;
 }
 
 .popChar{

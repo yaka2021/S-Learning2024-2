@@ -2,7 +2,22 @@
 <title>CTF演習一覧ページ（LEVEL2） | S-Learning 2022</title>
 <script>
 <?php
-$flags = $db->query("SELECT `ID`, `NAME` FROM :STS;");
+$clear_level = StageManager::getClearLevel($_SESSION["username"]);
+
+//レベル2を開放しているか判定する
+if($clear_level < 2){
+	$_SESSION["NotOpenLevelMsg"] = "not_opened_level2";
+	header("location:index.php");
+}
+
+
+//未ログインであればf_login.phpに遷移する
+  if(!isset($_SESSION['username'])){
+    header("Location: f_login.php");
+    exit;
+  }
+
+$flags = $db->query("SELECT `ID`, `NAME`, `SCORE` FROM :STS;");
 $stages = array();
 $length = count($flags);
 for ($i = 1; $i <= $length; $i++){

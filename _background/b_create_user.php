@@ -5,7 +5,6 @@
   $userName = trim($_POST["user_name"]);
   $password = trim($_POST["password"]);
   $passConf = trim($_POST["pass_conf"]);
-
   session_start();
   $ErrorMsgArr = array();
 

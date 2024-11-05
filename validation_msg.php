@@ -2,6 +2,7 @@
 include("_src/modal.php");
 
 if (session_status() == PHP_SESSION_NONE) {
+    session_cache_limiter('nocache');
   session_start();
 }
 

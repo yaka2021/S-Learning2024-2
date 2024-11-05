@@ -12,6 +12,12 @@
 		setInterval(update, 33);
 	}
 
+
+	window.onbeforeunload = function(e) {
+  	e.preventDefault();
+  	return '';
+	};
+
 	// クリア条件
 	function isNumberMatched(){
 		return slotNumber == 65535;
@@ -34,7 +40,8 @@
 
 					const slotTag = document.getElementById("slot");
 					slotTag.style.color = "gold";
-					PointManager.requestClearFlag(5);
+					PointManager.requestClearFlag(7);
+					window.onbeforeunload = null;
 				}else{
 					// はずれの場合
 					buttonFlg = 2;
@@ -79,8 +86,8 @@
 	};
 const hintText = [
 `<span>Math.random</span>という関数は0.0から1.0未満の乱数をランダムで返す処理だ。`,
-`この演習の場合は[65535 × Math.random()]というようにスロットが計算されており、乱数の最大値が0.999...で切り捨てのため65535は絶対に出ないようになっている。`,
-`このページ上で<span>検証</span>-><span>Console</span>に<br>
+`この演習の場合は[65535 × Math.random()]というようにスロットが計算されており、<br>乱数の最大値が0.999...で切り捨てのため65535は絶対に出ないようになっている。`,
+`このページ上で<span>「検証(chrome)」</span>-><span>Console</span>に
 <span>Math.random = function () { return 1 };</span> と打って実行してみよう。`
 ];
 })();
