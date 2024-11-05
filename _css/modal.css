@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+:root{
+	--back-color: #071b15;
+	--clear-color: white;
+	--clear-shadow: #00008888;
+	--cyber-green: #0cee04;
+	--pop-back: black;
+	--text-color1: #0a380a;
+	--text-shadow: #1e9b00;
+}
+
+.layer {
+  background-color: rgba(0, 0, 0, .2);
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  visibility: hidden;
+  width: 100%;
+  z-index: -1;
+}
+
+.layer.is-open {
+  opacity: 1;
+  visibility: visible;
+  z-index: 999;
+}
+
+.layer.is-open .modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 440px;
+  opacity: 0;
+  position: relative;
+  top:250px;
+  visibility: hidden;
+  width: 15%;
+}
+
+.modal__inner {
+  background-color: var(--back-color);
+  border: 3px solid var(--cyber-green);
+  box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+  display: block;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 21px 8px 21px;
+  position: relative;
+}
+
+.modal__content {
+  text-shadow: none;
+  color: red;
+  padding-bottom: 23px;
+  padding-top: 15px;
+}
+
+.TextCenter {
+  text-align: center;
+}
+
+.OKBtn {
+  text-align: center;
+}
+
+.close-button {
+  background-color: var(--text-color1);
+  border: 3px solid var(--cyber-green);
+  color: var(--clear-color);
+  cursor: pointer;
+  font-weight: bold;
+  height: 50px;
+  margin: 0 auto;
+  padding: 5px;
+  text-shadow: 1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+               	      1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+  transition: 0.3s;
+  width: 150px;
+}
+
+.close-button:active{
+	background-color: var(--cyber-green);
+}
+
+.close-button:hover{
+	opacity: 0.7;
+}
+

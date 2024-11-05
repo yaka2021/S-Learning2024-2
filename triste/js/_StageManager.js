@@ -166,7 +166,7 @@ class StageManager{
 	}
 };
 StageManager.DELETE_X = StageManager.minoSize * 7 + 1;
-StageManager.FLAG_TIMES = 10;
+StageManager.FLAG_TIMES = 14;
 
 
 StageManager.setMinos([

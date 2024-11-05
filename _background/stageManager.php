@@ -43,25 +43,57 @@ class StageManager{
 		$a_tag = "<a href=\"practice?app={$key}\">";
 		$star_num = isset($data['RATE']) ? (int) $data['RATE'] : 0;
 		$clearText = StageManager::isStageCleared($key) ? "★" : "";
-		echo "
-<table class='practice'>
-	<tr>
-		<td rowspan='2'>
-			<div class='thumbImg'>
-				{$a_tag}<img src='{$key}/thumb.png' width=\"250\" height=\"172\" alt='thumb'></a>
-			</div>
-		</td>
-		<td>
-			<h3>{$a_tag}{$clearText}{$data['TITLE']}</a></h3>
-			<p class='practiceDesc'>{$data['DESCRIPT']}</p>
-			<p>
-				<span>難易度：</span>
-				<span class='starNum'>" .
-				str_repeat('★', $star_num) . str_repeat('☆', 5 - $star_num) .
-				"</span>
-			</p>
-		</td>
-	</tr>
-</table>";
+		$path_name = pathinfo($_SERVER['REQUEST_URI'], PATHINFO_FILENAME);
+		$level_num = str_replace("level","",$path_name);
+
+	if($data['RATE'] == $level_num){
+			echo "
+			<table class='practice'>
+				<tr>
+					<td rowspan='2'>";
+					//クリアしている場合はthumb_cleared.pngを表示する
+					if($clearText == "★"){
+						echo "<div class='thumbImg'>
+							{$a_tag}<img src='{$key}/thumb_cleared.png' width=\"250\" height=\"172\" alt='thumb'></a>
+						</div>";
+					}else{
+						echo "<div class='thumbImg'>
+							{$a_tag}<img src='{$key}/thumb.png' width=\"250\" height=\"172\" alt='thumb'></a>
+						</div>";
+					}					
+						echo "</td>
+					<td>
+						<h3>{$data['ID']}.{$a_tag}{$data['TITLE']}</a></h3>
+						<p class='practiceDesc'>{$data['DESCRIPT']}</p>
+					</td>
+				</tr>
+			</table>";
+		}	
 	}
+
+	public static function getClearLevel($userName){
+	    	global $db;
+	    	$CLEAR_LEVEL = 0;
+		
+    	   	$results = $db->query("SELECT `STAGE1` AS TUTORIAL_CLEAR_COUNT,
+		(`STAGE2` + `STAGE3` +  `STAGE4` + `STAGE5`) AS LEVEL1_CLEAR_COUNT,
+		(`STAGE6` + `STAGE7` + `STAGE8`) AS LEVEL2_CLEAR_COUNT 
+		FROM :PLT  WHERE  `NAME` = \":NAME\";",
+        	array(":NAME" => $userName ))[0];
+        
+    		if($results["TUTORIAL_CLEAR_COUNT"] > 0){
+			$CLEAR_LEVEL = 1;
+    		}
+		if($results["TUTORIAL_CLEAR_COUNT"] > 0 && $results["LEVEL1_CLEAR_COUNT"] > 0){
+			$CLEAR_LEVEL = 2;
+		}
+		if($results["TUTORIAL_CLEAR_COUNT"] > 0 && $results["LEVEL1_CLEAR_COUNT"] > 0 
+		&& $results["LEVEL2_CLEAR_COUNT"] > 0){
+			$CLEAR_LEVEL = 3;
+		}
+
+    		return $CLEAR_LEVEL;
+	}
+
+
 }

@@ -1,7 +1,17 @@
 <?php include("./_src/_head.php"); ?>
-<title>トップページ | S-Learning 2022</title>
+<title>トップページ | S-Learning 2024</title>
 <script>
+
 <?php
+//未ログインであればindex.phpに遷移する
+
+session_start();
+
+if(empty($_SESSION['username'])){
+	header("Location: f_login.php");
+	exit;
+}
+
 $flags = $db->query("SELECT `ID`, `NAME`, `SCORE` FROM :STS;");
 $stages = array();
 $length = count($flags);
@@ -18,7 +28,7 @@ $allClear = count(array_filter($player_got)) == $length;
 const $popQue = [
 <?php if ($db->isFirstVisit == true){ ?>
 `今日は私のサイトに来てくれてどうもありがとう！@
-大人気アイドル兼サイバーセキュリティマイスターの
+サイバーセキュリティマイスターの
 ふわふわふわりんです！`,
 `皆さんにセキュリティの大切さを知ってもらうために
 このサイトを設立しました！`,
@@ -48,63 +58,75 @@ const $popQue = [
 <?php } ?>
 ];
 </script>
-		<script src="./_src/index.js" type="text/javascript"></script>
-	</head>
+<script src="./_src/index.js" type="text/javascript"></script>
+</head>
 	<body>
 		<?php include("./_src/_header.php") ?>
 		<main>
-			<img src="./_topImg/topPop<?php
-			if ($db->isFirstVisit == true){ echo 2; }else
-			if($allClear){ echo 3; }else{ echo 1; }
-			?>.jpg" alt="top" id="topImage">
+			<img src="./_topImg/topPop2.jpg" alt="top" id="topImage">
 			<div class="fuwaNamePop">
 				<p>サイバーセキュリティマイスター<br><span>ふわりん</span></p>
 			</div>
 			<p id="fuwaPop" style="border-bottom: none"></p>
-			<div id="fuwaPopSpeech">
-				<input type="button" value="喋ってもらう">
+			<h2>難易度選択</h2>
+			<div class="works">
+				<a href="practice?app=tutorial" class="tutorial">チュートリアル</a>
+				<div class="practiceWorks">
+					<?php 
+						$clear_level = StageManager::getClearLevel($_SESSION["username"]);
+						if($clear_level > 0){ //解放されている場合
+							print "<a href='./level1.php'  class='level1'>L E V E L 1</a>";
+						}else{//解放されていない場合
+							print "<a href='./level1.php' class='level1' style='opacity: 0.3'>L E V E L 1</a>";
+						}
+
+						if($clear_level > 1){//解放されている場合
+							print "<a href='./level2.php' class='level2'>L E V E L 2</a>";
+						}else{//解放されていない場合
+							print "<a href='./level2.php' class='level2' style='opacity: 0.3'>L E V E L 2</a>";
+						}
+
+						if($clear_level > 2){
+							print "<a href='./level3.php' class='level3'>L E V E L 3</a>";
+						}else{
+							print "<a href='./level3.php' class='level3' style='opacity: 0.3'>L E V E L 3</a>";
+						}
+					?>
+
+				</div>
 			</div>
-			<h2>CTF演習</h2>
-			<div class="practiceWorks">
-			<?php
-				foreach (StageManager::formatJsonIntoHash() as $key => $data) {
-					StageManager::drawJsonData($key, $data);
-				};
-			?>
-			</div>
-			<h2>手に入れたFLAG</h2>
-			<div class="practiceWorks">
-				<table class="obtainedFlags">
-				<?php
-				$i = 0;
-				foreach ($flags as $flag){
-					if ((int) $player_got[$stages[$i++]] == 1){
-						$name = (string) $flag["NAME"];
-						$price = (string) $flag["SCORE"];
-					}else{
-						$name = str_repeat("?", strlen($flag["NAME"]));
-						$price = "?";
-					}
-					echo ($i % 2 === 0 ? "<tr class='oddTR'>" : "<tr class='evenTR'>");
-					echo "<td class='spaceTD'></td><th>No. " . $flag["ID"] .
-					"</th><td>FLAG={</td><td style='width: 100%;text-align: center;'>{$name}</td><td>}</td>
-					<td style='text-align: right'>{$price}</td>
-					<td>pts</td><td class='spaceTD'></td></tr>";
-				}
-				?>
-				</table>
-			</div>
-			<h2>プレゼン資料</h2>
-			<div class="practiceWorks">
-				<iframe class="demoSlides" src="./demo.pdf" width="640" height="480">
-				</iframe>
-				<p style="width: 100%; text-align: center; font-size: larger;">
-					<a href="./demo.pdf" target="_blank">別タブで見る</a>
-					<br>
-				</p>
-			</div>
-			<?php include("./_src/_ranking.php") ?>
 		</main>
-		<?php include("./_src/_footer.php") ?>
+		<?php include("./_src/_footer.php") ;
+		$path = pathinfo($_SERVER['REQUEST_URI']);
+		footerArea($path["filename"]);
+		?>
 	</body>
 </html>
+<?php
+	if(isset($_SESSION['nameUpdate'])){
+		include("./_src/modal.php");
+		$_SESSION['nameUpdate'] = null;
+		DisplayModal("<p class='TextCenter'>ユーザー名の変更が完了しました</p>");
+	}
+
+	//レベル未開放メッセージ
+	include("_src/modal.php");
+	$message = "";
+	if(strlen($_SESSION["NotOpenLevelMsg"]) > 0){
+		switch($_SESSION["NotOpenLevelMsg"]){
+			case "not_opened_level1":
+				$message = "<p class='TextCenter'>LEVEL1の演習はまだ解放されていません。
+				<br>チュートリアル演習をクリアすると解放されます。</p>";
+				break;
+			case "not_opened_level2":
+				$message = "<p class='TextCenter'>LEVEL2の演習はまだ解放されていません。
+				<br>LEVEL1の演習を1つクリアすると解放されます。</p>";
+				break;
+			case "not_opened_level3":
+				$message = "<p class='TextCenter'>LEVEL3の演習はまだ解放されていません。
+				<br>LEVEL2の演習を1つクリアすると解放されます。</p>";
+			break;
+		}
+		DisplayModal($message);
+		$_SESSION["NotOpenLevelMsg"] = "";
+	}?>

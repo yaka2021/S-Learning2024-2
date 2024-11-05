@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>対応していないブラウザ | S-Learning 2022</title>
+		<title>非対応のブラウザ、デバイスでアクセスした際に表示されるページです | S-Learning 2024</title>
 		<style>
 			main, footer{
 				display: block;
@@ -44,7 +44,7 @@
 	</head>
 	<body>
 		<main>
-			<h1>S-Learning 2022</h1>
+			<h1>S-Learning 2024</h1>
 			<hr>
 			<table>
 				<tr>
@@ -53,21 +53,24 @@
 					</td>
 					<td class="fuwaPop">
 						<p>
-						対応していないブラウザの可能性があります！
-						<br>PCから下記のブラウザで入り直してください。
+						非対応のブラウザ、デバイスでアクセスしています！
+						</p>
+						<p>
+						PCから下記のブラウザでアクセスし直してください。
 						</p>
 						<ul>
 							<li>Google Chrome</li>
 							<li>Firefox</li>
 							<li>Microsoft Edge</li>
 						</ul>
-						<p>(Cookieを有効にしている必要があります)</p>
 					</td>
 				</tr>
 			</table>
-			<button onclick="setIgnore()">それでも進む</button>
 			<hr>
 		</main>
-		<?php include("./_src/_footer.php"); ?>
+		<?php include("./_src/_footer.php") ;
+		$path = pathinfo($_SERVER['REQUEST_URI']);
+		footerArea($path["filename"]);
+		?>
 	</body>
 </html>

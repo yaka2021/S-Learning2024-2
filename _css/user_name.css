@@ -1,0 +1,146 @@
+:root{
+	--text-color1: #0a380a;
+	--text-shadow: #1e9b00;
+	--cyber-green: #0cee04;
+	--clear-color: white;
+	--clear-shadow: #00008888;
+	--back-color: #071b15;
+	--pop-back: black
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url(../cyberBack.png);
+  animation: popLoop 5s infinite linear;
+}
+
+.userName_mainScreen {
+  width: 80%;
+  margin: 100px auto 150px auto;
+  text-align: center;
+}
+
+.SingUp_main-div {
+  margin: 0 auto 80px auto;
+  height: 50px;
+  width: 400px;
+  font-size: 25px;
+  text-align: center;
+  color: #8bc34a;
+  border: 2px solid #8bc34a;
+  background: #1b5e20;
+  padding: 10px;
+
+}
+
+
+.SingUp_main-div_1-3 {
+  margin-top: 20px;
+}
+
+.SignUp-main-div-label {
+  margin-right: 60px;
+  height: 50px;
+  width: 300px;
+  padding: 10px 50px;
+  font-size: 25px;
+  text-align: center;
+  color: #8bc34a;
+  background: #1b5e20;
+}
+
+
+.main-div-input {
+  height: 50px;
+  width: 500px;
+  font-size: 100%;
+  color: rgb(145, 130, 130);
+  border: gray;
+}
+
+.main-div-div_1-1 {
+  height: 60px;
+  width: 250px;
+  margin-right: 200px;
+  font-size: 25px;
+  text-align: center;
+  color: white;
+  border: 2px solid #8bc34a;
+  border-radius: 10px;
+  background: rgb(133, 207, 253);
+  line-height: 60px;
+  font-weight: bold;
+  -webkit-text-stroke: 1px rgb(145, 130, 130);
+}
+
+.SigUp-main-div-div_Btn {
+  height: 60px;
+  width: 280px;
+  padding: 0 20px;
+  font-size: 25px;
+  text-align: center;
+  color: #8bc34a;
+  border-radius: 10px;
+  background: #1b5e20;
+
+
+  border-bottom: 4px solid #179e43;
+  transition: 0.3s;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.4);
+  margin-right: 140px;
+}
+
+.SigUp-main-div-div_Atag {
+  height: 55px;
+  width: 270px;
+  padding: 0 20px;
+  font-size: 25px;
+  text-align: center;
+  color: #8bc34a;
+  border-radius: 10px;
+  background: #1b5e20;
+
+  border-bottom: 4px solid #179e43;
+  transition: 0.3s;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+}
+
+
+.SigUp-main-div-div_Btn:hover {
+  box-shadow: 0 0 rgba(0, 0, 0, 0.4);
+  border-bottom-width: 2px;
+  transform: translateY(2px);
+}
+
+
+.SigUp-main-div-div_Atag:hover {
+  box-shadow: 0 0 rgba(0, 0, 0, 0.4);
+  border-bottom-width: 2px;
+  transform: translateY(2px);
+}
+
+.main-div_SigUpBtn {
+  margin-top: 20px;
+}
+
+.BtnArea {
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+}
+
+span {
+  line-height: 55px;
+}
+
+@keyframes popLoop {
+  0% {
+    background-position-x: 96px
+  }
+
+  100% {
+    background-position-x: 0
+  }
+}

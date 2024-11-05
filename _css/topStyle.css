@@ -14,7 +14,7 @@ body{
 	background-color: var(--back-color);
 	font-family: serif;
 	color: var(--text-color1);
-	font-family: cursive, system-ui
+	font-family: cursive, system-ui;
 }
 
 h2{
@@ -23,17 +23,435 @@ h2{
 	margin: 10px 0 2px
 }
 
+main{
+	background-color: #94cf9a;
+	padding: 0;
+	margin-top: 115px;
+}
+
+
+/*_header.php　ここから*/
+
+header{
+	background-color: var(--back-color);
+	border-bottom: 3px solid var(--cyber-green);
+	padding: 10px 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 5000;
+}
+
+.wrapper{
+	margin: 0 auto;
+	max-width: 1300px;
+	overflow: hidden;
+	width: 100%;
+}
+
+.header_title_top-left{
+	color: var(--clear-color);
+	float: left;
+	font-size: 30px;
+	font-weight: unset;
+	margin: 0 0 0 20px;
+	text-shadow: 1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+				 1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	width: 100%;
+}
+
+.header_link_top-left{
+	color: var(--clear-color);	
+	text-decoration: none;
+}
+
+.header_img_top-left{
+	position: relative;
+	right: 10px;
+	top: 20px;
+}
+
+.header_ul{
+	font-size: 1rem;
+	font-weight: 500;
+	list-style: none;
+	margin: 0 0 0 30px;
+}
+
+.header_user-info_bottom{
+	color: var(--clear-color);	
+	float: left;
+	margin: 10px 20px 0 0;
+	text-shadow: 1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+				 1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+}
+
+.header_user-info_bottom:last-child{
+	position: relative;
+	top: 3px;
+}
+
+.header_btn_bottom-left{
+	background-color: var(--text-color1);
+	border: 3px solid var(--cyber-green);
+	color: var(--clear-color);
+	cursor: pointer;
+	display: inline-block;
+	font-weight: bold;
+	margin-left: 10px;
+	padding: 0 10px;
+	text-decoration: none;
+	text-shadow: 1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+				 1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	transition: 0.3s;
+}
+
+.header_btn_bottom-right{
+	background-color: var(--text-color1);
+	border: 3px solid var(--cyber-green);
+	color: var(--clear-color);
+	cursor: pointer;
+	float: right;
+	font-weight: bold;
+	margin: 10px 60px 0 0;
+	padding: 0 10px;
+	text-decoration: none;
+	text-shadow: 1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+				 1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	transition: 0.3s;
+}
+
+.header_btn_bottom-left:active,.header_btn_bottom-right:active{
+	background-color: var(--cyber-green);
+}
+
+.header_btn_bottom-left:hover,.header_btn_bottom-right:hover{
+	opacity: 0.7;
+}
+
+/*_header.php　ここまで*/
+
+
+/*_footer.php　ここから*/
+
+footer{
+	background-color: var(--back-color);
+	border-top: 3px solid var(--cyber-green);
+	padding: 10px 0;
+	text-align: center;
+	position:relative;
+	z-index:5000;
+}
+
+.wrapper{
+	margin: 0 auto;
+	max-width: 1300px;
+	overflow: hidden;
+	width: 100%;
+}
+
+.footer_btn{
+	background-color: var(--text-color1);
+	border: 3px solid var(--cyber-green);
+	color: var(--clear-color);
+	cursor: pointer;
+	display: inline-block;
+	font-weight: bold;
+	margin: 0 auto;
+	padding: 0 10px;
+	position: relative;
+	text-decoration: none;
+	text-shadow: 1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+				 1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	top: 3px;
+	transition: 0.3s;
+}
+
+.footer_btn:active{
+	background-color: var(--cyber-green);
+}
+
+.footer_btn:hover{
+	opacity: 0.7;
+}
+
+.footer_copyright{
+	color: var(--clear-color);
+	font-size: 1.2rem;
+	font-weight: unset;
+	margin: 10px 0 0 0;
+	text-shadow: 1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+				1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+}
+
+/*_footer.php　ここまで*/
+
+
+/*index.php　ここから*/
+
+#topImage{
+	width:100%;
+	height: 50vh;
+	object-fit: cover;
+	object-position: top;
+	margin-top: 0;
+	display: block;
+	background-color: black;
+}
+
+div.fuwaNamePop{
+	max-width: 1000px;
+	height: 6rem;
+    margin: -6rem auto 0;
+	padding: 0 20px;
+}
+
+div.fuwaNamePop p{
+	white-space: nowrap;
+    display: inline-block;
+	font-size: 1.2rem;
+	color: white;
+	margin: 0;
+	text-shadow:
+	var(--pop-back) 0 0 10px,
+	var(--pop-back) 0 0 10px,
+	var(--pop-back) 0 0 10px,
+	var(--pop-back) 0 0 10px,
+	var(--pop-back) 0 0 10px,
+	var(--pop-back) 0 0 10px;
+	animation: namePop 2s ease-in;
+}
+
+div.fuwaNamePop span{
+	font-size: 2rem;
+}
+
+@keyframes namePop{
+	0%   { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+#fuwaPop{
+	text-align: center;
+	min-height: 5rem;
+	font-size: 14pt;
+	background-color: black;
+	background-image: url(../_topImg/cyberBack.png);
+	background-position-y: -10px;
+	color:var(--cyber-green);
+	border: var(--cyber-green) 3px solid;
+	border-left: none;
+	border-right: none;
+	padding: 20px 0 20px;
+	margin: 0;
+	animation: popLoop 5s infinite linear;
+	text-shadow:
+	1px 1px black, -1px -1px black,
+	-1px 1px black, 1px -1px black;
+}
+
 main h2{
 	border: var(--cyber-green) 3px solid;
 	border-left: none;
 	border-right: none;
-	color: var(--cyber-green);
+	color: var(--clear-color);
+	font-size: 1.5rem;
+	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
     background-color: var(--text-color1);
 	margin: 0;
-	padding: 4px 0;
+	padding: 10px 0 10px 0;
 }
 
-#fuwaPop, .barCvs_wrapper{
+.works{
+	max-width: 1300px;
+    margin: 0 auto;
+	padding: 20px 0 20px 0;
+}
+
+div .practiceWorks{
+	display:flex;
+	justify-content:space-evenly;
+}
+
+.tutorial{
+	width: 250px;
+	margin: 0 auto 20px auto;
+	padding: 20px 20px;
+	display: block;
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: bold;
+    cursor: pointer;
+	background-color: var(--text-color1);
+    color: var(--clear-color);
+    border: 5px solid var(--cyber-green);
+	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+.level1{
+	width: 250px;
+	padding: 20px 20px;
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: bold;
+    cursor: pointer;
+	background-color: var(--text-color1);
+    color: var(--clear-color);
+    border: 5px solid #ffcc80;
+	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+.level2{
+	width: 250px;
+	padding: 20px 20px;
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: bold;
+    cursor: pointer;
+	background-color: var(--text-color1);
+    color: var(--clear-color);
+    border: 5px solid #ef5330;
+	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+.level3{
+	width: 250px;
+	padding: 20px 20px;
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: bold;
+    cursor: pointer;
+	background-color: var(--text-color1);
+    color: var(--clear-color);
+    border: 5px solid #0d47a1;
+	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+.tutorial:active{
+	background-color: var(--cyber-green);
+}
+
+.level1:active{
+	background-color: #ffcc80;
+}
+
+.level2:active{
+	background-color: #ef5330;
+}
+
+.level3:active{
+	background-color: #0d47a1;
+}
+
+.tutorial:hover,
+.level1:hover,
+.level2:hover,
+.level3:hover{
+	opacity: 0.7;
+}
+
+/*index.php　ここまで*/
+
+
+/*f_user_name.php　ここから*/
+
+.userName_mainScreen {
+	text-align: center;
+  }
+  
+  .SingUp_main-div {
+	display: inline-block;
+	margin-top: 45px;
+	width: 400px;
+	font-size: 25px;
+	text-align: center;
+	color: var(--clear-color);
+	border: 3px solid var(--cyber-green);
+	background: #1b5e20;
+	padding: 10px;
+	text-shadow: 1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+				 1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+  }
+  
+  .SignUp-main-div-label {
+	margin-right: 50px;
+	height: 50px;
+	width: 300px;
+	padding: 10px 20px;
+	font-size: 25px;
+	text-align: center;
+	position: relative;
+	top: 4px;
+	color: var(--clear-color);
+	background: #1b5e20;
+	border: 3px solid var(--cyber-green);
+	text-shadow: 1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+				 1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+  }
+  
+  .main-div-input {
+	height: 60px;
+	width: 500px;
+	font-size: 100%;
+	border: gray 2px solid;
+  }
+
+ .SingUp_main-div_1-3{
+       margin-top: 90px;
+}
+  
+  .SigUp-main-div-div_Btn {
+	height: 60px;
+	width: 280px;
+	margin: 0 auto;
+	padding: 0 20px;
+	font-size: 25px;
+	text-align: center;
+	color: var(--clear-color);
+	background: #1b5e20;
+	border: 3px solid var(--cyber-green);
+	transition: 0.3s;
+	text-shadow: 1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+				 1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+	cursor: pointer;
+  }
+  
+  .SigUp-main-div-div_Btn:active {
+	background-color: var(--cyber-green);
+  }
+  
+  .SigUp-main-div-div_Btn:hover {
+	opacity: 0.7;
+  }
+  
+  .BtnArea {
+	margin-top: 90px;
+
+	display: flex;
+	justify-content: center;
+  }
+  
+  span {
+	line-height: 55px;
+  }
+
+/*f_user_name.php　ここまで*/
+
+
+.barCvs_wrapper{
 	text-align: center;
 	min-height: 6em;
 	font-size: 14pt;
@@ -52,155 +470,12 @@ main h2{
 	-1px 1px black, 1px -1px black;
 }
 
-#fuwaPopSpeech{
-	max-width: 1300px;
-    margin: -1.7rem auto 0;
-	text-align: right;
-}
-
-div.fuwaNamePop{
-	max-width: 1000px;
-	height: 6rem;
-    margin: -6rem auto 0;
-	padding: 0 20px;
-}
-
-div.fuwaNamePop p{
-	white-space: nowrap;
-    display: inline-block;
-	font-size: larger;
-	color: white;
-	margin: 0;
-	text-shadow:
-	var(--pop-back) 0 0 4px,
-	var(--pop-back) 0 0 10px,
-	var(--pop-back) 0 0 10px,
-	var(--pop-back) 0 0 10px,
-	var(--pop-back) 0 0 10px,
-	var(--pop-back) 0 0 10px;
-	animation: namePop 2s ease-in;
-}
-
-@keyframes namePop{
-	0%   { opacity: 0; }
-	100% { opacity: 1; }
-}
-
-div.fuwaNamePop span{
-	font-size: xx-large;
-}
-
-#fuwaPopSpeech input{
-    display: inline-block;
-    margin: 0 10px 0 0
-}
-
 @keyframes popLoop{
 	0%{ background-position-x: 96px }
 	100%{ background-position-x: 0}
 }
 
-main{
-	background-color: #94cf9a;
-	padding: 0;
-	margin-top: 90px;
-}
-footer{
-	text-align: center;
-	padding: 20px 0 40px;
-}
-footer a{
-	display: inline-block;
-	margin: 0 auto;
-	color: var(--cyber-green) !important;
-	padding: 0 10px
-}
-#topImage{
-	width:100%;
-	height: 50vh;
-	object-fit: cover;
-	object-position: top;
-	margin-top: 0;
-	display: block;
-	background-color: black;
-}
-.practiceWorks{
-	max-width: 1300px;
-    margin: 0 auto;
-	padding:0;
-}
 
-/* ここから追加 */
-header{
-	width:100%;
-	margin: 0;
-	border-bottom: var(--cyber-green) 2px solid;
-	position: fixed;
-	z-index: 5000;
-	top: 0;
-    background-color: var(--back-color);
-}
-
-header input[type="button"]{
-	position: relative;
-    top: -2px;
-}
-
-header input[type="button"], #fuwaPopSpeech input[type="button"]{
-	color: var(--cyber-green);
-	border: var(--cyber-green) 1px solid;
-	background-color: var(--text-color1);
-}
-
-header input[type="button"]:active, #fuwaPopSpeech input[type="button"]:active{
-	color: var(--text-color1);
-	border: var(--text-color1) 1px solid;
-	background-color: var(--cyber-green);
-}
-
-div.wrapper{
-	overflow: hidden;
-	width: 100%;
-	max-width: 1300px;
-    margin: 0 auto;
-}
-
-header h1 img{
-	position: relative;
-	top: 23px;
-}
-
-header h1{
-	float: left;
-	color:white;
-	font-size: 30px;
-	font-weight: unset;
-	width: 100%;
-	margin: 4px 0 0 0;
-	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
-					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
-}
-header h1 a{
-	color: white !important;
-}
-
-header ul {
-	list-style:none;
-	margin: 28px 0;
-	font-size: 1rem;
-	font-weight: 500;
-	margin-left: 7px;
-}
-header ul li {
-	float: left;
-	text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
-					1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
-	color:white;
-	margin-right: 40px;
-}
-header ul li:last-child {
-	margin-right: 0;
-}
 
 #barCvs{
 	max-width: 100%;

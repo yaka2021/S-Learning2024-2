@@ -1,6 +1,7 @@
 (function(){
 const SLOT_SIZE = 4;
 const SLOT_ANSWER = 7777;
+
 function preloadImages(){
 	for (let i = 1; i <= 9; i++){ new Image("img/"+i+".png"); }
 	new Image("img/5-1.jpg");
@@ -73,7 +74,7 @@ function updateRoll(){
 
 function gameClear(button){
 	const hints = document.querySelectorAll(".HINT button");
-	for (let i = 0; i < hints.length; i++){
+	for (let i = 0; i < hints.length - 1; i++){
 		hints[i].disabled = true;
 	}
 
@@ -83,7 +84,8 @@ function gameClear(button){
 	body.style.transitionDuration = "1s";
 	body.style.backgroundImage = "url(img/5-1.jpg)";
 	setPop(strFuwaPop[2]);
-	PointManager.requestClearFlag(1);
+	PointManager.requestClearFlag(2);
+	window.onbeforeunload = null;
 }
 
 // 初期状態
@@ -98,7 +100,7 @@ window.onload = function(){
 
 	// ヒントボタン
 	const hints = document.querySelectorAll(".HINT button");
-	for (let i = 0; i < hints.length; i++){
+	for (let i = 0; i < hints.length - 1; i++){
 		hints[i].onclick = showHint.bind(this, i);
 	}
 
@@ -106,6 +108,11 @@ window.onload = function(){
 	setPop(strFuwaPop[0]);
 	setInterval(updatePop, 60);
 }
+
+window.onbeforeunload = function(e) {
+e.preventDefault();
+return '';
+};
 
 let fuwaPopCnt = 0;
 let fuwaPopText = "";
@@ -151,7 +158,7 @@ const strFuwaPop = [
 ];
 
 const strFuwaHint = [
-"スロットの画像を右クリックして「検証(Chrome)」または「調査(FireFox)」を押すと、ソースコード上のどこでこの画像を表示してるか確認できるよ！",
+"スロットの画像を右クリックして「検証(Chrome)」または「調査(FireFox)」を押すと、\nソースコード上のどこでこの画像を表示してるか確認できるよ！",
 "<img src=\"img/数字.png\">の数字の部分をダブルクリックして他の数字に変えてみよう！",
 "４つのリールの画像をすべてimg\/7.pngにすると....？",
 ]

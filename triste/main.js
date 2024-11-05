@@ -19,7 +19,15 @@
 			StageManager.whenClear = whenClear.bind(StageManager);
 			GraphicManager.generatePixiScreen();
 		}
-		function whenClear(){ PointManager.requestClearFlag(9); }
+		function whenClear(){
+			PointManager.requestClearFlag(8);
+			window.onbeforeunload = null;
+		 }
+	};
+
+	window.onbeforeunload = function(e) {
+  		e.preventDefault();
+  		return '';
 	};
 
 	window.onload = function(){

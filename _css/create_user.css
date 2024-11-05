@@ -1,0 +1,116 @@
+:root{
+	--text-color1: #0a380a;
+	--text-shadow: #1e9b00;
+	--cyber-green: #0cee04;
+	--clear-color: white;
+	--clear-shadow: #00008888;
+	--back-color: #071b15;
+	--pop-back: black
+}
+
+body {
+  margin: 90px 0 70px 0;
+  padding: 0;
+	background-image: url(../_topImg/cyberBack.png);
+  animation: popLoop 5s infinite linear;
+	font-family: cursive;
+  color: var(--clear-color);
+  text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+					      1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+}
+
+.SingUp_main-div {
+  margin: 0 auto;
+  width: 300px;
+  height: 50px;
+  font-size: 25px;
+  text-align: center;
+  border: 3px solid var(--cyber-green);
+  background: #1b5e20;
+  padding: 10px;
+}
+
+span {
+  line-height: 50px;
+}
+
+.SingUp_main-div_1-3 {
+  text-align: center;
+  margin-top: 70px;
+}
+
+.SignUp-main-div-label {
+  position: relative;
+  top:3px;
+  margin-right: 50px;
+  padding: 10px 20px;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  background: #1b5e20;
+  border: 3px solid var(--cyber-green);
+}
+
+.main-div-input {
+  height: 50px;
+  width: 500px;
+  font-size: 100%;
+  border: gray 3px solid;
+}
+
+.main-div_SigUpBtn {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.SigUp-main-div-div-Btn_1-1 {
+  width:250px;
+  padding: 10px 20px;
+  font-size: 25px;
+  text-align: center;
+  color: var(--clear-color);
+  background: #1b5e20;
+  border: 3px solid var(--cyber-green);
+  text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+					      1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+  transition: 0.3s;
+  margin-right: 200px;
+  cursor: pointer;
+}
+
+.Btn_Atag {
+  text-decoration: none;
+}
+
+.SigUp-main-div-div-Btn_1-2 {
+  padding: 10px 20px;
+  font-size: 25px;
+  text-align: center;
+  color: var(--clear-color);
+  background: #1b5e20;
+  border: 3px solid var(--cyber-green);
+  text-shadow:	1px 1px var(--text-shadow), -1px 1px var(--text-shadow),
+					      1px -1px var(--text-shadow), -1px -1px var(--text-shadow);
+  transition: 0.3s;
+}
+
+.SigUp-main-div-div-Btn_1-1:active,
+.SigUp-main-div-div-Btn_1-2:active{
+  background-color: var(--cyber-green);
+}
+
+.SigUp-main-div-div-Btn_1-1:hover,
+.SigUp-main-div-div-Btn_1-2:hover{
+  opacity: 0.7;
+}
+
+@keyframes popLoop {
+  0% {
+    background-position-x: 96px
+  }
+
+  100% {
+    background-position-x: 0
+  }
+}

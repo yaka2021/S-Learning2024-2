@@ -8,8 +8,8 @@ class SqlManager{
             return new SqlManager();
         }
     }
-    protected function getHostName() : string { return "mysql203.phy.lolipop.lan"; }
-    protected function getDBName() : string { return "LAA1175090-learn"; }
+    protected function getHostName() : string { return "mysql308.phy.lolipop.lan"; }
+    protected function getDBName() : string { return "LAA1175090-learn2024"; }
     protected function getConnectOptions() : string { return ""; }
     protected function getHostInfo() : string {
         $str = "mysql:host=";
@@ -39,57 +39,14 @@ class SqlManager{
         }
     }
 
-    public function setUserId() : void{
-        $cookie_name = $this->cookie_name;
-        if (isset($_COOKIE[$cookie_name])){
-            // COOKIEが正常か
-            $result = $this->decodeUserOnCookie($_COOKIE[$cookie_name]);
-            if (count($result) > 0){
-                $this->player_id = $result[0]["ID"];
-                $this->firstVisitTime = $result[0]["TIMESTAMP"];
-                $this->isFirstVisit = false;
-                return;
-            }
+    public function setUserId() : void{    
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
         }
-        // COOKIEを生成
-        $this->firstVisitTime = (new DateTime())->format('Y-m-d H:i:s');
-        $this->query(
-            "INSERT INTO :PLT(`TIMESTAMP`) VALUES(\":TIMESTAMP\");",
-            array(":TIMESTAMP" => $this->firstVisitTime)
-        );
-        $this->firstVisitTime = $this->firstVisitTime;
-        $this->player_id = (int) $this->pdo->lastInsertId();
-        $user_cookie = $this->encodeUserOnCookie($this->player_id);
-        $this->query(
-            "UPDATE :PLT SET `COOKIE` = \":VAL\", `NAME` = \":NAME\" WHERE `ID` = :ID",
-            array(":VAL" => $user_cookie, ":NAME" => "NO.{$this->player_id}")
-        );
-        $limit = $this->cookieLimitDate();
-        setcookie($cookie_name, $user_cookie, $limit,
-            '/2022', $_SERVER["SERVER_NAME"]
-        );
-        setcookie($cookie_name, $user_cookie, $limit,
-            '/2021', $_SERVER["SERVER_NAME"]
-        );
+        $this->player_id = $this->query("SELECT `ID` FROM :PLT WHERE `NAME` =  \":NAME\";",
+        array(":NAME" => $_SESSION["username"]))[0]["ID"];
     }
-    protected function cookieLimitDate() : int{
-        return time() + 86400 * 31;
-    }
-    protected function encodeUserOnCookie($id) : string{
-        $mul_mod = mt_rand(0x0f, 0x700);
-        $int_mod = mt_rand(0x00f, 0x8ff);
-        $hex = base_convert(
-            ($id + $mul_mod) % $int_mod + $int_mod + $id * 4096, 10, 16
-        );
-        return $hex; //password_hash($hex, PASSWORD_DEFAULT);
-    }
-    protected function decodeUserOnCookie($cache) : array{
-        $results = $this->query(
-            "SELECT `ID`, `TIMESTAMP` FROM :PLT WHERE `COOKIE` = \":VAL\" LIMIT 1;",
-            array(":VAL" => $cache)
-        );
-        return $results;
-    }
+
     public function query($sql, $param = array(), $type = PDO::FETCH_ASSOC) : array{
         if (isset($this->pdo)){
             $param[':ID'] = $this->player_id;
@@ -109,11 +66,13 @@ class SqlManager{
         }
         return array();
     }
+
+    
     public function getPlayerScores() : int{
         return $this->query("SELECT `SCORES` FROM :PLT WHERE `ID` = :ID;")[0]["SCORES"];
     }
     public function getPlayerName() : string{
-        return $this->query("SELECT `NAME` FROM :PLT WHERE `ID` = :ID;")[0]["NAME"];
+        return $this->query("SELECT `NAME` FROM :PLT WHERE `NAME` = :ID;")[0]["NAME"];
     }
     public function getRanking() : string{
         $this->query("SET @r = 0");
@@ -124,6 +83,8 @@ class SqlManager{
             ) AS RANKLIST WHERE `RANKS` < 6 OR `ID` = :ID;"
         ));
     }
+
+    
 }
 
 
