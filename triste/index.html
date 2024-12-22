@@ -33,12 +33,82 @@
 				background: blue;
 			}
 			a{
-    				color: red !important
+    				color: white !important
+			}
+			a:hover{
+    				color: red !important;
 			}
 			main#app{
 				width: 800px;
 				height: 680px;
 			}
+
+.swich_setting {
+  display: none; 
+}
+ 
+.tooltip { 
+  position: relative;
+  cursor: pointer;
+  padding: 0 5px;
+  color: white;
+}
+
+.tooltip:hover{
+  color: red;
+}
+ 
+.description {
+  width: 200px; 
+  position: absolute;
+  top: 80%;
+  left: 130%;
+  transform: translateX(-50%);
+  margin-top: 15px;
+  padding: 8px;
+  border: 4px solid gray;
+  border-radius: 10px;
+  background-color: rgb(52, 47, 53); 
+  font-size: 16px;
+  color: white !important;
+  visibility: hidden; 
+  opacity: 0; 
+  z-index: 1;
+  transition: 0.5s all; 
+}
+ 
+.description::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-bottom: 24px solid gray;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 100%;
+  left: 10%;
+  transform: translateX(-50%);
+}
+ 
+.swich_setting:checked + .tooltip .description{
+  top: 100%;
+  visibility: visible;
+  opacity: 1;
+}
+
+.swich_setting:checked + .tooltip{
+  color: red;
+}
+
+.swich_setting:disabled + .tooltip{
+  opacity: 0.3;
+}
+
+.swich_setting:disabled + .tooltip:hover{
+  color: white;
+  opacity: 0.3;
+  cursor: default;
+}
 		</style>
 	<body>
 		<table>
@@ -53,9 +123,11 @@
 						●矢印キー：<br>移動（上キーで即置き）
 					</p>
 					<h2>攻略情報</h2>
-					<a target="_blank" href="./1stHINT.txt">1st HINT</a><br>
-					<a  target="_blank" href="./2ndHINT.txt">2nd HINT</a><br>
-					<a  target="_blank" href="./3rdHINT.txt">3rd HINT</a><br>
+					<div style= "color:white;">各項目をクリックすると情報を表示します。再度クリックすると情報を非表示にします。</div>
+					<input id="swich1" class="swich_setting" type="checkbox"><label class="tooltip" for="swich1">・クリア条件<span class="description">10回連続でI型（水色）テトリミノを出すこと</span></label><br>
+					<input id="swich2" class="swich_setting" type="checkbox"><label class="tooltip" for="swich2">・1st HINT<span class="description">「トリステ」では、次にどのテトリミノを落下させるかを決める処理に、「Math.random」というJavaScriptの関数を使用しています。Math.random関数は、0から1未満の乱数を生成してくれるよ！</span></label><br>
+					<input id="swich3" class="swich_setting" type="checkbox"><label class="tooltip" for="swich3">・2nd HINT<span class="description">次にどのテトリミノを落下させるかを決めるときに使用する式は、「トリステで登場するテトリミノの種類 * Math.random()」です！次に、この式の計算結果の小数点以下を切り捨てる処理を行うことによって、次にどの色のテトリミノを落下させるかが決まります！「0=赤、1=橙、2=黄、3=黄緑、4=水、5=青、6=紫」のように対応しています！なら...</span></label><br>
+					<input id="swich4" class="swich_setting" type="checkbox"><label class="tooltip" for="swich4">・3rd HINT<span class="description">まずは演習画面の好きな場所を右クリックして、開発者ツールを開きましょう！その後、開発者ツールに表示されている<img src='./img/console.png' alt='コンソールタブ' >のアイコンをクリック。（このアイコンはEdgeを使用した場合に表示されるものです。）次に、「>」の部分をクリックしてからMath.random = function () { return 4/7 }と入力し、ゲームを開始すると...?また、「4/7」の分子の値を0〜6の中の好きな数字に変えてゲームを開始すると...?</span></label><br>
 					<a href="./triste.pdf" target="_blank">この演習の解説を見る</a>
 					<img src="./img/pazzle.png" alt="line" class="line">
 					<table class="tetris-button-panel">

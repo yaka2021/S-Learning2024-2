@@ -48,8 +48,72 @@ table{
 	border: 2px solid white;
 	color: white;
 	border-radius: 4px;
+	cursor: pointer;
 }
 
 .HINT button:active, .HINT button:disabled{
 	background-color: green;
+}
+
+.HINT button:disabled{
+	cursor: default;
+}
+
+
+.tooltip { 
+  cursor: pointer;
+}
+ 
+.balloon_bottom { 
+  width: 300px; 
+  position: absolute;
+  top: 80%; 
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 15px; 
+  padding: 8px;
+  border: 4px solid green;
+  border-radius: 10px; 
+  background-color: white; 
+  font-size: 16px;
+  color: green;
+  visibility: hidden; 
+  opacity: 0; 
+  z-index: 1;
+  transition: 0.5s all; 
+}
+ 
+.balloon_bottom::before { 
+  content: "";
+  width: 0;
+  height: 0;
+  border: 10px solid green;
+  border-bottom: 12px solid white; 
+  position: absolute;
+  bottom: 99%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+ 
+.tooltip:hover .balloon_bottom {
+  top: 100%; 
+  visibility: visible; 
+  opacity: 1; 
+}
+
+@keyframes popCharAnime{
+	0%{
+		opacity:0;
+		top:8px;
+	}
+	100%{
+		opacity:1;
+		top:0;
+	}
+}
+
+.popChar{
+	position:relative;
+	display: inline;
+	animation: 0.3s popCharAnime linear;
 }

@@ -3,6 +3,8 @@ let $app, $fuwaText = "", $fuwaCnt = 0;
 let $clearFlag1 = false;
 let $clearFlag2 = false;
 
+var iii;
+
 window.onload = function(){
 	createPixiRenderer();
 	toTitle();
@@ -44,11 +46,12 @@ const setInit = ()=>{
 }
 
 function showHint(i){
+	iii = i;
 	if($clearFlag1 == false){
 		setFuwaPop(strFuwaHint[i]);
 	}
 	else{
-		setFuwaPop(strFuwaHint[i + 3]);
+		setFuwaPop(strFuwaHint[i + 4]);
 	}
 }
 
@@ -69,8 +72,8 @@ const updateFuwaPop = ()=>{
 	if ($fuwaCnt != $fuwaText.length){
 		const fuwaDiv = document.getElementById('fuwaMessagePop');
 		fuwaDiv.innerText = $fuwaText.slice(0, ++$fuwaCnt);
-	}
-};
+	}	
+}
 
 const isStonesValid = ()=>{
 	const stoneNum = document.getElementById('stone');
@@ -350,12 +353,14 @@ const $fuwaLines = [
 ];
 
 const strFuwaHint = [
-	"ガチャを回そうとしても石が0個で回せません。石を増やすには？",
-	"石の部分で右クリック。その後「検証(chrome)」をクリックしてみよう。あとは...",
-	"選択された[label id=\"stone\"]の横の数字を変えると...",
-	"ガチャを回した後、ページ右にはガチャの結果の画像が表示されています。\nそこで一つ目のFlagを入手した時のようにしてみると...",
-	"ガチャの結果の画像を右クリック。その後「検証(chrome)」をクリックしてみよう。",
-	"選択された中の[src=\"img/cards/○○.jpg\"]の部分の○○を99に変えると...",
+	"ガチャを回すために必要な石の数を100個以上に増やした後、\n「10回召喚」ボタンをクリックすることです！",
+	"演習画面の好きな場所を右クリックして、「検証（Chromeの場合）\n or 調査（Firefoxの場合） or 開発者ツールで調査する（Edgeの場合）」の項目をクリックすると、開発者ツールが使えるよ！",
+	"画面右上に表示されたHTMLの中には\n<label id=\"stone\">0</label>と書かれた部分があります。探してみよう！\n「▶」の部分をクリックすると隠れている部分を見ることができるよ！",
+	"<label id=\"stone\">0</label>の0の部分を100に書き換えると...?",
+	"ページ右に表示されているガチャの結果の画像を幻のナンバー99のものにした後、\n「10回召喚」ボタンをクリックすることです！",
+	"一つ目のFlagを入手した時のように、開発者ツールを開いてみよう！",
+	"画面右上に表示されたHTMLの中から<img src=\"img\/★.png\">\nと書かれた部分を探してみよう！（★はランダムな数字が入ります）\n「▶」の部分をクリックすると隠れている部分を見ることができるよ！",
+	"<img src=\"img\/★.png\">の★の部分をダブルクリックして99に書き替えると....？",
 ];
 
 // 候補

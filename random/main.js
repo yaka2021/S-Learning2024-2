@@ -40,6 +40,14 @@
 
 					const slotTag = document.getElementById("slot");
 					slotTag.style.color = "gold";
+					const button1 = document.getElementById("swich1");
+    					const button2 = document.getElementById("swich2");
+    					const button3 = document.getElementById("swich3");
+    					const button4 = document.getElementById("swich4");
+					button1.disabled = true;
+					button2.disabled = true;
+					button3.disabled = true;
+					button4.disabled = true;
 					PointManager.requestClearFlag(7);
 					window.onbeforeunload = null;
 				}else{
