@@ -63,6 +63,9 @@
 			createAnchors();
 		};
 
+		const clear = document.getElementById("clear");
+		if (clear){ clear.onclick = addClear; }
+
 		const hints = document.getElementById("hints");
 		if (hints){ hints.onclick = addHint; }
 	}
@@ -166,14 +169,23 @@ const hintList = [
 	"onclick onhoverじゃ表示されたときっていうのはダメか…<br>となるとあとはonerrorぐらいか？",
 	"onerrorってimgタグで画像読み込み失敗したときに出てくるやつか",
         "onerrorはHTMLで記述するなら「&lt;img src=\"表示させたい画像のパス\" onerror=\"エラー発生時に行う処理;\"&gt」となるよな",
-	"「&lt;img src=\"\" onerror=\"FLAG();\"&gt;」を投稿すればいいってことか"
+	"「&lt;img src=\"\" onerror=\"FLAG();\"&gt;」をこの掲示板に投稿すればいいってことか"
 	];
+
+function addClear(){
+	addComment("クリア条件はFLAG();を呼び出すことだなｗ", "Thanos");
+}
+
 function addHint(){
 	addComment(hintList[hintCnt], "ヒント"+(++hintCnt));
 	if (hintCnt == hintList.length) hintCnt = 0;
 }
 
 function FLAG(){
+	const button1 = document.getElementById("clear");
+	const button2 = document.getElementById("hints");
+	button1.disabled = true;
+	button2.disabled = true;
 	PointManager.requestClearFlag(10);
 	window.onbeforeunload = null;
 }

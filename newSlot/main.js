@@ -2,6 +2,8 @@
 const SLOT_SIZE = 4;
 const SLOT_ANSWER = 7777;
 
+var iii;
+
 function preloadImages(){
 	for (let i = 1; i <= 9; i++){ new Image("img/"+i+".png"); }
 	new Image("img/5-1.jpg");
@@ -126,23 +128,41 @@ function setPop(text){
 }
 
 function showHint(i){
+	iii = i;
 	setPop(strFuwaHint[i]);
 }
 
 function updatePop(){
 	if (fuwaPopCnt < fuwaPopText.length){
-		const char = fuwaPopText[fuwaPopCnt++];
+		let char;
+		if(iii == 1 && fuwaPopCnt >= 88 && fuwaPopCnt <= 93){
+		char = "<span class='tooltip' style = 'color: aqua; background-color: blue;'>" + fuwaPopText[fuwaPopCnt++] + "<span class='balloon_top'>Webサイトの様々な情報を取得する事ができるツールのこと。名前の通り、エンジニアがWebサイトを開発する際に用いることが多いです！</span></span>";
+		if(fuwaPopCnt == 94){
+		iii = 999;
+		}
+		}
+		else if(iii == 2 && fuwaPopCnt >= 10 && fuwaPopCnt <= 13){
+		char = "<span class='tooltip' style = 'color: aqua; background-color: blue;'>" + fuwaPopText[fuwaPopCnt++] + "<span class='balloon_top'>Webページを作成するために使用する言語のこと。タグと呼ばれる要素で構成されています！タグの例：&lt;img&gt;（画像を表示させるために使用するタグです。）</span></span>";
+		if(fuwaPopCnt == 14){
+		iii = 999;
+		}
+		}
+		else{
+		char = fuwaPopText[fuwaPopCnt++];
+		}
 		const popText = document.getElementById("popText");
-		let element
+		let element;
 		if (char == "\n"){
 			element = document.createElement("br");
-		}else{
+		}
+		else{
 			element = document.createElement("div");
-			element.innerText = char;
+			element.innerHTML = char;
 			element.className = "popChar";
 		}
 		popText.append(element);
 	}
+
 }
 
 const strButton = [
@@ -158,8 +178,10 @@ const strFuwaPop = [
 ];
 
 const strFuwaHint = [
-"スロットの画像を右クリックして「検証(Chrome)」または「調査(FireFox)」を押すと、\nソースコード上のどこでこの画像を表示してるか確認できるよ！",
-"<img src=\"img/数字.png\">の数字の部分をダブルクリックして他の数字に変えてみよう！",
-"４つのリールの画像をすべてimg\/7.pngにすると....？",
-]
+"スロットに表示されている４つの数字をすべて７に揃えた後、「スロットを回す」ボタンをクリックすることです！\n（４つの数字が表示されていない場合は一度スロットを回しましょう）",
+"演習画面の好きな場所を右クリックして、「検証（Chromeの場合）or 調査（Firefoxの場合）\n or 開発者ツールで調査する（Edgeの場合）」の項目をクリックすると、開発者ツールが使えるよ！",
+"画面右上に表示されたHTMLの中には\n<img src=\"img\/★.png\">と書かれた部分が４つあります。探してみよう！（★はランダムな数字が入ります）\n「▶」の部分をクリックすると隠れている部分を見ることができるよ！",
+"<img src=\"img\/★.png\">の★の部分をダブルクリックして7に書き替えると....？",
+];
+
 })();

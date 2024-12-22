@@ -24,9 +24,8 @@ $item = $json[$current_key];
   align-items: center;
 }
 .loader .txt {
-  position: absoute;
+  position: absolute;
   display: inline-block;
-  text-align: center;
   color: var(--clear-color);
   font-size: 50px;
   text-shadow: 1px 1px var(--text-shadow), -1px 1px var(--text-shadow),

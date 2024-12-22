@@ -16,8 +16,16 @@
 			<p id="slot">0</p>
 			<p>
 				<button id="stop">開始</button>
-				<button id="hint">ヒント</button>
-				<a target="_blank" href="./random.pdf"><button>この演習の解説を見る</button></a>
+				<hr>
+				<h2 style = "text-align:center;">攻略情報</h2>
+				<div style = "text-align:center;">各項目をクリックすると情報を表示します。再度クリックすると情報を非表示にします。</div>
+				<p>
+				<input id="swich1" class="swich_setting" type="checkbox"><label class="tooltip" for="swich1">クリア条件<span class="description">スロットを65535で止めること</span></label>
+				<input id="swich2" class="swich_setting" type="checkbox"><label class="tooltip" for="swich2">1st HINT<span class="description">「目押しで２バイト！」では、スロットが回っている際に表示される数字を決める処理に、「Math.random」という<span class='tooltip2' style = 'color: aqua; background-color: blue;'>JavaScript<span class='balloon_top1'>Webサイトの開発において広く使用されているプログラミング言語のことです。JavaScriptを使用すると、Webページに動きをつけることができるよ！</span></span>の<span class='tooltip3' style = 'color: aqua; background-color: blue;'>関数<span class='balloon_top2'>複数の処理をまとめた塊のこと。「関数名();」とすることで、関数を呼び出すことができるよ！</span></span>を使用しています。Math.random関数は、0から1未満の乱数を生成してくれるよ！</span></label>
+				<input id="swich3" class="swich_setting" type="checkbox"><label class="tooltip" for="swich3">2nd HINT<span class="description">スロットが回っているときに表示される数字を求めるために使用する式は、「65535 × Math.random()」です！でも、Math.random関数が生成する乱数は0から1未満（１は出ない）だから、65535は絶対に出ないようになっているよ！なら...</span></label>
+				<input id="swich4" class="swich_setting" type="checkbox"><label class="tooltip" for="swich4">3rd HINT<span class="description">まずは演習画面の好きな場所を右クリックして、開発者ツールを開きましょう！その後、開発者ツールに表示されている<img src='./console.png' alt='コンソールタブ' >のアイコンをクリック。（このアイコンはEdgeを使用した場合に表示されるものです。）次に、「>」の部分をクリックしてから<span class='tooltip4' style = 'color: aqua; background-color: blue;'>Math.random = function () { return 1 };<span class='balloon_top3'>「Math.random関数が生成する値を常に1にする」という意味のスクリプトです。ちなみに、「return 1」の部分は「関数の処理の結果(これを戻り値と言います。)が1である」という意味です！</span></span>と入力し、スロットを回すためのボタンを2回押すと...?</span></label>
+				<a target="_blank" href="./random.pdf">この演習の解説を見る</a>
+				</p>
 			</p>
 		</div>
 		<div id="hintBox"></div>

@@ -13,6 +13,14 @@ body{
 
 h1,p{text-align: center;}
 
+a{
+        color: #141f3e;
+}
+
+a:hover{
+        color: red;
+}
+
 span{
 	color:red;
 	font-weight: bold;
@@ -28,4 +36,200 @@ span{
 #hintbox p{
 	padding: 2px 5px;
 	border-bottom: red 1px solid;
+}
+
+
+.swich_setting {
+  display: none; 
+}
+ 
+.tooltip { 
+  position: relative;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.tooltip:hover{
+  color: red;
+}
+ 
+.description {
+  width: 300px; 
+  position: absolute;
+  top: 80%;
+  left: 210%;
+  transform: translateX(-50%);
+  margin-top: 15px;
+  padding: 8px;
+  border: 4px solid red;
+  border-radius: 10px;
+  background-color: #141f3e; 
+  font-size: 16px;
+  color: white !important;
+  visibility: hidden; 
+  opacity: 0; 
+  z-index: 1;
+  transition: 0.5s all; 
+  text-align: left;
+}
+ 
+.description::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-bottom: 24px solid red;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 100%;
+  left: 10%;
+  transform: translateX(-50%);
+}
+ 
+.swich_setting:checked + .tooltip .description{
+  top: 100%;
+  visibility: visible;
+  opacity: 1;
+}
+
+.swich_setting:checked + .tooltip{
+  color: red;
+}
+
+.swich_setting:disabled + .tooltip{
+  opacity: 0.3;
+}
+
+.swich_setting:disabled + .tooltip:hover{
+  color: #141f3e;
+  opacity: 0.3;
+  cursor: default;
+}
+
+
+.tooltip2 { 
+  cursor: pointer;
+}
+ 
+.balloon_top1 { 
+  width: 300px; 
+  position: absolute;
+  bottom: 80%;
+  left: 65%;
+  transform: translateX(-50%);
+  margin-bottom: 15px; 
+  padding: 8px;
+  border: 4px solid red;
+  border-radius: 10px; 
+  background-color: #141f3e; 
+  font-size: 16px;
+  color: white !important;
+  visibility: hidden; 
+  opacity: 0; 
+  z-index: 1;
+  transition: 0.5s all; 
+}
+ 
+.balloon_top1::before { 
+  content: "";
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top: 24px solid red; 
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tooltip2:hover .balloon_top1 {
+  bottom: 65%; 
+  visibility: visible; 
+  opacity: 1; 
+}
+
+
+
+.tooltip3 { 
+  cursor: pointer;
+}
+ 
+.balloon_top2 { 
+  width: 300px; 
+  position: absolute;
+  bottom: 80%;
+  left: 105%;
+  transform: translateX(-50%);
+  margin-bottom: 15px; 
+  padding: 8px;
+  border: 4px solid red;
+  border-radius: 10px; 
+  background-color: #141f3e; 
+  font-size: 16px;
+  color: white !important;
+  visibility: hidden; 
+  opacity: 0; 
+  z-index: 1;
+  transition: 0.5s all; 
+}
+ 
+.balloon_top2::before { 
+  content: "";
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top: 24px solid red; 
+  position: absolute;
+  top: 100%;
+  left: 30%;
+  transform: translateX(-50%);
+}
+
+.tooltip3:hover .balloon_top2 {
+  bottom: 65%; 
+  visibility: visible; 
+  opacity: 1; 
+}
+
+
+
+.tooltip4 { 
+  cursor: pointer;
+}
+ 
+.balloon_top3 { 
+  width: 300px; 
+  position: absolute;
+  bottom: 80%;
+  left: 75%;
+  transform: translateX(-50%);
+  margin-bottom: 15px; 
+  padding: 8px;
+  border: 4px solid red;
+  border-radius: 10px; 
+  background-color: #141f3e; 
+  font-size: 16px;
+  color: white !important;
+  visibility: hidden; 
+  opacity: 0; 
+  z-index: 1;
+  transition: 0.5s all; 
+}
+ 
+.balloon_top3::before { 
+  content: "";
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top: 24px solid red; 
+  position: absolute;
+  top: 100%;
+  left: 30%;
+  transform: translateX(-50%);
+}
+
+.tooltip4:hover .balloon_top3 {
+  bottom: 45%; 
+  visibility: visible; 
+  opacity: 1; 
 }

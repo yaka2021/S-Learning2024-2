@@ -59,9 +59,11 @@ h2{
     white-space: nowrap;
 }
 a{
-    color: red !important
+    color: white !important;
 }
-
+a:hover{
+    color: red !important;
+}
 .leftTable{
     width: 70%;
 }
@@ -79,4 +81,113 @@ a{
 .rightTable td{
     width: 100%;
     white-space: nowrap;
+}
+
+
+.swich_setting {
+  display: none; 
+}
+ 
+.tooltip { 
+  position: relative;
+  cursor: pointer;
+  padding: 0 5px;
+  color: white;
+}
+
+.tooltip:hover{
+  color: red;
+}
+ 
+.description {
+  width: 300px; 
+  position: absolute;
+  top: 80%;
+  left: 210%;
+  transform: translateX(-50%);
+  margin-top: 15px;
+  padding: 8px;
+  border: 4px solid gray;
+  border-radius: 10px;
+  background-color: rgb(52, 47, 53); 
+  font-size: 16px;
+  color: white !important;
+  visibility: hidden; 
+  opacity: 0; 
+  z-index: 1;
+  transition: 0.5s all; 
+}
+ 
+.description::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-bottom: 24px solid gray;
+  position: absolute;
+  bottom: 100%;
+  left: 5%;
+  transform: translateX(-50%);
+}
+ 
+.swich_setting:checked + .tooltip .description{
+  top: 115%;
+  visibility: visible;
+  opacity: 1;
+}
+
+.swich_setting:checked + .tooltip{
+  color: red;
+}
+
+.swich_setting:disabled + .tooltip{
+  opacity: 0.3;
+}
+
+.swich_setting:disabled + .tooltip:hover{
+  color: white;
+  opacity: 0.3;
+  cursor: default;
+}
+
+
+.tooltip2 { 
+  cursor: pointer;
+}
+ 
+.balloon_top { 
+  width: 225px; 
+  position: absolute;
+  bottom: 80%;
+  left: 75%;
+  transform: translateX(-50%);
+  margin-bottom: 15px; 
+  padding: 8px;
+  border: 4px solid gray;
+  border-radius: 10px; 
+  background-color: rgb(52, 47, 53); 
+  font-size: 16px;
+  color: white !important;
+  visibility: hidden; 
+  opacity: 0; 
+  z-index: 1;
+  transition: 0.5s all; 
+}
+ 
+.balloon_top::before { 
+  content: "";
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top: 24px solid gray; 
+  position: absolute;
+  top: 100%;
+  left: 60%;
+  transform: translateX(-50%);
+}
+
+.tooltip2:hover .balloon_top {
+  bottom: 100%; 
+  visibility: visible; 
+  opacity: 1; 
 }
