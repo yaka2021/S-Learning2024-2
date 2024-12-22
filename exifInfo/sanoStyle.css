@@ -88,6 +88,7 @@ table.inputForm{
 	border-width: 1px;
 	border-color: white;
 	background-color: green;
+	cursor: pointer;
 }
 
 .inputForm input[type="button"]:active,.HINT button:active,.inputForm input[type="button"]:disabled,.HINT button:disabled{
@@ -103,4 +104,53 @@ table.inputForm{
 	background-color: green;
 	border: 1px solid white;
 	color: white;
+	cursor: pointer;
+}
+
+.inputForm input[type="button"]:disabled,.HINT button:disabled{
+	cursor: default;
+}
+
+
+
+
+.tooltip { 
+  cursor: pointer;
+}
+ 
+.balloon_top { 
+  width: 300px; 
+  position: absolute;
+  bottom: 80%; 
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 15px; 
+  padding: 8px;
+  border: 4px solid green;
+  border-radius: 10px; 
+  background-color: white; 
+  font-size: 16px;
+  color: green;
+  visibility: hidden; 
+  opacity: 0; 
+  z-index: 1;
+  transition: 0.5s all; 
+}
+ 
+.balloon_top::before { 
+  content: "";
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top: 24px solid green; 
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+ 
+.tooltip:hover .balloon_top {
+  bottom: 125%; 
+  visibility: visible; 
+  opacity: 1; 
 }

@@ -36,7 +36,7 @@
 	function onShowHint(showHint){
 		const newTag = document.createElement("p");
 		newTag.style.textAlign = "left";
-		newTag.innerHTML = "<span>ヒント"+(hintTime+1)+":</span> "+hintText[hintTime++];
+		newTag.innerHTML = "<span>ヒント"+ (hintTime + 1) +":</span> "+hintText[hintTime++];
 		document.getElementById("hintBox").appendChild(newTag);
 		if (hintTime >= hintText.length){
 			showHint.disabled = true;
@@ -44,6 +44,7 @@
 	}
 
 	const hintText = [
+	`クリア条件は、「ロボットに”異常な数値”を入力してバグらせること」だ。`,
 	`円の面積の公式＝半径×半径×円周率この解を人数でわったものが答え。この式でやってはいけないことは？`,
 	`やってはいけないことすなわち0を掛けてみよう。画面のウィンドウからでは0は入力ができないよ。なら...`,
 	`人数を入力する欄にカーソルを合わせて、右クリック。その後[検証(chrome)]をクリック。そうするとそこに対応した内容が選択されるため、<br>その中の数字に対応している[value]の値を0に変更すると...
@@ -86,6 +87,14 @@
 				cm.value+"cmのピザを"+ipt.value+"人でわけると"+"約".repeat(72)
 			);
 			setTimeout(function(){
+				const button1 = document.getElementById("swich1");
+    				const button2 = document.getElementById("swich2");
+    				const button3 = document.getElementById("swich3");
+    				const button4 = document.getElementById("swich4");
+				button1.disabled = true;
+				button2.disabled = true;
+				button3.disabled = true;
+				button4.disabled = true;
 				PointManager.requestClearFlag(6);
 				roboCnt = 0;
 				roboFlag = 2;

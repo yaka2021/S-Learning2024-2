@@ -21,15 +21,17 @@
 						<h2>操作方法</h2>
 						<table>
 							<tr><th>Z, SPACE,<br>ENTER</th><td>決定</td></tr>
-							<tr><th>X, ESC</th><td>キャンセル</td></tr>
+							<tr><th>X, ESC</th><td>キャンセル<br>メニューを開く</td></tr>
 							<tr><th>矢印キー</th><td>移動</td></tr>
 						</table>
 						<h2>攻略情報</h2>
-						<a target="_blank" href="./1stHINT.txt">1st HINT</a><br>
-						<a  target="_blank" href="./2ndHINT.txt">2nd HINT</a><br>
-						<a  target="_blank" href="./3rdHINT.txt">3rd HINT</a><br>
-						<a  target="_blank" href="./4thHINT.txt">4th HINT</a><br>
-						<a  target="_blank" href="./5thHINT.txt">5th HINT</a><br>
+						<div style= "color:white;">各項目をクリックすると情報を表示します。再度クリックすると情報を非表示にします。</div>
+						<input id="swich1" class="swich_setting" type="checkbox"><label class="tooltip" for="swich1">・クリア条件<span class="description">最強の勇者を作成すること</span></label><br>
+						<input id="swich2" class="swich_setting" type="checkbox"><label class="tooltip" for="swich2">・1stHINT<span class="description">「復活の呪文解析」では、パスワードを<span class='tooltip2' style = 'color: aqua; background-color: blue;'>１６進数<span class='balloon_top'>数の数え方の１つで、１６進数では０～１５までを一つの桁で表し、１０進数（我々が普段使用している数の数え方）で１６になると１０進数と同様に桁が上がって10と表記します。１６進数では0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,Fというように数えます！</span></span>の番号として扱っています。パスワードには、主人公の強さや位置などの情報が含まれていて、プレイヤーにこのパスワードをタイトル画面の「PASSWORD」を選択後の画面に入力させることで状況を復元しているよ。まずはゲームを始めて主人公を動かしてみて、いろいろなパスワードを生成してみよう！</span></label><br>
+						<input id="swich3" class="swich_setting" type="checkbox"><label class="tooltip" for="swich3">・2ndHINT<span class="description">ゲームを開始してメニューを開いて、最初に確認できるパスワードは「011C0804?01」。ここから一歩左に歩くと「011C0704(? - 1)01」。ゲームをリセットしてまた一歩左に動くとパスワードは「011C0704(? - 1)01」。初期位置に戻ってから右に動くと「011C0904(? - 3)01」。つまり、６桁目と９桁目の数字の意味は...（ゲーム開始時に?の部分に入っている数字はプレイヤーにより異なります。）</span></label><br>
+						<input id="swich4" class="swich_setting" type="checkbox"><label class="tooltip" for="swich4">・3rdHINT<span class="description">2ndHINTの情報から、パスワードの６桁目の数字は主人公のX座標(MAPの左から何番目の列に主人公がいるか表す情報)だと推測できます。また、パスワードの９桁目の数字は左に歩いても右に歩いても減り続けています。つまり...</span></label><br>
+						<input id="swich5" class="swich_setting" type="checkbox"><label class="tooltip" for="swich5">・4thHINT<span class="description">パスワードの９桁目の数字が0になるまで歩いてみるとエンカウント(敵と遭遇)しました。つまり、パスワードの９桁目の数字は次のエンカウントまでの歩数だと推測できます。今度は敵と戦ってみましょう。そうするとだいぶパスワードが変わるはずです！</span></label><br>
+						<input id="swich6" class="swich_setting" type="checkbox"><label class="tooltip" for="swich6">・5thHINT<span class="description">初期状態の主人公のレベルが１、HPが２８、戦闘終了時はレベルが２、HPが５という前提でパスワードを見てみると、先頭二桁がレベル、次の二桁がHPというように対応していることがわかります。次の桁はX座標を指していたことが既にわかっています。また、通常X座標とY座標(MAPの上から何番目の行に主人公がいるか表す情報)は近くに保存されることが多いので、次の数字がY座標であることも推測できます。最後の２桁はこれまでの結果から常に変わっていないため謎です。加えて、２桁の１６進数で表すことのできる最大の数はFFで、これを１０進数に直すと２５５となります。以上のことから、最強の主人公を作成したいのなら「FFFF0804F01」と入力すれば良いことが分かります！詳しい解説は「攻略情報PDF」を見てね！</span></label><br>
 						<a href="./walkthrough.pdf" target="_blank">この演習の解説を見る</a>
 					</td>
 					<table class="controller"></table>

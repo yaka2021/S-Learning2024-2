@@ -88,7 +88,7 @@ body{
 }
 
 #gameClear:disabled{
-	background-color: var(--cyber-green) !important;
+	opacity: 0.3;
 	cursor: default;
 }
 

@@ -50,7 +50,7 @@ else{
 		echo '
 		<footer>
 			<div class="wrapper">
-				<a href="#" class="footer_btn">
+				<a target="_blank" href="https://forms.gle/dfQa7v4QzFh53qMr7" class="footer_btn">
 					アンケートはこちら
 				</a>
 				<p class="footer_copyright">

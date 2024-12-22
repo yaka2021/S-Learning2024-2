@@ -5,6 +5,13 @@
   		return '';
 	};
 
+    const button1 = document.getElementById("swich1");
+    const button2 = document.getElementById("swich2");
+    const button3 = document.getElementById("swich3");
+    const button4 = document.getElementById("swich4");
+    const button5 = document.getElementById("swich5");
+    const button6 = document.getElementById("swich6");
+
     window.onload = function(){
     	GameManager.initialize();
     	CANVAS = document.getElementById("screen");
@@ -154,6 +161,12 @@
     			10 < $gamePlayer.level && 0 < $gamePlayer.hp
     		)
     		PointManager.requestClearFlag(9);
+		button1.disabled = true;
+		button2.disabled = true;
+		button3.disabled = true;
+		button4.disabled = true;
+		button5.disabled = true;
+		button6.disabled = true;
 		window.onbeforeunload = null;
     	}
     

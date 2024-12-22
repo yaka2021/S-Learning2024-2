@@ -35,12 +35,19 @@
 						</td>
 					</tr>
 				</table>
-			</div>
+				<hr>
+				<h2 style = "color:brown; text-align:center;">攻略情報</h2>
+				<div style = "color:brown; text-align: center;">各項目をクリックすると情報を表示します。再度クリックすると情報を非表示にします。</div>
+				<p style = "text-align: center;">
+				<input id="swich1" class="swich_setting" type="checkbox"><label class="tooltip" for="swich1">クリア条件<span class="description" style = "text-align: left;">ロボットをバグらせること</span></label>
+				<input id="swich2" class="swich_setting" type="checkbox"><label class="tooltip" for="swich2">1st HINT<span class="description" style = "text-align: left;">「ピザシェアリング」では、ピザ全体の面積をシェアする人数で割ることによって一人当たりのピザの面積を求めています。この式は「（半径×半径×円周率（3.14）） ÷ 人数」で表すことができます。まずはこの式でやってはいけないことは何かを考えてみよう！</span></label>
+				<input id="swich3" class="swich_setting" type="checkbox"><label class="tooltip" for="swich3">2nd HINT<span class="description" style = "text-align: left;">一人当たりのピザの面積を求める式でやってはいけないこととは、0で割ること。（人数の値を0にすること。）ちなみに、通常の方法では人数の欄に0を入力することはできないよ。なら...</span></label>
+				<input id="swich4" class="swich_setting" type="checkbox"><label class="tooltip" for="swich4">3rd HINT<span class="description" style = "text-align: left;">まずは演習画面の好きな場所を右クリックして、開発者ツールを開こう。その後、画面右上に表示されるHTMLの中から、"ipt_num"というidが付与されている<span class='tooltip2' style = 'color: aqua; background-color: blue;'>inputタグ<span class='balloon_top1'>HTMLのタグの1つで、さまざまな種類の入力欄を作るために使います。文字列の入力欄だけでなく、チェックボックスやファイルのアップロードボタンも作ることができます！</span></span>を探そう。次に、そのタグの<span class='tooltip3' style = 'color: aqua; background-color: blue;'>value属性<span class='balloon_top2'>入力欄の初期値や現在の値を設定するために使用するHTMLの属性のことです！。</span></span>の値を0に変更し、「面積計算」ボタンを押すと...?※値の変更が演習画面に反映されない場合、このページをリロードしてから値の変更をやり直してみてね！</span></label>
+				<a target="_blank" href="./division.pdf">この演習の解説を見る</a>
+				</p>
 			<hr>
 			<p class="sanoCopyright">
 				©2021 ISC S-Learning
-				<input type="button" value="ヒントをみる" id="showHint">
-				<a target="_blank" href="./walkthrough.pdf"><button id="showPdf">この演習の解説を見る</button></a>
 			</p>
 			<div id="hintBox"></div>
 		</main>

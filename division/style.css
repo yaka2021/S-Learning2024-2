@@ -19,6 +19,14 @@ hr{
 	border-bottom: 2px solid brown;
 }
 
+a{
+	color:brown;
+}
+
+a:hover{
+	color:red;
+}
+
 .sanoCopyright{
 	color:brown;
 	text-align: center;
@@ -54,10 +62,12 @@ input,#showPdf{
 	color:yellow;
 	background-color: red;
 	border-color: brown;
+	cursor: pointer;
 }
 
 input:disabled{
 	opacity:0.3;
+	cursor: default;
 }
 
 .parameter{
@@ -139,4 +149,158 @@ table{
 canvas{
 	margin: 0 auto;
     display: block;
+}
+
+
+.swich_setting {
+  display: none; 
+}
+ 
+.tooltip { 
+  position: relative;
+  cursor: pointer;
+  padding: 0 5px;
+  color: brown;
+}
+
+.tooltip:hover { 
+  color: red;
+}
+ 
+.description {
+  width: 300px; 
+  position: absolute;
+  top: 80%;
+  left: 210%;
+  transform: translateX(-50%);
+  margin-top: 15px;
+  padding: 8px;
+  border: 4px solid brown;
+  border-radius: 10px;
+  background-color: red; 
+  font-size: 16px;
+  color: yellow !important;
+  visibility: hidden; 
+  opacity: 0; 
+  z-index: 1;
+  transition: 0.5s all; 
+}
+ 
+.description::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-bottom: 24px solid brown;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 100%;
+  right: 90%;
+  transform: translateX(-50%);
+}
+ 
+.swich_setting:checked + .tooltip .description{
+  top: 100%;
+  visibility: visible;
+  opacity: 1;
+}
+
+.swich_setting:checked + .tooltip{
+  color: red;
+}
+
+.swich_setting:disabled + .tooltip{
+  opacity: 0.3;
+}
+
+.swich_setting:disabled + .tooltip:hover{
+  color: brown;
+  opacity: 0.3;
+  cursor: default;
+}
+
+
+
+.tooltip2 { 
+  cursor: pointer;
+}
+ 
+.balloon_top1 { 
+  width: 300px; 
+  position: absolute;
+  bottom: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 15px; 
+  padding: 8px;
+  border: 4px solid brown;
+  border-radius: 10px; 
+  background-color: red; 
+  font-size: 16px;
+  color: yellow !important;
+  visibility: hidden; 
+  opacity: 0; 
+  z-index: 1;
+  transition: 0.5s all; 
+}
+ 
+.balloon_top1::before { 
+  content: "";
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top: 24px solid brown; 
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tooltip2:hover .balloon_top1 {
+  bottom: 65%; 
+  visibility: visible; 
+  opacity: 1; 
+}
+
+
+
+.tooltip3 { 
+  cursor: pointer;
+}
+ 
+.balloon_top2 { 
+  width: 300px; 
+  position: absolute;
+  bottom: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 15px; 
+  padding: 8px;
+  border: 4px solid brown;
+  border-radius: 10px; 
+  background-color: red; 
+  font-size: 16px;
+  color: yellow !important;
+  visibility: hidden; 
+  opacity: 0; 
+  z-index: 1;
+  transition: 0.5s all; 
+}
+ 
+.balloon_top2::before { 
+  content: "";
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top: 24px solid brown; 
+  position: absolute;
+  top: 100%;
+  left: 30%;
+  transform: translateX(-50%);
+}
+
+.tooltip3:hover .balloon_top2 {
+  bottom: 55%; 
+  visibility: visible; 
+  opacity: 1; 
 }

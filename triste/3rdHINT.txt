@@ -1,3 +1,0 @@
-3rd HINT
-
-トリステのページ上で「検証(chrome)」->ConsoleにMath.random = function(){ return 4/7 };と打って実行してみよう。

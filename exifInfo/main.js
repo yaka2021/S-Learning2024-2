@@ -1,5 +1,6 @@
 (function(){
 	// 初期状態
+	var iii;
 	window.onload = function(){
 		// ポップの設定
 		setPop(strFuwaPop[0]);
@@ -39,14 +40,23 @@
 
 	function updatePop(){
 		if (fuwaPopCnt < fuwaPopText.length){
-			const char = fuwaPopText[fuwaPopCnt++];
+			let char;
+			if(iii == 2 && fuwaPopCnt >= 0 && fuwaPopCnt <= 7){
+			char = "<span class='tooltip' style = 'color: aqua; background-color: blue;'>" + fuwaPopText[fuwaPopCnt++] + "<span class='balloon_top'>ファイル管理ができるアプリケーションのこと。\n 画面下部の<img src='./explorer.png' alt='エクスプローラー' >のアイコンをクリックすると開くことが出来ます！(このアイコンはWindows10を使用した場合のものです。)また、ダウンロードした画像は通常「ダウンロード」の項目に格納されているよ！</span></span>";
+			if(fuwaPopCnt == 8){
+			iii = 999;
+			}
+			}
+			else{
+			char = fuwaPopText[fuwaPopCnt++];
+			}
 			const popText = document.getElementById("popText");
 			let element
 			if (char == "\n"){
 				element = document.createElement("br");
 			}else{
 				element = document.createElement("div");
-				element.innerText = char;
+				element.innerHTML = char;
 				element.className = "popChar";
 			}
 			popText.append(element);
@@ -72,6 +82,7 @@
 	}
 
 	function showHint(i){
+		iii = i;
 		setPop(strFuwaHint[i]);
 	}
 
@@ -96,8 +107,9 @@ const strFuwaPop = [
 ];
 
 const strFuwaHint = [
-	"左の画像を右クリックして[名前を付けて画像を保存]をクリックして\nダウンロードしてみよう",
-	"ダウンロードした画像を右クリックしてプロパティを開いてみよう",
-	"プロパティの中の詳細ボタンを押してみると..."
+	"左に表示されている画像を撮影した場所を特定した後、その場所の\n名前を下部の入力欄に入力し、「答える」ボタンを押すことです！",
+	"左に表示されている画像を右クリックした後、「名前を付けて画像を保存」\nの項目をクリックしてダウンロードしてみよう！",
+	"エクスプローラーを開いてダウンロードした画像（IMG_6621.jpg）を\n右クリックした後、「プロパティ」の項目をクリックしてみよう！",
+	"プロパティ画面の上部にある詳細ボタンをクリックすると...？"
 ];
 })();
