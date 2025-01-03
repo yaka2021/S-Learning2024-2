@@ -1,26 +1,31 @@
 <?php
 include("_src/modal.php");
 
+//セッションは有効になっているか
 if (session_status() == PHP_SESSION_NONE) {
     session_cache_limiter('nocache');
-  session_start();
+    session_start();
 }
 
+//正常にユーザー登録が出来たか
 if(isset($_SESSION['userRegist'])){
     DisplayModal("<p class='TextCenter'>ユーザー登録が完了しました</p>");
     unset($_SESSION['userRegist']);
 }
 
+//正常にユーザー名更新が出来たか
 if(isset($_SESSION['nameUpdate'])){
-  DisplayModal("<p class='TextCenter'>ユーザー名の更新が完了しました</p>");
-  unset($_SESSION['nameUpdate']);
+    DisplayModal("<p class='TextCenter'>ユーザー名の更新が完了しました</p>");
+    unset($_SESSION['nameUpdate']);
 }
 
+//表示するエラーメッセージはないか
 if(!empty($_SESSION['error_meg'])){
   $TotalErrorMsg = "";
 
   $StartTag = "<br>";
   $EndTag = "";
+  //表示するエラーメッセージ数は1より大きいか
   if(count($_SESSION['error_meg']) > 1){
     $TotalErrorMsg = "<ul>";
     $StartTag = "<li>";
@@ -30,6 +35,7 @@ if(!empty($_SESSION['error_meg'])){
     $EndTag = "</p>";
   }
 
+  //エラーメッセージ用のHTML要素を作成
   foreach($_SESSION['error_meg'] as $error_msg){
     switch($error_msg){
       case "illegalChar":
@@ -56,10 +62,12 @@ if(!empty($_SESSION['error_meg'])){
     }
   }
 
+  //表示するエラーメッセージ数は1より大きいか
   if(count($_SESSION['error_meg']) > 1){
     $TotalErrorMsg .= "</ul>";
   }
   
+  //エラーメッセージ表示
   DisplayModal($TotalErrorMsg);
   $_SESSION['error_meg'] = '';
 
