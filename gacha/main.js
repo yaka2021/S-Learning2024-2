@@ -3,7 +3,7 @@ let $app, $fuwaText = "", $fuwaCnt = 0;
 let $clearFlag1 = false;
 let $clearFlag2 = false;
 
-var iii;
+var tooltip_p = 999; //ツールチップのパターン名
 
 window.onload = function(){
 	createPixiRenderer();
@@ -18,6 +18,7 @@ window.onload = function(){
 	setInterval(update, 60);
 }
 
+//演習中にブラウザの×ボタンやページ移動ボタンを押した際に警告画面を出す
 window.onbeforeunload = function(e) {
 e.preventDefault();
 return '';
@@ -46,7 +47,7 @@ const setInit = ()=>{
 }
 
 function showHint(i){
-	iii = i;
+	tooltip_p = i; //ツールチップのパターン名をセット
 	if($clearFlag1 == false){
 		setFuwaPop(strFuwaHint[i]);
 	}
@@ -283,11 +284,14 @@ const toLoadingScene = ()=>{
 						hints[i].disabled = true;
 					}
 					toClear();
+					//FLAG4取得
 					PointManager.requestClearFlag(4);
 					setFuwaPop($fuwaLines[5]);
+					//ブラウザの×ボタンやページ移動ボタンを押しても警告画面が出ないようにする
 					window.onbeforeunload = null;
 				}else{
 					toTitle();
+					//FLAG3取得
 					PointManager.requestClearFlag(3);
 					setFuwaPop($fuwaLines[3]);
 					$clearFlag1 = true;

@@ -3,7 +3,7 @@
     <h1 class="header_title_top-left">
       <a href="./" class="header_link_top-left">
         <img
-          src="_topImg/favicon.ico"
+          src="./_topImg/favicon.ico"
           alt="icon"
           width="50"
           height="50"

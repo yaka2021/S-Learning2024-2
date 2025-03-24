@@ -451,35 +451,9 @@ div .practiceWorks{
 /*f_user_name.php　ここまで*/
 
 
-.barCvs_wrapper{
-	text-align: center;
-	min-height: 6em;
-	font-size: 14pt;
-	background-color: black;
-	background-image: url(../_topImg/cyberBack.png);
-	background-position-y: -10px;
-	color:var(--cyber-green);
-	border: var(--cyber-green) 3px solid;
-	border-left: none;
-	border-right: none;
-	padding: 20px 0 10px;
-	margin: 0;
-	animation: popLoop 5s infinite linear;
-	text-shadow:
-	1px 1px black, -1px -1px black,
-	-1px 1px black, 1px -1px black;
-}
-
 @keyframes popLoop{
 	0%{ background-position-x: 96px }
 	100%{ background-position-x: 0}
-}
-
-
-
-#barCvs{
-	max-width: 100%;
-	margin: 0px auto;
 }
 
 ::-webkit-scrollbar {
@@ -495,33 +469,6 @@ div .practiceWorks{
 	background-color: transparent
 }
 
-.barCvs_wrapper table{
-	margin: 0 auto;
-}
-.barCvs_wrapper td *{
-	text-align: center;
-    display: block;
-	filter: drop-shadow(0 0 6px black);
-	-webkit-filter: drop-shadow(0 0 6px black);
-	-moz-filter: drop-shadow(0 0 6px black);
-	-ms-filter: drop-shadow(0 0 6px black);
-}
-#reload{
-	width: 100%;
-	min-width: 64px;
-	max-width: 128px;
-	height: 100%;
-	vertical-align: top;
-	user-drag: none;
-	-webkit-user-drag: none;
-	-moz-user-select: none;
-}
-
-@keyframes reloading{
-	0% { transform: rotate(0deg); }
-	100% { transform: rotate(-360deg); }
-}
-
 .obtainedFlags{
 	font-size: larger;
 	max-width: 800px;
@@ -531,11 +478,7 @@ div .practiceWorks{
 
 .obtainedFlags td, .obtainedFlags th{
 	white-space: nowrap;
-	/*
-	border-bottom: 1px solid var(--text-color1);
-	*/
 }
-
 
 #ClearEffect{
 	padding: 10px 8px;
@@ -585,8 +528,4 @@ div .practiceWorks{
 	width: 32px;
 	max-width: 48px;
 	min-width: 12px
-}
-
-.demoSlides{
-	width: 100%
 }

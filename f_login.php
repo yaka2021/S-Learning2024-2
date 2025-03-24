@@ -7,7 +7,7 @@
     <body>
         <main>            
             <div class="SignIn_main-div">
-                <img src="_topImg/favicon.ico" alt="icon" width="50" height="50"><span>S-Learning 2024</span>
+                <img src="./_topImg/favicon.ico" alt="icon" width="50" height="50"><span>S-Learning 2024</span>
             </div>
             <form action="_background/b_login.php" method="post">
                 <div class="SignIn_main-div_1-3">

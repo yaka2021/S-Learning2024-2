@@ -1,5 +1,5 @@
 <?php include("./_src/_head.php"); ?>
-<title>手に入れたFLAGの確認ページ | S-Learning 2024</title>
+<title>手に入れたFLAGの確認用ページ | S-Learning 2024</title>
 <style>
 
 	.header_btn_bottom-right:last-child{
@@ -16,10 +16,10 @@
 	<?php
 
 	//未ログインであればf_login.phpに遷移する
-        if(!isset($_SESSION['username'])){
+    if(!isset($_SESSION['username'])){
         header("Location: f_login.php");
         exit;
-        }
+    }
 
 	$flags = $db->query("SELECT `ID`, `NAME` FROM :STS;");
 	$stages = array();
@@ -43,9 +43,12 @@
 			<?php
 			$i = 0;
 			foreach ($flags as $flag){
+				//クリア済みなら対応するFLAGの名前を表示
 				if ((int) $player_got[$stages[$i++]] == 1){
 					$name = (string) $flag["NAME"];
-				}else{
+				}
+				//未クリアなら?を10個表示
+				else{
 					$name = str_repeat("?", 10);
 				}
 				echo ($i % 2 === 0 ? "<tr class='oddTR'>" : "<tr class='evenTR'>");

@@ -2,7 +2,7 @@
 const SLOT_SIZE = 4;
 const SLOT_ANSWER = 7777;
 
-var iii;
+var tooltip_p = 999; //ツールチップのパターン名
 
 function preloadImages(){
 	for (let i = 1; i <= 9; i++){ new Image("img/"+i+".png"); }
@@ -86,7 +86,9 @@ function gameClear(button){
 	body.style.transitionDuration = "1s";
 	body.style.backgroundImage = "url(img/5-1.jpg)";
 	setPop(strFuwaPop[2]);
+	//FLAG2取得
 	PointManager.requestClearFlag(2);
+	//ブラウザの×ボタンやページ移動ボタンを押しても警告画面が出ないようにする
 	window.onbeforeunload = null;
 }
 
@@ -111,6 +113,7 @@ window.onload = function(){
 	setInterval(updatePop, 60);
 }
 
+//演習中にブラウザの×ボタンやページ移動ボタンを押した際に警告画面を出す
 window.onbeforeunload = function(e) {
 e.preventDefault();
 return '';
@@ -128,23 +131,23 @@ function setPop(text){
 }
 
 function showHint(i){
-	iii = i;
+	tooltip_p = i; //ツールチップのパターン名をセット
 	setPop(strFuwaHint[i]);
 }
 
 function updatePop(){
 	if (fuwaPopCnt < fuwaPopText.length){
 		let char;
-		if(iii == 1 && fuwaPopCnt >= 88 && fuwaPopCnt <= 93){
+		if(tooltip_p == 1 && fuwaPopCnt >= 88 && fuwaPopCnt <= 93){
 		char = "<span class='tooltip' style = 'color: aqua; background-color: blue;'>" + fuwaPopText[fuwaPopCnt++] + "<span class='balloon_top'>Webサイトの様々な情報を取得する事ができるツールのこと。名前の通り、エンジニアがWebサイトを開発する際に用いることが多いです！</span></span>";
 		if(fuwaPopCnt == 94){
-		iii = 999;
+		tooltip_p = 999; //初期化
 		}
 		}
-		else if(iii == 2 && fuwaPopCnt >= 10 && fuwaPopCnt <= 13){
+		else if(tooltip_p == 2 && fuwaPopCnt >= 10 && fuwaPopCnt <= 13){
 		char = "<span class='tooltip' style = 'color: aqua; background-color: blue;'>" + fuwaPopText[fuwaPopCnt++] + "<span class='balloon_top'>Webページを作成するために使用する言語のこと。タグと呼ばれる要素で構成されています！タグの例：&lt;img&gt;（画像を表示させるために使用するタグです。）</span></span>";
 		if(fuwaPopCnt == 14){
-		iii = 999;
+		tooltip_p = 999;　//初期化
 		}
 		}
 		else{

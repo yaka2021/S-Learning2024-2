@@ -6,9 +6,10 @@
       setInterval(updatePop, 40);
     };
 
+    //演習中にブラウザの×ボタンやページ移動ボタンを押した際に警告画面を出す
     window.onbeforeunload = function(e) {
-  e.preventDefault();
-  return '';
+    e.preventDefault();
+    return '';
 };
   
     let fuwaPopCnt = 0;
@@ -42,7 +43,9 @@
     document.getElementById("gameClear").onclick = function gameClear() {
       button.disabled = true;
       setPop(strFuwaPop[1]);
+      //FLAG1取得
       PointManager.requestClearFlag(1);
+      //ブラウザの×ボタンやページ移動ボタンを押しても警告画面が出ないようにする
       window.onbeforeunload = null;
     };
   

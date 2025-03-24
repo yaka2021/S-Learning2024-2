@@ -23,10 +23,10 @@ $player_got = $db->query(
 	array(":STAGES" => implode(", ", $stages))
 )[0];
 
-$allClear = count(array_filter($player_got)) == $length;
 ?>
+
+//ふわりんのお喋りの内容
 const $popQue = [
-<?php if ($db->isFirstVisit == true){ ?>
 `今日は私のサイトに来てくれてどうもありがとう！@
 サイバーセキュリティマイスターの
 ふわりんです！`,
@@ -35,25 +35,7 @@ const $popQue = [
 `このサイトを通じてたくさんの人が
 セキュリティに興味を持ってくれたら嬉しいなぁ.....`,
 `注意！　@ここで学習した悪いことは他のサイトには
-やらないでくださいね！@　ふわりんとの約束だよ！`,
-<?php }else if($allClear){ ?>
-`問題を全部解いてくれてありがとう～！@
-楽しめてもらえたならうれしいなぁ`,
-`ふわりんの大きな野望……@S-Learningで日本中……いや、
-世界中の人たちに楽しみながらセキュリティの大切さを
-知ってもらえる日もそう遠くないかも……`,
-`そうだ！　問題を全部解いてくれたキミなら
-ふわりんとおんなじ野望、共有できてるかも！`,
-`もしよかったら、ふわりんがいる情報科学専門学校に
-会いにおいでよ！`,
-`キミとならまた、新しい問題を作っていけそうだから……`
-<?php }else{ ?>
-`また会えたね！　@私が作った問題、
-楽しんでもらえてる？`,
-`もしよかったらページ下のアンケートに
-協力してもらえるとはげみになるなぁ……`,
-`それじゃあ、引き続き楽しんでいってね！`
-<?php } ?>
+やらないでくださいね！@　ふわりんとの約束だよ！`
 ];
 </script>
 <script src="./_src/index.js" type="text/javascript"></script>
@@ -84,9 +66,9 @@ const $popQue = [
 							print "<a href='./level2.php' class='level2' style='opacity: 0.3'>L E V E L 2</a>";
 						}
 
-						if($clear_level > 2){
+						if($clear_level > 2){//解放されている場合
 							print "<a href='./level3.php' class='level3'>L E V E L 3</a>";
-						}else{
+						}else{//解放されていない場合
 							print "<a href='./level3.php' class='level3' style='opacity: 0.3'>L E V E L 3</a>";
 						}
 					?>
@@ -101,6 +83,7 @@ const $popQue = [
 	</body>
 </html>
 <?php
+	//ユーザー名変更メッセージ
 	if(isset($_SESSION['nameUpdate'])){
 		include("./_src/modal.php");
 		$_SESSION['nameUpdate'] = null;

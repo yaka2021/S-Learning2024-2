@@ -2,7 +2,7 @@ Options -Indexes
 
 
 RewriteEngine On
-RewriteBase /2022/
+RewriteBase /2024/
 
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.+)$ $1\.php

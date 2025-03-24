@@ -43,72 +43,74 @@
 				height: 680px;
 			}
 
-.swich_setting {
-  display: none; 
-}
- 
-.tooltip { 
-  position: relative;
-  cursor: pointer;
-  padding: 0 5px;
-  color: white;
-}
+			/*ツールチップ表示*/
 
-.tooltip:hover{
-  color: red;
-}
- 
-.description {
-  width: 200px; 
-  position: absolute;
-  top: 80%;
-  left: 130%;
-  transform: translateX(-50%);
-  margin-top: 15px;
-  padding: 8px;
-  border: 4px solid gray;
-  border-radius: 10px;
-  background-color: rgb(52, 47, 53); 
-  font-size: 16px;
-  color: white !important;
-  visibility: hidden; 
-  opacity: 0; 
-  z-index: 1;
-  transition: 0.5s all; 
-}
- 
-.description::before {
-  content: "";
-  width: 0;
-  height: 0;
-  border: 10px solid transparent;
-  border-bottom: 24px solid gray;
-  border-radius: 10px;
-  position: absolute;
-  bottom: 100%;
-  left: 10%;
-  transform: translateX(-50%);
-}
- 
-.swich_setting:checked + .tooltip .description{
-  top: 100%;
-  visibility: visible;
-  opacity: 1;
-}
+			.swich_setting {
+			display: none; 
+			}
+			
+			.tooltip { 
+			position: relative;
+			cursor: pointer;
+			padding: 0 5px;
+			color: white;
+			}
 
-.swich_setting:checked + .tooltip{
-  color: red;
-}
+			.tooltip:hover{
+			color: red;
+			}
+			
+			.description {
+			width: 200px; 
+			position: absolute;
+			top: 80%;
+			left: 130%;
+			transform: translateX(-50%);
+			margin-top: 15px;
+			padding: 8px;
+			border: 4px solid gray;
+			border-radius: 10px;
+			background-color: rgb(52, 47, 53); 
+			font-size: 16px;
+			color: white !important;
+			visibility: hidden; 
+			opacity: 0; 
+			z-index: 1;
+			transition: 0.5s all; 
+			}
+			
+			.description::before {
+			content: "";
+			width: 0;
+			height: 0;
+			border: 10px solid transparent;
+			border-bottom: 24px solid gray;
+			border-radius: 10px;
+			position: absolute;
+			bottom: 100%;
+			left: 10%;
+			transform: translateX(-50%);
+			}
+			
+			.swich_setting:checked + .tooltip .description{
+			top: 100%;
+			visibility: visible;
+			opacity: 1;
+			}
 
-.swich_setting:disabled + .tooltip{
-  opacity: 0.3;
-}
+			.swich_setting:checked + .tooltip{
+			color: red;
+			}
 
-.swich_setting:disabled + .tooltip:hover{
-  color: white;
-  opacity: 0.3;
-  cursor: default;
-}
+			.swich_setting:disabled + .tooltip{
+			opacity: 0.3;
+			}
+
+			.swich_setting:disabled + .tooltip:hover{
+			color: white;
+			opacity: 0.3;
+			cursor: default;
+			}
 		</style>
 	<body>
 		<table>
