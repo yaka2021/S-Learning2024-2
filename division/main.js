@@ -28,6 +28,7 @@
 		}
 	}
 
+	//演習中にブラウザの×ボタンやページ移動ボタンを押した際に警告画面を出す
 	window.onbeforeunload = function(e) {
   	e.preventDefault();
   	return '';
@@ -95,9 +96,11 @@
 				button2.disabled = true;
 				button3.disabled = true;
 				button4.disabled = true;
+				//FLAG6取得
 				PointManager.requestClearFlag(6);
 				roboCnt = 0;
 				roboFlag = 2;
+				//ブラウザの×ボタンやページ移動ボタンを押しても警告画面が出ないようにする
 				window.onbeforeunload = null;
 			}, 5000);
 		}

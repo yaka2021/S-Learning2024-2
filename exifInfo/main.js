@@ -1,6 +1,6 @@
 (function(){
 	// 初期状態
-	var iii;
+	var tooltip_p = 999; //ツールチップのパターン名
 	window.onload = function(){
 		// ポップの設定
 		setPop(strFuwaPop[0]);
@@ -22,6 +22,7 @@
 		}
 	}
 
+	//演習中にブラウザの×ボタンやページ移動ボタンを押した際に警告画面を出す
 	window.onbeforeunload = function(e) {
   	e.preventDefault();
   	return '';
@@ -41,10 +42,10 @@
 	function updatePop(){
 		if (fuwaPopCnt < fuwaPopText.length){
 			let char;
-			if(iii == 2 && fuwaPopCnt >= 0 && fuwaPopCnt <= 7){
+			if(tooltip_p == 2 && fuwaPopCnt >= 0 && fuwaPopCnt <= 7){
 			char = "<span class='tooltip' style = 'color: aqua; background-color: blue;'>" + fuwaPopText[fuwaPopCnt++] + "<span class='balloon_top'>ファイル管理ができるアプリケーションのこと。\n 画面下部の<img src='./explorer.png' alt='エクスプローラー' >のアイコンをクリックすると開くことが出来ます！(このアイコンはWindows10を使用した場合のものです。)また、ダウンロードした画像は通常「ダウンロード」の項目に格納されているよ！</span></span>";
 			if(fuwaPopCnt == 8){
-			iii = 999;
+			tooltip_p = 999; //初期化
 			}
 			}
 			else{
@@ -69,6 +70,7 @@
 				setPop(strFuwaPop[1]);
 				break;
 			case 1:
+				//FLAG5取得
 				PointManager.requestClearFlag(5);
 				const button = document.getElementsByClassName("hint");
 				for (let i = 0; i < button.length; i++){
@@ -76,13 +78,14 @@
 				}
 				submit.disabled = true;
 				setPop(strFuwaPop[2]);
+				//ブラウザの×ボタンやページ移動ボタンを押しても警告画面が出ないようにする
 				window.onbeforeunload = null;
 				break;
 		}
 	}
 
 	function showHint(i){
-		iii = i;
+		tooltip_p = i; //ツールチップのパターン名をセット
 		setPop(strFuwaHint[i]);
 	}
 

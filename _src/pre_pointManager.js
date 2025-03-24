@@ -31,19 +31,9 @@ class PointManager {
   }
   static onAlready($stageId) {
     this.getClearEffect().fireAlready($stageId);
-    this.requestNewRanking();
   }
   static onDone($stageId, cur, points, name) {
     this.getClearEffect().fireDone($stageId, cur, points, name);
-    this.requestNewRanking();
-  }
-  static requestNewRanking() {
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.innerText = "RankBarGraph.requestNewRanking()";
-    const body = parent.document.body;
-    body.appendChild(script);
-    body.removeChild(script);
   }
   static onError($stageId, text) {
     this.getClearEffect().fireError($stageId, text);
